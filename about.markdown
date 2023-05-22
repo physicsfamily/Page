@@ -1,18 +1,39 @@
 ---
 layout: page
-title: About
+title: 关于我们
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# 欢迎来到八城实验教程平台！
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+## 关于我们
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+八城实验教程平台是一个致力于为高等职业院校物联网专业的学生提供全面且专业的物联网实验教程的在线学习平台。我们的目标是帮助学生掌握物联网的关键技术和应用，提升他们的实践能力，以应对日益增长的物联网行业需求。
 
+## 专业的物联网实验教程
 
-[jekyll-organization]: https://github.com/jekyll
+我们提供全面而专业的物联网实验教程，涵盖了物联网领域的各个方面，包括硬件设备、软件开发和云端服务等。我们的教程旨在帮助学生深入了解物联网的核心概念和技术，并提供丰富的实验和项目，以加深对物联网的理解和应用。
+
+## 特色课程和实验项目
+
+我们的课程和实验项目具有以下特色：
+
+### 1. 系统性的学习路径
+
+我们的课程按照逻辑顺序和学习难度设置了系统性的学习路径，从基础知识逐步深入，确保学生能够系统地掌握物联网技术。
+
+### 2. 实践导向的教学
+
+我们注重实践能力的培养，因此我们的教程强调实践项目和实验。学生将有机会应用所学知识解决真实世界中的物联网问题，提升他们的实践能力和解决问题的能力。
+
+### 3. 丰富的硬件和软件资源
+
+我们提供丰富多样的物联网硬件和软件资源，包括各种开发板、传感器、云平台和开发工具等。学生可以通过实验和项目实践来熟悉和掌握不同的物联网技术和工具。
+
+### 4. 互动学习和支持
+
+我们鼓励学生之间的互动和合作，并提供在线讨论和支持。学生可以在学习过程中相互交流经验、解决问题，并得到我们专业团队的支持和指导。
+
+## 加入我们
+
+如果你对物联网技术充满兴趣，想要学习物联网的关键技术，并希望将其应用于实践中，我们欢迎你
