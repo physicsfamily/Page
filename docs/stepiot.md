@@ -79,4 +79,4 @@ categories: getting started
 
 \!\[IoT Development\](/Page/assets/iot-development.jpg)
 
-![IoT Development](/Page/assets/iot-development.jpg)
+![IoT Development](/assets/iot-development.jpg)
