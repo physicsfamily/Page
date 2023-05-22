@@ -1,0 +1,3 @@
+[submodule "just-the-docs"]
+	path = just-the-docs
+	url = https://github.com/pmarsceill/just-the-docs.git
