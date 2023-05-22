@@ -18,16 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+title: 八城实验教程平台
+email: denny@stepiot.com
+description: >- 
+  欢迎来到八城实验教程平台！我们专注于为高等职业院校物联网专业的学生提供全面且专业的物联网实验教程。平台的课程涵盖了广泛的物联网软硬件产品，这些产品都是八城物联网的重要组成部分。
+  我们的实验教程深入详细地讲解了各种物联网硬件的使用，如STM32和ESP32，也讲解了各种物联网软件的应用，如Free RTOS，以及云端服务如AWS IoT Core等。无论你是物联网的初学者，还是在寻找提高技术水平的机会，你都能在我们的平台上找到所需的教程。
+  八城实验教程平台致力于帮助学生掌握物联网的关键技术和应用，推动物联网技术在各个行业的广泛应用。欢迎加入我们，一起探索物联网的世界！
 baseurl: "/Page" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: stepiotcom
+github_username:  stepiotcom
 
 # Build settings
 plugins:
