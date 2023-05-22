@@ -25,7 +25,7 @@ description: >-
   我们的实验教程深入详细地讲解了各种物联网硬件的使用，如STM32和ESP32，也讲解了各种物联网软件的应用，如Free RTOS，以及云端服务如AWS IoT Core等。无论你是物联网的初学者，还是在寻找提高技术水平的机会，你都能在我们的平台上找到所需的教程。
   八城实验教程平台致力于帮助学生掌握物联网的关键技术和应用，推动物联网技术在各个行业的广泛应用。欢迎加入我们，一起探索物联网的世界！
 baseurl: "/Page" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://codelabs.stepiot.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: stepiotcom
 github_username:  stepiotcom
 
