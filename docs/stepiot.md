@@ -2,7 +2,7 @@
 layout: post
 title:  "文档编写注意事项"
 date:   2023-05-22 10:18:00 +0800
-categories: jekyll update
+categories: getting started
 ---
 
 
@@ -29,5 +29,54 @@ categories: [分类]
 - `authentication`：用于包含有关 API 身份验证和授权的文档。
 - `examples`：用于包含 API 的示例代码和使用案例的文档。
 - `troubleshooting`：用于包含解决常见问题和故障排除的文档。
+
+元数据编写样例：
+```
+---
+layout: post
+title: "文档编写注意事项"
+date: 2023-05-22 10:18:00 +0800
+categories: getting started
+---
+```
+工程目录结构说明：
+```
+├── 404.html
+├── Gemfile
+├── Gemfile.lock
+├── _config.yml
+├── _posts
+│   └── 2023-05-22-welcome-to-jekyll.markdown
+├── _site
+│   ├── 404.html
+│   ├── about
+│   │   └── index.html
+│   ├── assets
+│   │   ├── main.css
+│   │   ├── main.css.map
+│   │   └── minima-social-icons.svg
+│   ├── feed.xml
+│   ├── index.html
+│   └── jekyll
+│       └── update
+│           └── 2023
+│               └── 05
+│                   └── 22
+│                       └── welcome-to-jekyll.html
+├── about.markdown
+├── assets # 图片资源放置到此目录下
+│   ├── iot-development.jpg
+│   ├── main.css
+│   ├── main.css.map
+│   └── minima-social-icons.svg
+├── docs # md文档放置到此目录下
+│   ├── ccdebuger.md
+│   └── stepiot.md
+└── index.markdown
+```
+
+图片引用方式：
+
+\!\[IoT Development\](/Page/assets/iot-development.jpg)
 
 ![IoT Development](/Page/assets/iot-development.jpg)
