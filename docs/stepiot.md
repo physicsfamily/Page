@@ -77,6 +77,6 @@ categories: getting started
 
 图片引用方式：
 
-\!\[IoT Development\](/Page/assets/iot-development.jpg)
+\!\[IoT Development\](/assets/iot-development.jpg)
 
 ![IoT Development](/assets/iot-development.jpg)
