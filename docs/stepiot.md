@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: api
 title:  "Welcome to Jeky00ll!"
 date:   2023-05-22 10:18:00 +0800
 categories: jekyll update
