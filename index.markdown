@@ -4,3 +4,8 @@
 
 layout: home
 ---
+
+Welcome to my awesome site! Here's what you can find here:
+
+- [Link to stepiot tutorial](/docs/stepiot)
+- [About us](/about)
