@@ -58,4 +58,4 @@ By following these steps, you can successfully develop an IoT project and levera
 
 Good luck with your IoT development journey!
 
-![IoT Development](/assets/iot-development.jpg)
+![IoT Development](/Page/assets/iot-development.jpg)
