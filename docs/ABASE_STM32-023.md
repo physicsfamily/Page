@@ -5,7 +5,6 @@ date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-
 # 基于STM32的NB-IoT模块实验
 <!-- ------------------------ -->
 ## 实验内容
@@ -168,11 +167,11 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ⑫ 登陆[OneNET平台](https://open.iot.10086.cn/passport/login?redirect_uri=%2Fconsole%2F)，打开产品，待设备上线后，参考[oneNET平台应用手册](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)创建应用。
     
-![成功连接OneNET平台](/assets/BASE_STM32/78.png)
+![成功连接OneNET平台](/assets/BASE_STM32/78？.png)
 
 ⑬ 创建应用完成后。 点击“应用管理”查看应用中仪表盘的变化。在程序中模拟了一组温湿度参数，传送到平台，如下图：
-![实验结果](/assets/BASE_STM32/79.png)
-![实验结果](/assets/BASE_STM32/80.png)
+![实验结果](/assets/BASE_STM32/79？.png)
+![实验结果](/assets/BASE_STM32/80？.png)
 
 
 

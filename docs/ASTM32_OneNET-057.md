@@ -5,20 +5,20 @@ date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# STM32组合实验_OneNET平台显示人体红外实验
+# STM32组合实验_NODERED平台显示人体红外实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
 - 使用485总线读取人体红外数据；
-- 通过WiFi模块将人体红外数据传输到OneNET平台。
+- 通过WiFi模块将人体红外数据传输到NODERED平台。
   
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- 将传感器数据上传到OneNET平台。
-- OneNET平台应用创建。
+- 将传感器数据上传到NODERED平台。
+- NODERED平台应用创建。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -43,7 +43,7 @@ categories: getting started
 
 - [ST-LINK](https://codelab.stepiot.com/codelabs/ST_LINK_079/index.html?index=..%2F..index#0) 驱动安装步骤
 
-- [OneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册
+- [NODE RED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台安装应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -114,41 +114,64 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 
 ![模块组装](/assets/STM32_OneNET/31.jpg)
 
-② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
-
-![模块组装](/assets/CC2530/5.png)
     
-③ 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
+② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
 ![操作步骤](/assets/STM32/38.jpg)
 
-④ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
+③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
 
 ```c
 $ cd workspace
 ```
 
-⑤ 运行`clone`命令：
+④ 运行`clone`命令：
 
 ```c
 $ git clone https://github.com/aiotcom/eps.git
 ```
 
-下载目录至指定文件夹下。  
+⑤下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
 ![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
-⑥ 打开` Keil uVision5 `(即安装的MDK5)工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 OneNET实验\5.OneNET平台显示人体红外实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
+⑥ 打开已经安装NODERED的电脑：
+   
+```c
+D:\> ipconfig /all   //查看本机IP
+```
+### 本机IP
+![本机IP](/assets/CC2530_NODERED/NODERED-LED-GETIP.png)
+```c
+D:\> NODE-RED  //启动本机nodered服务
+```
+### 启动NODE RED服务
+![NODERED服务](/assets/CC2530_NODERED/NODERED-START.png)
+⑦ 打开浏览器，输入地址127.0.0.1:1880 打开本机node red 主页：
+
+![NODERED主页](/assets/CC2530_NODERED/NODERED-INPUT0.png)
+### 导入本次试验的NODE RED流程
+![NODERED导入1](/assets/CC2530_NODERED/NODERED-INPUT1.png)
+![NODERED导入2](/assets/CC2530_NODERED/NODERED-INPUT2.png)
+![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
+
+### 部署本次试验NODE RED流程
+![NODERED部署](/assets/CC2530_NODERED/NODERED-IAIR.png)
+
+### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI5.png)
+
+⑧ 打开` Keil uVision5 `(即安装的MDK5)工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\5.NODERED平台显示人体红外实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
    
 ![打开工程](/assets/STM32/39.jpg)
 
 ![选择文件](/assets/STM32_OneNET/32.png)
 
-⑦ 打WIFI.h，修改WIFI热点的名字与密码。及根据自己的OneNET产品ID，设备鉴权信息及脚本名字，修改OneNET接入个人识别码并保存，如下图：
+⑨ 打WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
    
-![修改WIFI信息](/assets/STM32_OneNET/5.png)  
+![修改WIFI信息](/assets/STM32_NODERED/SET-IP.png) 
 
 ⑧ 点击 `Rebuild` 重新编译。如下图：
 
@@ -186,9 +209,13 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ⑮ 下载完成后，将人体红外节点与WIFI节点拼接，并将USB线与任意底座进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
-⑯ OneNET平台显示实验数据。(脚本位于：`基于STM32 OneNET实验\5.OneNET平台显示人体红外实验\WiFi连接OneNET脚本文件\wifisample.lua`)。具体操作参考[OneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
+⑯ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
-![OneNET平台操作](/assets/STM32_OneNET/34.jpg)
+![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
+
+⑰ NODERED平台显示实验数据。(脚本位于：`基于STM32 NODERED实验\5.NODERED平台显示人体红外实验\人体感应.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+
+![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI5-1.png) 
 
 
 
@@ -313,9 +340,9 @@ $ git clone https://github.com/aiotcom/eps.git
    - 请重新上电，或者按下底座上的复位按键。
    - 模块没有安装稳妥。
 
-3. OneNET平台设备没有上线。
+. NODERED平台设备没有上线。
 
-    - WIFI名字、WIFI密码、OneNET脚本，权鉴信息是否正确。
+    - WIFI名字、WIFI密码、IP\PORT，信息是否正确。
 
 
 
@@ -323,4 +350,4 @@ $ git clone https://github.com/aiotcom/eps.git
 ## 实验思考
 
 
-1. 编写代码10秒内检测到2次以上才向OneNET平台发送数据。
+1. 编写代码10秒内检测到2次以上才向NODERED平台发送数据。

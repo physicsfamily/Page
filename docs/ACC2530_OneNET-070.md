@@ -5,19 +5,19 @@ date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# CC2530_OneNET平台控制蜂鸣器实验
+# CC2530_NODERED平台控制蜂鸣器实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
-- OneNET平台创建按键应用。
-- 在OneNET平台控制蜂鸣器模块。
+- NODERED平台创建按键应用。
+- 在NODERED平台控制蜂鸣器模块。
 
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- OneNET平台应用创建。
+- NODERED平台应用创建。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -51,7 +51,7 @@ categories: getting started
 
 [蜂鸣器模块](https://docs.stepiot.com/docs/aiot018)
 
-
+![蜂鸣器模块](/assets/CC2530_NODERED/BEEP.png)
 
 [WiFi模块](https://docs.stepiot.com/docs/aiot011)
 
@@ -117,7 +117,7 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
    
 ① 将WIFI模块、蜂鸣器模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
 
-![模块组装](/assets/CC2530_OneNET/59.jpg)
+![模块组装](/assets/CC2530_OneNET/73-1.jpg)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
@@ -145,11 +145,37 @@ $ git clone https://github.com/aiotcom/eps.git
 ![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 OneNET实验\9.OneNET平台控制蜂鸣器实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+④ 打开已经安装NODERED的电脑：
+   
+```c
+D:\> ipconfig /all   //查看本机IP
+```
+### 本机IP
+![本机IP](/assets/CC2530_NODERED/NODERED-LED-GETIP.png)
+```c
+D:\> NODE-RED  //启动本机nodered服务
+```
+### 启动NODE RED服务
+![NODERED服务](/assets/CC2530_NODERED/NODERED-START.png)
+⑤ 打开浏览器，输入地址127.0.0.1:1880 打开本机node red 主页：
+
+![NODERED主页](/assets/CC2530_NODERED/NODERED-INPUT0.png)
+### 导入本次试验的NODE RED流程
+![NODERED导入1](/assets/CC2530_NODERED/NODERED-INPUT1.png)
+![NODERED导入2](/assets/CC2530_NODERED/NODERED-INPUT2.png)
+![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
+
+### 部署本次试验NODE RED流程
+![NODERED部署](/assets/CC2530_NODERED/NODERED-BEEP.png)
+
+### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI1.png)
+
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\9.NODERED平台控制蜂鸣器实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
 ![打开工程](/assets/CC2530/6.jpg)
     
-![选择文件](/assets/CC2530_OneNET/60.jpg) 
+![选择文件](/assets/CC2530_NODERED/6.png) 
 
 ⑦ 待工程启动完毕，修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图：
    
@@ -159,7 +185,9 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ![修改参数](/assets/CC2530_OneNET/5.png) 
 
-⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的OneNET产品ID，设备鉴权信息及脚本名字，修改OneNET接入个人识别码，如下图:
+⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
+
+![修改参数](/assets/CC2530_NODERED/NODERED-WIFI.png) 
 
 ![修改参数](/assets/CC2530_OneNET/6.png) 
 
@@ -197,11 +225,16 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ⑰ 移除`CC Debugger`仿真器，采用USB线供电，接协调器节点的底座。
     
-![USB线供电](/assets/CC2530_OneNET/61.png) 
+![USB线供电](/assets/CC2530_NODERED/72.jpg) 
 
-⑱ OneNET平台显示实验数据。(脚本位于：`基于CC2530 OneNET实验\8.OneNET平台控制风扇实验\WiFi连接OneNET脚本文件\wifisample.lua`)。具体操作参考[oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
 
-![OneNET平台显示](/assets/CC2530_OneNET/62.jpg) 
+⑱ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
+
+![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
+
+⑲ NODERED平台显示控制实验。(脚本位于：`基于CC2530 NODERED实验\8.NODERED平台控制风扇实验\风扇控制.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+
+![OneNET平台控制](/assets/CC2530_NODERED/NODERED-UI1.png) 
 
 
 <!-- ------------------------ -->
@@ -303,44 +336,175 @@ $ git clone https://github.com/aiotcom/eps.git
 `WiFiGate.c`中`WiFiGate_Init()`函数初始化WIFI模块的IO及模块的通信串口。
 
 ```c
-    void WiFiGate_Init( uint8 task_id )
-    {
-        WiFiGate_TaskId = task_id;
-        osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,2000); 
-        UartInit(HAL_UART_PORT_0,HAL_UART_BR_115200);
-        P1SEL &= ~(BV(5)|BV(6));
-        P1DIR |= BV(5)|BV(6);
-        P1_5 = 1;
-        P1_6 = 0;
-        printf("wifi connect start\r\n");
-    }
+void WiFiGate_Init( uint8 task_id )
+{
+  WiFiGate_TaskId = task_id;
+  osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,2000); 
+  UartInit(HAL_UART_PORT_0,HAL_UART_BR_115200);
+    P1DIR |= 0x60;      //P1.5、P1.6定义为输出
+    P1SEL &= ~0x80;     //设置P1.7为普通IO口  
+    P1DIR &= ~0x80;     //按键接在P1.7口上，设P1.7为输入模式 
+    P1INP &= ~0x80;     //打开P1.7上拉电阻
+  printf("wifi connect start\r\n");
+  WiFi_RES = 0;
+  delay_ms(1);
+  WiFi_RES = 1;
+  WiFi_LED=0;
+  //WiFi_LED_REST();
+}
 ```
 
 `WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1。`WiFi_ReadCommand()`，获取OneNET下发的指令。解析指令调用`Send_FANCtrl()`函数发送到终端节点。
 
 ```c
-    if(events & WIFI_PROCESS_PRODIC){
-		/*100ms后触发一次WIFI_PROCESS_PRODIC事件*/
-		osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,100);
-				
-	    if((ConnectState==0)&&(WiFi_InitProcess())){//初始化WIFI
-			/*如果初始化完成*/
-			ConnectState = 1;
-		}
-		else if(ConnectState == 1){
-			if(WiFi_ReadCommand(&HandlerBuffer[0])){//接收$开头的命令
-			/*命令是否是$RELAY*/
-			c_ptr = (uint8_t*)strstr((char*)&HandlerBuffer[0],"$BEEP");
-			    if(c_ptr){//有命令
-					Beep_Cmd = *(c_ptr+6)-0x30;//是打开还是关闭。
-					printf("cmd=%d\r\n",Beep_Cmd);//串口调试
-					Send_BeepCtrl(Beep_Cmd);//向终端节点发送命令
-				}	
-				memset((void*)HandlerBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
-			}
-		}
-    return (events ^ WIFI_PROCESS_PRODIC);
+  /*
+wifi网关处理任务，包括初始化WiFi模块，接收数据
+*/
+static uint8 ConnectState = 0,len,*cptr;
+static uint8 FAN_Cmd;
+uint16 WiFiGate_ProcessEvent( uint8 task_id, uint16 events )
+{
+
+  (void)task_id;  // Intentionally unreferenced parameter
+
+  if ( events & SYS_EVENT_MSG )
+  {//如果是系统任务
+    return (events ^ SYS_EVENT_MSG);
+  }
+  else
+  {//如果是用户自定义任务
+	if(events & WIFI_PROCESS_PRODIC){
+	    osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,100);
+		switch(ConnectState)
+		{
+			case 0:
+				P1_5 = 0;
+				ConnectState++;
+				break; 
+			case 1:
+				P1_5 = 1;
+				ConnectState++; 
+				break;
+			case 2:
+			case 3:
+			case 4:
+				ConnectState++; 
+				break;
+			break;	  
+			case 5:
+				  switch(WiFi_Send_ATCommand("AT\r\n",20,5,"OK"))
+				  {
+					case WIFI_RSP_OK:
+						 ConnectState++;
+					break;
+					case WIFI_RSP_TIMEOUT:
+						 ConnectState = 0xff;
+					break;  				  
+				  }
+				break;
+			case 6:
+				  switch(WiFi_Send_ATCommand("AT+CWMODE=3\r\n",20,5,"OK"))
+				  {
+					case WIFI_RSP_OK:
+						 ConnectState++;
+					break;
+					case WIFI_RSP_TIMEOUT:
+						 ConnectState = 0xff;
+					break;  				  
+				  }
+				break;	
+			case 7:
+				  switch(WiFi_Send_ATCommand(WIFI_AP,30,10,"OK"))
+				  {
+					case WIFI_RSP_OK:
+						 ConnectState++;
+					break;
+					case WIFI_RSP_TIMEOUT:
+						 ConnectState = 0xff;
+					break;  				  
+				  }
+				break;
+			case 8:
+				  switch(WiFi_Send_ATCommand(OneNET_IP,20,5,"OK"))
+				  {
+					case WIFI_RSP_OK:
+						 ConnectState = 10;
+					break;
+					case WIFI_RSP_TIMEOUT:
+						 ConnectState = 0xff;
+					break;  				  
+				  }
+				break;		
+	
+			case 10:
+				  switch(WiFi_Send_ATCommand(CIPMODE,20,0,"OK"))
+				  {
+					case WIFI_RSP_OK:
+						 ConnectState++;
+					break;
+					case WIFI_RSP_TIMEOUT:
+						 ConnectState = 0xff;
+					break;  				  
+				  }
+				break;	
+			case 11:
+				  switch(WiFi_Send_ATCommand(CIPSEND,20,0,"OK"))
+				  {
+					case WIFI_RSP_OK:
+						 ConnectState++;
+					break;
+					case WIFI_RSP_TIMEOUT:
+						 ConnectState = 0xff;
+					break;  				  
+				  }
+				break;		
+			case 12:
+				  //WiFi_Send_ATCommand(CONNECT_ONENET_KEYSTRING,20,0,"");   //跳过注册到ONENET的操作
+				  ConnectState++;
+				  WiFiRecvLenght = 0;
+				  WiFiModeInitDone = 1;
+				  memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+                                  WiFi_LED_SET(0xFE0000);
+				break;	
+			case 13:
+				  len = GET_RECV_LENGHT();
+				  if(len){
+					if((WiFiRecvLenght+len) >= (WIFI_RECV_DATA_BUFFER_LEN-1)){
+						WiFiRecvLenght = 0;
+						memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+						printf("overflow\r\n");
+					}						
+					GET_RECV_DATA(&WiFiRecvDataBuffer[WiFiRecvLenght],len);
+					WiFiRecvLenght = WiFiRecvLenght + len;			
+				  }
+				  if((WiFiRecvLenght)&&(!strstr((const char*)WiFiRecvDataBuffer,(const char*)"$"))){//没有~这个符号
+				  	WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+				  }
+			          cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$BEEP,");				
+				  if(cptr){
+                                        FAN_Cmd = WiFiRecvDataBuffer[6]-0x30;//是打开还是关闭。
+					printf("cmd=%d\r\n",FAN_Cmd);//串口调试
+                                        if(FAN_Cmd>0)
+                                        {
+                                          Send_LEDCtrl(1,1);//发送控制命令
+                                        }
+                                        else
+                                        {
+                                          Send_LEDCtrl(1,0);//向终端节点发送命令
+                                        }
+					//Send_FANCtrl(FAN_Cmd);
+					WiFiRecvLenght = 0;
+					
+				  }	
+				  memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN); 		  
+			    break;
+		}		
+		return (events ^ WIFI_PROCESS_PRODIC);
 	}
+  }//if(events & WIFI_PROCESS_PRODIC){
+  return 0;
+} 
 ```
 
 
@@ -360,13 +524,13 @@ $ git clone https://github.com/aiotcom/eps.git
    - 模块没有安装稳妥。
    - 两个节点的PANID、信道是否相同。
 
-3. OneNET平台设备没有上线。
+3. NODERED平台设备没有上线。
 
-    - WIFI名字、WIFI密码、OneNET脚本，权鉴信息是否正确。
+    - WIFI名字、WIFI密码、NODERED服务器IP和端口等信息是否正确。
 
 
 <!-- ------------------------ -->
 ## 实验思考
 
 
-1. 在OneNET平台增加一个按键控制蜂鸣器以另一种频率响起。
+1. 在NODERED平台增加一个按键控制蜂鸣器以另一种频率响起。

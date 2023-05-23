@@ -4,21 +4,20 @@ title:  "063_CC2530_OneNET平台显示光电开关检测实验"
 date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
-
-# CC2530_OneNET平台显示光电开关检测实验
+# CC2530_NODERED平台显示光电开关检测实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
 - 使用485总线读取光电开关检测数据；
-- 通过WiFi模块将温湿度数据传输到OneNET平台。
+- 通过WiFi模块将温湿度数据传输到NODERED平台。
 
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- 将传感器数据上传到OneNET平台；
-- OneNET平台应用创建。
+- 将传感器数据上传到NODERED平台；
+- NODERED平台显示数据曲线。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -43,7 +42,7 @@ categories: getting started
 
 - [CC Debugger](https://codelab.stepiot.com/codelabs/CC_Debugger_081/index.html?index=..%2F..index#0) 驱动安装步骤
 
-- [OneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册
+- [NODERED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -51,9 +50,7 @@ categories: getting started
 
 ![实验硬件](/assets/BASE_CC2530/3.png)
 
-[OLED模块](https://docs.stepiot.com/docs/aiot002)
 
-![OLED模块](/assets/BASE_CC2530/5.png)
 
 [光电开关模块](https://docs.stepiot.com/docs/aiot005)
 
@@ -123,7 +120,7 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
    
 ① 将OLED模块、WIFI模块、光电开关模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
 
-![模块组装](/assets/CC2530_OneNET/13.jpg)
+![模块组装](/assets/CC2530_OneNET/13-1.jpg)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
@@ -133,13 +130,13 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 
 ![操作步骤](/assets/STM32/38.jpg)
 
-④ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
+打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
 ```c
 $ cd workspace
 ```
 
-⑤ 运行`clone`命令：
+运行`clone`命令：
 
 ```c
 $ git clone https://github.com/aiotcom/eps.git
@@ -151,7 +148,33 @@ $ git clone https://github.com/aiotcom/eps.git
 ![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 OneNET实验\2.OneNET平台显示光电开关检测实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+④ 打开已经安装NODERED的电脑：
+   
+```c
+D:\> ipconfig /all   //查看本机IP
+```
+### 本机IP
+![本机IP](/assets/CC2530_NODERED/NODERED-LED-GETIP.png)
+```c
+D:\> NODE-RED  //启动本机nodered服务
+```
+### 启动NODE RED服务
+![NODERED服务](/assets/CC2530_NODERED/NODERED-START.png)
+⑤ 打开浏览器，输入地址127.0.0.1:1880 打开本机node red 主页：
+
+![NODERED主页](/assets/CC2530_NODERED/NODERED-INPUT0.png)
+### 导入本次试验的NODE RED流程
+![NODERED导入1](/assets/CC2530_NODERED/NODERED-INPUT1.png)
+![NODERED导入2](/assets/CC2530_NODERED/NODERED-INPUT2.png)
+![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
+
+### 部署本次试验NODE RED流程
+![NODERED部署](/assets/CC2530_NODERED/NODERED-OPT.png)
+
+### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-OPT-UI.png)
+
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\2.NODERED平台显示光电开关检测实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
 ![打开工程](/assets/CC2530/6.jpg)
     
@@ -165,9 +188,9 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ![修改参数](/assets/CC2530_OneNET/5.png) 
 
-⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的OneNET产品ID，设备鉴权信息及脚本名字，修改OneNET接入个人识别码，如下图:
+⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
 
-![修改参数](/assets/CC2530_OneNET/6.png) 
+![修改参数](/assets/CC2530_NODERED/NODERED-WIFI.png) 
 
 ⑩ 点击`Make`按钮，重新编译文件，显示没有错误。
    
@@ -205,13 +228,13 @@ $ git clone https://github.com/aiotcom/eps.git
     
 ![USB线供电](/assets/CC2530_OneNET/15.png) 
 
-⑱ 观察OLED屏显示的数据：
+⑱ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
-![显示传感器数据](/assets/CC2530_OneNET/16.png) 
+![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑲ OneNET平台显示实验数据。(脚本位于：`基于CC2530 OneNET实验\2.OneNET平台显示光电开关检测实验\WiFi连接OneNET脚本文件\wifisample.lua`)。具体操作参考[oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
+⑲ NODE RED平台操作。(流程位于：`基于CC2530 NODERED实验\2.NODERED平台显示光电开关检测实验、`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-![OneNET平台显示](/assets/CC2530_OneNET/17.jpg) 
+![OneNET平台显示](/assets/CC2530_NODERED/NODERED-OPT-UI2.png) 
 
 
 <!-- ------------------------ -->
@@ -227,45 +250,41 @@ $ git clone https://github.com/aiotcom/eps.git
 ② `EndDevice.c`->`SampleApp_Init()`函数是应用代码的入口函数，对光电开关模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点、启动传感器数据采集。
 
 ```c
-    void SampleApp_Init( uint8 task_id )
-    {
-        SampleApp_TaskID   = task_id;
-        SampleApp_NwkState = DEV_INIT;
-        SampleApp_TransID  = 0; 
-            
-        UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
-        Optocoupler_Init();//初始化光电开关模块
-        printf("i am end device\r\n");//串口打印
-        //点对点通讯定义
-        Point_To_Point_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;//点播
-        Point_To_Point_DstAddr.endPoint = SAMPLEAPP_ENDPOINT;//目标端点号
-        /*发给协调器,协调器地址固定为0x0000*/
-        Point_To_Point_DstAddr.addr.shortAddr = 0x0000;
-        //填写端点
-        EndDevice_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
-        EndDevice_epDesc.task_id    = &SampleApp_TaskID;
-        EndDevice_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&EndDevice_SimpleDesc;
-        EndDevice_epDesc.latencyReq = noLatencyReqs;
-        //注册端点
-        afRegister( &EndDevice_epDesc );
-    }
+void SampleApp_Init( uint8 task_id )
+{
+  SampleApp_TaskID   = task_id;
+  SampleApp_NwkState = DEV_INIT;
+  SampleApp_TransID  = 0; 
+	
+  UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
+  Optocoupler_Init();      //初始化光电传感器
+  printf("i am end device\r\n");//串口打印
+  // 点对点通讯定义
+  Point_To_Point_DstAddr.addrMode = (afAddrMode_t)Addr16Bit; //点播
+  Point_To_Point_DstAddr.endPoint = SAMPLEAPP_ENDPOINT;     //目标端点号
+	/*发给协调器,协调器地址固定为0x0000*/
+  Point_To_Point_DstAddr.addr.shortAddr = 0x0000;
+  // 填写端点
+  EndDevice_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
+  EndDevice_epDesc.task_id    = &SampleApp_TaskID;
+  EndDevice_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&EndDevice_SimpleDesc;
+  EndDevice_epDesc.latencyReq = noLatencyReqs;
+  // 注册端点
+  afRegister( &EndDevice_epDesc );
+}
 ```
 
 `EndDevice.c`->`SampleApp_ProcessEvent()`函数是任务处理函数。在该函数中调用`Optocoupler_State_Read()`函数读取光电开关的反馈，当反馈信号发生变化时调用`SendSwitchToCoordinator ()`函数向协调器发送数据。
 
 ```c
-    if(events & SEND_SWITCH_MSG_EVT)//有SEND_SWITCH_MSG_EVT事件
-    {
-        SwitchSta0 = Optocoupler_State_Read();
-        /*最近两次检测的IO电平不一样，表明遮挡物刚放入或者遮挡物刚撤走*/
-        if(SwitchSta0^SwitchSta1){			
-            SendSwitchToCoordinator(SwitchSta0);
-            printf("get signal\r\n");
-        }
-        SwitchSta1 = SwitchSta0;//保存上一次的值
-        /*设置定时器200ms超时，触发SEND_SWITCH_MSG_EVT事件*/
-        osal_start_timerEx( SampleApp_TaskID, SEND_SWITCH_MSG_EVT,200);
-    }
+/***********************开关检测************************************/	
+  if(events & SEND_SWITCH_MSG_EVT)//有SEND_SWITCH_MSG_EVT事件
+  {
+	SwitchSta0 = Optocoupler_State_Read();			
+	SendSwitchToCoordinator(SwitchSta0);
+	osal_start_timerEx( SampleApp_TaskID, SEND_SWITCH_MSG_EVT,200);  //修改为2秒主动上传一次
+  }
+/***********************开关检测************************************/	
 ```
 
 ### 协调器节点
@@ -277,99 +296,107 @@ $ git clone https://github.com/aiotcom/eps.git
 ② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，对OLED屏，注册端点。
    
 ```c
-    void SampleApp_Init( uint8 task_id )
-    {
-        SampleApp_TaskID = task_id;
-        SampleApp_NwkState = DEV_INIT;
-        SampleApp_TransID = 0;  
+void SampleApp_Init( uint8 task_id )
+{
+  SampleApp_TaskID = task_id;
+  SampleApp_NwkState = DEV_INIT;
+  SampleApp_TransID = 0;  
 
-        UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
-        OLED_Init();//初始化OLED 
-        printf("i am coordinator\r\n");//串口打印
-        OLED_P8x16Str(0,0,"coordinator");
-        
-        //点对点通讯定义
-        Point_To_Point_DstAddr.addrMode       = (afAddrMode_t)Addr16Bit; //点播
-        Point_To_Point_DstAddr.endPoint       = SAMPLEAPP_ENDPOINT;      
-        Point_To_Point_DstAddr.addr.shortAddr = 0;
-        
-        //填写端点
-        Coordinator_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
-        Coordinator_epDesc.task_id    = &SampleApp_TaskID;
-        Coordinator_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&Coordinator_SimpleDesc;
-        Coordinator_epDesc.latencyReq = noLatencyReqs;
-        //注册端点
-        afRegister( &Coordinator_epDesc );
-    }
+	UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
+  //printf("i am coordinator\r\n"); //串口打印
+  
+  // 点对点通讯定义
+  Point_To_Point_DstAddr.addrMode       = (afAddrMode_t)Addr16Bit; //点播
+  Point_To_Point_DstAddr.endPoint       = SAMPLEAPP_ENDPOINT;      
+  Point_To_Point_DstAddr.addr.shortAddr = 0;
+  
+  // 填写端点
+  Coordinator_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
+  Coordinator_epDesc.task_id    = &SampleApp_TaskID;
+  Coordinator_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&Coordinator_SimpleDesc;
+  Coordinator_epDesc.latencyReq = noLatencyReqs;
+  // 注册端点
+  afRegister( &Coordinator_epDesc );
+}
 ```
 
 `Coordinator.c` ->`SampleApp_ProcessEvent()`函数是任务处理函数。当前接收无线信道的数据时，进入`SampleApp_MessageMSGCB()`函数。
 
 ```c
-    uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
+uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
+{
+  afIncomingMSGPacket_t *MSGpkt;
+  (void)task_id;  // Intentionally unreferenced parameter
+
+  if ( events & SYS_EVENT_MSG )
+  {
+    MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
+    while ( MSGpkt )
     {
-        afIncomingMSGPacket_t *MSGpkt;
-        (void)task_id;//Intentionally unreferenced parameter
+      switch ( MSGpkt->hdr.event )
+      {        
+        // Received when a messages is received (OTA) for this endpoint
+        case AF_INCOMING_MSG_CMD:
+          SampleApp_MessageMSGCB( MSGpkt );
+          break;
 
-        if ( events & SYS_EVENT_MSG )
-        {
-            MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
-            while ( MSGpkt )
-            {
-                switch ( MSGpkt->hdr.event )
-                {        
-                    //Received when a messages is received (OTA) for this endpoint
-                    case AF_INCOMING_MSG_CMD:
-                    SampleApp_MessageMSGCB( MSGpkt );
-                    break;
+        // Received whenever the device changes state in the network
+        case ZDO_STATE_CHANGE:
+          SampleApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
+          if(SampleApp_NwkState == DEV_ZB_COORD)
+          {
+            printf("coord ready!");
+          }
+          break;
 
-                    //Received whenever the device changes state in the network
-                    case ZDO_STATE_CHANGE:
-                    SampleApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
-                    if(SampleApp_NwkState == DEV_ZB_COORD)
-                    {
-                        printf("coord ready!");
-                    }
-                    break;
+        default:
+          break;
+      }
 
-                    default:
-                    break;
-                }
+      // Release the memory
+      osal_msg_deallocate( (uint8 *)MSGpkt );
 
-            //Release the memory
-            osal_msg_deallocate( (uint8 *)MSGpkt );
-
-            //Next - if one is available
-            MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
-            }
-
-            //return unprocessed events
-            return (events ^ SYS_EVENT_MSG);
-        }//if ( events & SYS_EVENT_MSG )
-
-        //Discard unknown events
-        return 0;
+      // Next - if one is available
+      MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
     }
+
+    // return unprocessed events
+    return (events ^ SYS_EVENT_MSG);
+  }//if ( events & SYS_EVENT_MSG )
+
+  // Discard unknown events
+  return 0;
+}
 ```
 
-`SampleApp_MessageMSGCB()`函数中将传感器的数据解析显示在OLED显示屏上，及`SendToWiFiNetwork()`函数发送到OneNET平台。
+`SampleApp_MessageMSGCB()`函数中将传感器的数据解析后通过`SendToWiFiNetwork()`函数发送到NODERED平台。
 
 ```c
-    void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
-    { 
-        uint8 DispBuf[ ]="signal=0";
-        switch ( pkt->clusterId )
-        {
-            case SWITCH_CLUSTERID:
-            sprintf((void*)DispBuf,(char*)"signal=%d",pkt->cmd.Data[0]);//转换成字符串
-            printf("=%s\r\n",DispBuf);//串口打印
-            OLED_P8x16Str(0,4,DispBuf);//OLED屏显示 
-                
-            sprintf((void*)tempbuf,"%d",pkt->cmd.Data[0]);//转成字符串口
-            SendToWiFiNetwork(tempbuf,strlen((const char*)tempbuf));//发送到OneNET
-            break;
-        }
-    }
+void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+{ 
+  uint8 DispBuf[ ]="signal=0";
+  uint8 Buf[1];
+  switch ( pkt->clusterId )
+  {
+    case SWITCH_CLUSTERID:
+        sprintf((void*)DispBuf,(char*)"signal=%d",pkt->cmd.Data[0]);//转换成字符器
+				printf("=%s\r\n",DispBuf);            
+                //串口打印
+       // 将光电开关状态发送到网络
+       if(pkt->cmd.Data[0]>0)
+       {
+         Buf[0]=0x31;
+         SendToWiFiNetwork(&Buf[0],1);
+       }
+       else
+       {
+         Buf[0]=0x30;
+         SendToWiFiNetwork(&Buf[0],1);
+       }
+                                
+    break;
+  }
+}
 ```
 
 `WiFiGate.c`中`WiFiGate_Init()`函数初始化WIFI模块的IO及模块的通信串口。
@@ -429,9 +456,9 @@ $ git clone https://github.com/aiotcom/eps.git
    - 模块没有安装稳妥。
    - 两个节点的PANID、信道是否相同。
 
-3. OneNET平台设备没有上线。
+3. NODERED平台设备没有上线。
 
-    - WIFI名字、WIFI密码、OneNET脚本，权鉴信息是否正确。
+    - WIFI名字、WIFI密码、服务器IP和端口等信息是否正确。
 
 
 
@@ -439,5 +466,5 @@ $ git clone https://github.com/aiotcom/eps.git
 ## 实验思考
 
 
-1. 编写代码只有传感器数值变化时才发送到OneNET。
+1. 编写代码只有传感器数值变化时才发送到NODERED。
 

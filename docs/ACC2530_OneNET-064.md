@@ -5,7 +5,7 @@ date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# CC2530_OneNET平台显示超声波测距实验
+# CC2530_NODERED平台显示超声波测距实验
 <!-- ------------------------ -->
 ## 实验内容
 
@@ -17,8 +17,8 @@ categories: getting started
 ## 实验目的
 
 
-- 将传感器数据上传到OneNET平台；
-- OneNET平台应用创建。
+- 将传感器数据上传到NODERED平台；
+- NODERED平台显示实时数据。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -43,7 +43,7 @@ categories: getting started
 
 - [CC Debugger](https://codelab.stepiot.com/codelabs/CC_Debugger_081/index.html?index=..%2F..index#0) 驱动安装步骤
 
-- [OneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册
+- [NODERED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -51,9 +51,6 @@ categories: getting started
 
 ![实验硬件](/assets/BASE_CC2530/3.png)
 
-[OLED模块](https://docs.stepiot.com/docs/aiot002)
-
-![OLED模块](/assets/BASE_CC2530/5.png)
 
 [超声波模块](https://docs.stepiot.com/docs/aiot006)
 
@@ -121,7 +118,7 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 ## 实验步骤
 
    
-① 将OLED模块、WIFI模块、超声波模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
+① WIFI模块、超声波模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
 
 ![模块组装](/assets/CC2530_OneNET/20.jpg)
 
@@ -151,7 +148,33 @@ $ git clone https://github.com/aiotcom/eps.git
 ![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 OneNET实验\3.OneNET平台显示超声波测距实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+④ 打开已经安装NODERED的电脑：
+   
+```c
+D:\> ipconfig /all   //查看本机IP
+```
+### 本机IP
+![本机IP](/assets/CC2530_NODERED/NODERED-LED-GETIP.png)
+```c
+D:\> NODE-RED  //启动本机nodered服务
+```
+### 启动NODE RED服务
+![NODERED服务](/assets/CC2530_NODERED/NODERED-START.png)
+⑤ 打开浏览器，输入地址127.0.0.1:1880 打开本机node red 主页：
+
+![NODERED主页](/assets/CC2530_NODERED/NODERED-INPUT0.png)
+### 导入本次试验的NODE RED流程
+![NODERED导入1](/assets/CC2530_NODERED/NODERED-INPUT1.png)
+![NODERED导入2](/assets/CC2530_NODERED/NODERED-INPUT2.png)
+![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
+
+### 部署本次试验NODE RED流程
+![NODERED部署](/assets/CC2530_NODERED/NODERED-DIS.png)
+
+### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI7.png)
+
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\3、NODERED平台显示超声波测距实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
 ![打开工程](/assets/CC2530/6.jpg)
     
@@ -209,9 +232,9 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ![显示传感器数据](/assets/CC2530_OneNET/23.png) 
 
-⑲ OneNET平台显示实验数据。(脚本位于：`基于CC2530 OneNET实验\3.OneNET平台显示超声波测距实验\WiFi连接OneNET脚本文件\wifisample.lua`)。具体操作参考[oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
+⑲ NODERED平台显示实验数据。(流程位于：`基于CC2530 NODERED实验\3、NODERED平台显示超声波测距实验\超声波测距流程`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-![OneNET平台显示](/assets/CC2530_OneNET/24.png) 
+![OneNET平台显示](/assets/CC2530_NODERED/NODERED-UI7-1.png) 
 
 
 <!-- ------------------------ -->
@@ -355,7 +378,7 @@ $ git clone https://github.com/aiotcom/eps.git
     }
 ```
 
-`SampleApp_MessageMSGCB()`函数中将传感器的数据解析显示在OLED显示屏上，及`SendToWiFiNetwork()`函数发送到OneNET平台。
+`SampleApp_MessageMSGCB()`函数中将传感器的数据通过`SendToWiFiNetwork()`函数发送到NODERED平台。
 
 ```c
     void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
@@ -433,9 +456,9 @@ $ git clone https://github.com/aiotcom/eps.git
    - 模块没有安装稳妥。
    - 两个节点的PANID、信道是否相同。
 
-3. OneNET平台设备没有上线。
+3. NODERED平台设备没有上线。
 
-    - WIFI名字、WIFI密码、OneNET脚本，权鉴信息是否正确。
+    - WIFI名字、WIFI密码、服务器IP和端口信息是否正确。
 
 
 

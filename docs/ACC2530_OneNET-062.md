@@ -130,6 +130,11 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 
 ![操作步骤](/assets/STM32/38.jpg)
 
+
+进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
+![下载代码](/assets/STM32/47.jpg)  
+如果电脑没有公网，可以进：U盘\实验教程与代码选择相应的代码。
+
 ④ 打开已经安装NODERED的电脑：
    
 ```c
@@ -151,17 +156,12 @@ D:\> NODE-RED  //启动本机nodered服务
 ![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
 
 ### 部署本次试验NODE RED流程
-![NODERED部署](/assets/CC2530_NODERED/NODERED-INPUT4.png)
+![NODERED部署](/assets/CC2530_NODERED/NODERED-TEMPHUM.png)
 
 ### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
 ![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI0.png)
 
-
-进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](/assets/STM32/47.jpg)  
-如果电脑没有公网，可以进：U盘\实验教程与代码选择相应的代码。
-
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODE RED实验\1.NODERED平台显示温湿度实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\1.NODERED平台显示温湿度实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
 ![打开工程](/assets/CC2530/6.jpg)
     
@@ -219,9 +219,9 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑲ NODE RED平台操作。(流程位于：`基于CC2530 NODERED实验\1.NODERED平台LED控制、`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+⑲ NODE RED平台操作。(流程位于：`基于CC2530 NODERED实验\1.NODERED平台显示温湿度实验、`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-
+![NODERED数据呈现](/assets/CC2530_NODERED/TEMP-HUM.png)
 
 
 <!-- ------------------------ -->

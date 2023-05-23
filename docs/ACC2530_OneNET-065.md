@@ -11,14 +11,14 @@ categories: getting started
 
 
 - 使用485总线读取PM2.5数据；
-- 通过WiFi模块将温湿度数据传输到OneNET平台。
+- 通过WiFi模块将温湿度数据传输到NODERED平台。
 
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- 将传感器数据上传到OneNET平台；
-- OneNET平台应用创建。
+- 将传感器数据上传到NODERED平台；
+- NODERED平台应用创建。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -43,7 +43,7 @@ categories: getting started
 
 - [CC Debugger](https://codelab.stepiot.com/codelabs/CC_Debugger_081/index.html?index=..%2F..index#0) 驱动安装步骤
 
-- [OneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册
+- [NODE RED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台安装应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -51,9 +51,6 @@ categories: getting started
 
 ![实验硬件](/assets/BASE_CC2530/3.png)
 
-[OLED模块](https://docs.stepiot.com/docs/aiot002)
-
-![OLED模块](/assets/BASE_CC2530/5.png)
 
 [PM2.5模块](https://docs.stepiot.com/docs/aiot007)
 
@@ -121,9 +118,9 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 ## 实验步骤
 
    
-① 将OLED模块、WIFI模块、PM2.5模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
+① 将WIFI模块、PM2.5模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
 
-![模块组装](/assets/CC2530_OneNET/27.jpg)
+![模块组装](/assets/CC2530_OneNET/27-1.jpg)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
@@ -151,7 +148,33 @@ $ git clone https://github.com/aiotcom/eps.git
 ![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 OneNET实验\4.OneNET平台显示PM2.5实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+④ 打开已经安装NODERED的电脑：
+   
+```c
+D:\> ipconfig /all   //查看本机IP
+```
+### 本机IP
+![本机IP](/assets/CC2530_NODERED/NODERED-LED-GETIP.png)
+```c
+D:\> NODE-RED  //启动本机nodered服务
+```
+### 启动NODE RED服务
+![NODERED服务](/assets/CC2530_NODERED/NODERED-START.png)
+⑤ 打开浏览器，输入地址127.0.0.1:1880 打开本机node red 主页：
+
+![NODERED主页](/assets/CC2530_NODERED/NODERED-INPUT0.png)
+### 导入本次试验的NODE RED流程
+![NODERED导入1](/assets/CC2530_NODERED/NODERED-INPUT1.png)
+![NODERED导入2](/assets/CC2530_NODERED/NODERED-INPUT2.png)
+![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
+
+### 部署本次试验NODE RED流程
+![NODERED部署](/assets/CC2530_NODERED/NODERED-PM25.png)
+
+### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI6.png)
+
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\4.NODERED平台显示PM2.5实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
 ![打开工程](/assets/CC2530/6.jpg)
     
@@ -204,13 +227,14 @@ $ git clone https://github.com/aiotcom/eps.git
     
 ![USB线供电](/assets/CC2530_OneNET/30.png) 
 
-⑱ 观察OLED屏温湿度数据：
+⑱ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
-![显示传感器数据](/assets/CC2530_OneNET/29.png) 
+![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑲ OneNET平台显示实验数据。(脚本位于：`基于CC2530 OneNET实验\4.OneNET平台显示PM2.5实验\WiFi连接OneNET脚本文件\wifisample.lua`)。具体操作参考[oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
 
-![OneNET平台显示](/assets/CC2530_OneNET/31.png) 
+⑲ OneNET平台显示实验数据。(脚本位于：`基于CC2530 OneNET实验\4.OneNET平台显示PM2.5实验\PM25数据显示.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+
+![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI6-1.png) 
 
 
 <!-- ------------------------ -->
@@ -270,7 +294,7 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ![代码目录结构](/assets/CC2530_OneNET/33.jpg)
 
-② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，对OLED屏，注册端点。
+② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，注册端点。
    
 ```c
     void SampleApp_Init( uint8 task_id )
@@ -280,7 +304,7 @@ $ git clone https://github.com/aiotcom/eps.git
         SampleApp_TransID = 0;  
 
         UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
-        OLED_Init();//初始化OLED 
+        //OLED_Init();//初始化OLED 
         printf("i am coordinator\r\n");//串口打印
         OLED_P8x16Str(0,0,"coordinator");
         
@@ -348,26 +372,23 @@ $ git clone https://github.com/aiotcom/eps.git
     }
 ```
 
-`SampleApp_MessageMSGCB()`函数中将传感器的数据解析显示在OLED显示屏上，及`SendToWiFiNetwork()`函数发送到OneNET平台。
+`SampleApp_MessageMSGCB()`函数中将传感器的数据解析并使用`SendToWiFiNetwork()`函数发送到NODERED平台。
 
 ```c
-    void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
-    { 
-        uint8 DispBuf[ ]="PM2.5=XXX ug/m3";
-        switch ( pkt->clusterId )
-        {
-            case PM2P5_CLUSTERID://是PM2.5数据
-            PM2P5_Val = pkt->cmd.Data[0] + (pkt->cmd.Data[1]<<8);
-            sprintf((void*)DispBuf,(char*)"PM2.5:%03d ug/m3",PM2P5_Val);//转换成字符器
-            printf("=%s\r\n",DispBuf);//串口打印
-            OLED_P8x16Str(0,4,DispBuf);//OLED屏显示 
-                
-            /*转换成字符器*/
-            sprintf((void*)tempbuf,"%03d",PM2P5_Val);
-            SendToWiFiNetwork(tempbuf,strlen((const char*)tempbuf));//发送到OneNET
-            break;
-        }
-    }
+void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+{ 
+  uint8 DispBuf[ ]="PM2.5=XXX ug/m3";
+  uint8 tempBuf[4];
+  switch ( pkt->clusterId )
+  {
+    case PM2P5_CLUSTERID://是超声波数据
+			sprintf((void*)tempBuf,(char*)"%03d",pkt->cmd.Data[0]);//转换成字符器
+				printf("=%s\r\n",DispBuf);            //串口打印
+        //OLED_P8x16Str(0,4,DispBuf);//OLED屏显示 
+        SendToWiFiNetwork(tempBuf,4);
+    break;
+  }
+}
 ```
 
 `WiFiGate.c`中`WiFiGate_Init()`函数初始化WIFI模块的IO及模块的通信串口。
@@ -389,25 +410,24 @@ $ git clone https://github.com/aiotcom/eps.git
 `WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1
 
 ```c
-    uint16 WiFiGate_ProcessEvent( uint8 task_id, uint16 events )
-    {
-        (void)task_id;  // Intentionally unreferenced parameter
-            
-        if(events & WIFI_PROCESS_PRODIC){
-            /*100ms后触发一次WIFI_PROCESS_PRODIC事件*/
-            osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,100);
-                    
-            if((ConnectState==0)&&(WiFi_InitProcess())){//初始化WIFI
-                /*如果初始化完成*/
-                ConnectState = 1;
-            }
-            else if(ConnectState == 1){
-                    
-            }
-        return (events ^ WIFI_PROCESS_PRODIC);
+case 13:
+        len = GET_RECV_LENGHT();
+        if(len){
+        if((WiFiRecvLenght+len) >= (WIFI_RECV_DATA_BUFFER_LEN-1)){
+            WiFiRecvLenght = 0;
+            memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+            printf("overflow\r\n");
+        }						
+        GET_RECV_DATA(&WiFiRecvDataBuffer[WiFiRecvLenght],len);
+        WiFiRecvLenght = WiFiRecvLenght + len;			
         }
-        return 0;
-    } 
+        if((WiFiRecvLenght)&&(!strstr((const char*)WiFiRecvDataBuffer,(const char*)"$"))){//没有~这个符号
+        WiFiRecvLenght = 0;
+        memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+        }
+
+        memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN); 		  
+    break;
 ```
 
 
@@ -427,9 +447,9 @@ $ git clone https://github.com/aiotcom/eps.git
    - 模块没有安装稳妥。
    - 两个节点的PANID、信道是否相同。
 
-3. OneNET平台设备没有上线。
+3. NODERED平台设备没有上线。
 
-    - WIFI名字、WIFI密码、OneNET脚本，权鉴信息是否正确。
+  - WIFI名字、WIFI密码、NODERED服务器IP和端口等信息是否正确。
 
 
 
@@ -437,5 +457,5 @@ $ git clone https://github.com/aiotcom/eps.git
 ## 实验思考
 
 
-1. 增加一个仪表盘，使用显示1分钟前的PM2.5值。
+1. 调整PM2.5曲线显示格式，例如柱状图。
 

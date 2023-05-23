@@ -5,19 +5,19 @@ date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# CC2530_OneNET平台控制LED灯实验
+# CC2530_NODERED平台控制LED灯实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
-- OneNET平台创建按键应用。
-- 在OneNET平台控制LED模块上的LED1亮灭。
+- NODERED平台创建按键应用。
+- 在NODERED平台控制LED模块上的LED亮灭。
 
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- OneNET平台应用创建。
+- NODERED平台应用创建。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -41,7 +41,7 @@ categories: getting started
 
 - [CC Debugger](https://codelab.stepiot.com/codelabs/CC_Debugger_081/index.html?index=..%2F..index#0) 驱动安装步骤
 
-- [OneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册
+- [NODE RED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台安装应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -145,7 +145,33 @@ $ git clone https://github.com/aiotcom/eps.git
 ![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 OneNET实验\6.OneNET平台控制LED灯实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+④ 打开已经安装NODERED的电脑：
+   
+```c
+D:\> ipconfig /all   //查看本机IP
+```
+### 本机IP
+![本机IP](/assets/CC2530_NODERED/NODERED-LED-GETIP.png)
+```c
+D:\> NODE-RED  //启动本机nodered服务
+```
+### 启动NODE RED服务
+![NODERED服务](/assets/CC2530_NODERED/NODERED-START.png)
+⑤ 打开浏览器，输入地址127.0.0.1:1880 打开本机node red 主页：
+
+![NODERED主页](/assets/CC2530_NODERED/NODERED-INPUT0.png)
+### 导入本次试验的NODE RED流程
+![NODERED导入1](/assets/CC2530_NODERED/NODERED-INPUT1.png)
+![NODERED导入2](/assets/CC2530_NODERED/NODERED-INPUT2.png)
+![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
+
+### 部署本次试验NODE RED流程
+![NODERED部署](/assets/CC2530_NODERED/NODERED-LED.png)
+
+### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI4.png)
+
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\6.NODERED平台控制LED灯实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
 ![打开工程](/assets/CC2530/6.jpg)
     
@@ -159,9 +185,10 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ![修改参数](/assets/CC2530_OneNET/5.png) 
 
-⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的OneNET产品ID，设备鉴权信息及脚本名字，修改OneNET接入个人识别码，如下图:
 
-![修改参数](/assets/CC2530_OneNET/6.png) 
+⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
+
+![修改参数](/assets/CC2530_NODERED/NODERED-WIFI.png) 
 
 ⑩ 点击`Make`按钮，重新编译文件，显示没有错误。
    
@@ -199,13 +226,14 @@ $ git clone https://github.com/aiotcom/eps.git
     
 ![USB线供电](/assets/CC2530_OneNET/43.png) 
 
-⑱ 设置OneNET平台按键开关值(具体操作参考[OneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册)，如下图：
+⑱ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
-![设置按键开关值](/assets/STM32_OneNET/41.png)
+![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑲ OneNET平台显示实验数据。(脚本位于：`基于CC2530 OneNET实验\6.OneNET平台控制LED灯实验\WiFi连接OneNET脚本文件\wifisample.lua`)。具体操作参考[oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
 
-![OneNET平台显示](/assets/CC2530_OneNET/44.png) 
+⑲ NODERED平台显示实验数据。(脚本位于：`基于CC2530 NODERED实验\6.NODERED平台控制LED灯实验\LED控制.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+
+![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI4.png) 
 
 
 <!-- ------------------------ -->
@@ -327,22 +355,79 @@ $ git clone https://github.com/aiotcom/eps.git
 `WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1。`WiFi_ReadCommand()`，获取OneNET下发的指令。解析指令调用`Send_LEDCtrl()`函数发送到LED节点。
 
 ```c
-    if((ConnectState==0)&&(WiFi_InitProcess())){//初始化WIFI
-		/*如果初始化完成*/
-		ConnectState = 1;
-	}
-	else if(ConnectState == 1){
-		if(WiFi_ReadCommand(&HandlerBuffer[0])){//接收$开头的命令
-			c_ptr = (uint8_t*)strstr((char*)&HandlerBuffer[0],"$LED");//命令是否是$LED
-			if(c_ptr){//有命令
-				LED_Idx = *(c_ptr+4)-0x30;//取出是哪个LED灯。
-				LED_Cmd = *(c_ptr+6)-0x30;//是打开还是关闭。
-				printf("idx=%d,cmd=%d\r\n",LED_Idx,LED_Cmd);//串口调试
-				Send_LEDCtrl(LED_Idx,LED_Cmd);//向终端节点发送命令
-			}	
-		memset((void*)HandlerBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
-		}
-	}
+			case 13:
+				  len = GET_RECV_LENGHT();
+				  if(len){
+					if((WiFiRecvLenght+len) >= (WIFI_RECV_DATA_BUFFER_LEN-1)){
+						WiFiRecvLenght = 0;
+						memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+						printf("overflow\r\n");
+					}						
+					GET_RECV_DATA(&WiFiRecvDataBuffer[WiFiRecvLenght],len);
+					WiFiRecvLenght = WiFiRecvLenght + len;			
+				  }
+				  if((WiFiRecvLenght)&&(!strstr((const char*)WiFiRecvDataBuffer,(const char*)"$"))){//没有~这个符号
+				  	WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+				  }
+			      cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$LED1,1");				
+				  if(cptr){
+					WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+					Send_LEDCtrl(1,1);
+					printf("~LED_ON_1");
+				  }	
+				  cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$LED1,0");	
+				  if(cptr){  
+					Send_LEDCtrl(1,0);
+					WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+					printf("~LED_OFF_1");
+				  }	
+			      cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$LED2,1");				
+				  if(cptr){
+					WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+					Send_LEDCtrl(2,1);
+					printf("~LED_ON_2");
+				  }	
+				  cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$LED2,0");	
+				  if(cptr){  
+					Send_LEDCtrl(2,0);
+					WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);	
+					printf("~LED_OFF_2");					
+				  }	
+			      cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$LED3,1");				
+				  if(cptr){
+					WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+					Send_LEDCtrl(3,1);
+					printf("~LED_ON_3");
+
+				  }	
+				  cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$LED3,0");	
+				  if(cptr){  
+					Send_LEDCtrl(3,0);
+					WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+					printf("~LED_OFF_3");
+				  }	
+			      cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$LED4,1");				
+				  if(cptr){
+					WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+					Send_LEDCtrl(4,1);
+					printf("~LED_ON_4");	
+				  }	
+				  cptr = (uint8*)strstr((const char*)WiFiRecvDataBuffer,(const char*)"$LED4,0");	
+				  if(cptr){  
+					Send_LEDCtrl(4,0);
+					WiFiRecvLenght = 0;
+					memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);	
+					printf("~LED_OFF_4");					
+				  }					  
+			break;
 ```
 
 
@@ -362,9 +447,9 @@ $ git clone https://github.com/aiotcom/eps.git
    - 模块没有安装稳妥。
    - 两个节点的PANID、信道是否相同。
 
-3. OneNET平台设备没有上线。
+3. NODERED平台设备没有上线。
 
-    - WIFI名字、WIFI密码、OneNET脚本，权鉴信息是否正确。
+  - WIFI名字、WIFI密码、NODERED服务器IP和端口等信息是否正确。
 
 
 
@@ -372,4 +457,4 @@ $ git clone https://github.com/aiotcom/eps.git
 ## 实验思考
 
 
-1. 在OneNET平台增加一个按键控制LED2的亮/灭。
+1. 在NODERED平台增加一个按键控制LED的全部亮/灭。
