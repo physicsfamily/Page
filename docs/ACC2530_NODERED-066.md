@@ -1,24 +1,24 @@
 ---
 layout: post
-title:  "062_CC2530_NODE RED平台显示温湿度实验"
+title:  "066_CC2530_NODERED平台显示人体红外实验"
 date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# CC2530_NODERED平台显示温湿度实验
+# CC2530_NODERED平台显示人体红外实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
-- 通过zigbee读取温湿度传感器数据；
-- 通过WiFi模块将温湿度数据传输到NODE RED平台。
+- 使用485总线读取人体红外检测数据；
+- 通过WiFi模块将温湿度数据传输到NODERED平台。
 
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- 将传感器数据上传到NODE RED平台；
-- NODE RED平台部署相关流程，并图形化显示温湿度数据。
+- 将传感器数据上传到NODERED平台；
+- NODERED平台应用创建。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -30,11 +30,12 @@ categories: getting started
 | --- | --- | --- | --- |
 | 1 | 电脑 | 1台 | 系统Windows7及以上 |
 | 2 | CC2530底座模块 | 2个 |  · |
-| 3 | 温湿度模块 | 1个 | ·  |
-| 4 | WIFI模块 | 1个 | ·  |
-| 5 | CC Debugger 仿真器和连接线| 1套 | ·  |
-| 6 | USB线| 1根 | ·  |
-| 7 | 实验代码 | 1份 | ·  |
+| 3 | OLED模块 | 1个 | ·  |
+| 4 | 人体红外模块 | 1个 | ·  |
+| 5 | WIFI模块 | 1个 | ·  |
+| 6 | CC Debugger 仿真器和连接线| 1套 | ·  |
+| 7 | USB线| 1根 | ·  |
+| 8 | 实验代码 | 1份 | ·  |
 
 ### 实验所需软件
 
@@ -51,10 +52,9 @@ categories: getting started
 ![实验硬件](/assets/BASE_CC2530/3.png)
 
 
+[人体红外模块](https://docs.stepiot.com/docs/aiot008)
 
-[温湿度模块](https://docs.stepiot.com/docs/aiot004)
-
-![温湿度模块](/assets/BASE_STM32/2.png)
+![人体红外模块](/assets/STM32_OneNET/30.png)
 
 [WiFi模块](https://docs.stepiot.com/docs/aiot011)
 
@@ -118,9 +118,9 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 ## 实验步骤
 
    
-① WIFI模块、温湿度模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
+① 将WIFI模块、人体红外模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
 
-![模块组装](/assets/CC2530_OneNET/2-1.png)
+![模块组装](/assets/CC2530_OneNET/34-1.jpg)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
@@ -130,10 +130,23 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 
 ![操作步骤](/assets/STM32/38.jpg)
 
+④ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
+   
+```c
+$ cd workspace
+```
 
-进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
+⑤ 运行`clone`命令：
+
+```c
+$ git clone https://github.com/aiotcom/eps.git
+```
+
+下载目录至指定文件夹下。  
+如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
+如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
 ![下载代码](/assets/STM32/47.jpg)  
-如果电脑没有公网，可以进：U盘\实验教程与代码选择相应的代码。
+如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ④ 打开已经安装NODERED的电脑：
    
@@ -156,18 +169,18 @@ D:\> NODE-RED  //启动本机nodered服务
 ![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
 
 ### 部署本次试验NODE RED流程
-![NODERED部署](/assets/CC2530_NODERED/NODERED-TEMPHUM.png)
+![NODERED部署](/assets/CC2530_NODERED/NODERED-IAIR.png)
 
 ### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
-![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI0.png)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI5.png)
 
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\1.NODERED平台显示温湿度实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\5.NODERED平台显示人体红外实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
 ![打开工程](/assets/CC2530/6.jpg)
     
-![选择文件](/assets/CC2530_OneNET/3.jpg) 
+![选择文件](/assets/CC2530_OneNET/35.jpg) 
 
-⑦ 待工程启动完毕，修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图(一个教室多组同时实验室时，必须修改PANID!!!)：
+⑦ 待工程启动完毕，修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图：
    
 ![修改参数](/assets/CC2530_OneNET/4.png)  
 
@@ -213,28 +226,29 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ⑰ 移除`CC Debugger`仿真器，采用USB线供电，接协调器节点的底座。
     
-![USB线供电](/assets/CC2530_OneNET/8.png) 
+![USB线供电](/assets/CC2530_OneNET/36.png) 
 
 ⑱ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
 ![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑲ NODE RED平台操作。(流程位于：`基于CC2530 NODERED实验\1.NODERED平台显示温湿度实验、`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-![NODERED数据呈现](/assets/CC2530_NODERED/TEMP-HUM.png)
+⑲ OneNET平台显示实验数据。(脚本位于：`基于CC2530 NODERED实验\5.NODERED平台显示人体红外实验\人体红外检测.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+
+![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI5-1.png) 
 
 
 <!-- ------------------------ -->
 ## 代码讲解
 
 
-### 终端节点(EndDeviceEB)
+### 终端节点
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![代码目录结构](/assets/CC2530_OneNET/11.jpg)
+![代码目录结构](/assets/CC2530_OneNET/39.jpg)
 
-② EndDevice.c->SampleApp_Init()函数是应用代码的入口函数，对温湿度模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点、启动传感器数据采集。
+② `EndDevice.c`->`SampleApp_Init()`函数是应用代码的入口函数，对人体红外模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点、启动传感器数据采集。
 
 ```c
     void SampleApp_Init( uint8 task_id )
@@ -242,53 +256,51 @@ D:\> NODE-RED  //启动本机nodered服务
         SampleApp_TaskID   = task_id;
         SampleApp_NwkState = DEV_INIT;
         SampleApp_TransID  = 0; 
+            
         UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
-        SHT2x_Init();//初始化温湿度传感器
+        PIR_Init();//初始化人体红外模块
         printf("i am end device\r\n");//串口打印
-        //点对点通讯定义
+        // 点对点通讯定义
         Point_To_Point_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;//点播
         Point_To_Point_DstAddr.endPoint = SAMPLEAPP_ENDPOINT;//目标端点号
         /*发给协调器,协调器地址固定为0x0000*/
         Point_To_Point_DstAddr.addr.shortAddr = 0x0000;
-        //填写端点
+        // 填写端点
         EndDevice_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
         EndDevice_epDesc.task_id    = &SampleApp_TaskID;
         EndDevice_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&EndDevice_SimpleDesc;
         EndDevice_epDesc.latencyReq = noLatencyReqs;
-        //注册端点
+        // 注册端点
         afRegister( &EndDevice_epDesc );
-        //开始本地显示温湿度数值
-        osal_start_timerEx( SampleApp_TaskID, READ_TEMP_HUMI_MSG_EVT,1000);
-    }
+    }   
 ```
 
-`EndDevice.c`->`SampleApp_ProcessEvent()`函数是任务处理函数。在该函数中调用`SHT2x_DisplayHumi()`、`SHT2x_DisplayTemp()`函数读取传感器数据显示在数码管上。定时调用`SendTemperatureHumityToCoordinator()`函数向协调器发送传感器数据。
+`EndDevice.c`->`SampleApp_ProcessEvent()`函数是任务处理函数。在该函数中调用`PIR_Read()`函数读取检测的反馈，并调用`SendPIRToCoordinator ()`函数向协调器发送数据。
 
 ```c
-    if(events & READ_TEMP_HUMI_MSG_EVT)//READ_TEMP_HUMI_MSG_EVT
-    {//读取传感器数据并显示在数码管上
-        TempHumiShowSwitch = 1 - TempHumiShowSwitch;
-        /*读取温湿度并数码管显示*/
-        TempHumiShowSwitch?SHT2x_DisplayHumi():SHT2x_DisplayTemp();
-        /*启动定时器1000ms后超时,触发一次READ_TEMP_HUMI_MSG_EVT事件*/
-        osal_start_timerEx( SampleApp_TaskID, READ_TEMP_HUMI_MSG_EVT,1000);
-    }
-    
-    if(events & SEND_TEMP_HUMI_MSG_EVT)//是SEND_TEMP_HUMI_MSG_EVT事件
-    {
-        SendTemperatureHumityToCoordinator();//向协调器发送温湿度数据  
-        /*启动定时器2000ms后超时，触发一次SEND_TEMP_HUMI_MSG_EVT事件*/    
-        osal_start_timerEx( SampleApp_TaskID, SEND_TEMP_HUMI_MSG_EVT,2000);
-    }
+/***********************检测************************************/	
+  if(events & READ_PIR_MSG_EVT)//READ_PIR_MSG_EVT
+  {
+		PIRSta0 = PIR_Read();
+		/*最近两次检测的IO电平不一样，表明遮挡物刚放入或者遮挡物刚撤走*/
+		//if(PIRSta0^PIRSta1){			
+				SendPIRToCoordinator(PIRSta0);
+				//printf("get signal\r\n");//串口打印
+		//}
+		//PIRSta1 = PIRSta0;//保存上一次的值
+		/*设置定时器200ms超时，READ_PIR_MSG_EVT*/
+		osal_start_timerEx( SampleApp_TaskID, READ_PIR_MSG_EVT,2000);
+  }
+/***********************检测************************************/	
 ```
 
-### 协调器节点(CoordinatorEB)
+### 协调器节点
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![代码目录结构](/assets/CC2530_OneNET/12.jpg)
+![代码目录结构](/assets/CC2530_OneNET/40.png)
 
-② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数。
+② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，对OLED屏，注册端点。
    
 ```c
     void SampleApp_Init( uint8 task_id )
@@ -296,95 +308,102 @@ D:\> NODE-RED  //启动本机nodered服务
         SampleApp_TaskID = task_id;
         SampleApp_NwkState = DEV_INIT;
         SampleApp_TransID = 0;  
+
         UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
         //OLED_Init();//初始化OLED 
-        //OLED_P8x16Str(0,0,"coordinator");//OLED显示提示信息
+        printf("i am coordinator\r\n");//串口打印
+        OLED_P8x16Str(0,0,"coordinator");
         
-        //填写端点
+        // 点对点通讯定义
+        Point_To_Point_DstAddr.addrMode       = (afAddrMode_t)Addr16Bit; //点播
+        Point_To_Point_DstAddr.endPoint       = SAMPLEAPP_ENDPOINT;      
+        Point_To_Point_DstAddr.addr.shortAddr = 0;
+        
+        // 填写端点
         Coordinator_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
         Coordinator_epDesc.task_id    = &SampleApp_TaskID;
         Coordinator_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&Coordinator_SimpleDesc;
         Coordinator_epDesc.latencyReq = noLatencyReqs;
-        //注册端点
+        // 注册端点
         afRegister( &Coordinator_epDesc );
     }
 ```
 
-`Coordinator.c` ->`SampleApp_ProcessEvent()`函数是任务处理函数。当前接收无线信道的数据时，进入`SampleApp_MessageMSGCB()`函数，如图：
+`Coordinator.c` ->`SampleApp_ProcessEvent()`函数是任务处理函数。当前接收无线信道的数据时，进入`SampleApp_MessageMSGCB()`函数。
 
 ```c
-    uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
+ uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
+{
+  afIncomingMSGPacket_t *MSGpkt;
+  (void)task_id;  // Intentionally unreferenced parameter
+
+  if ( events & SYS_EVENT_MSG )
+  {
+    MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
+    while ( MSGpkt )
     {
-        afIncomingMSGPacket_t *MSGpkt;
-        (void)task_id;//Intentionally unreferenced parameter
+      switch ( MSGpkt->hdr.event )
+      {        
+        // Received when a messages is received (OTA) for this endpoint
+        case AF_INCOMING_MSG_CMD:
+          SampleApp_MessageMSGCB( MSGpkt );
+          break;
 
-        if ( events & SYS_EVENT_MSG )
-        {
-            MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
-            while ( MSGpkt )
-            {
-                switch ( MSGpkt->hdr.event )
-                {        
-                    //Received when a messages is received (OTA) for this endpoint
-                    case AF_INCOMING_MSG_CMD:
-                    SampleApp_MessageMSGCB( MSGpkt );
-                    break;
+        // Received whenever the device changes state in the network
+        case ZDO_STATE_CHANGE:
+          SampleApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
+          if(SampleApp_NwkState == DEV_ZB_COORD)
+          {
+            printf("coord ready!");
+          }
+          break;
 
-                    //Received whenever the device changes state in the network
-                    case ZDO_STATE_CHANGE:
-                    SampleApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
-                    if(SampleApp_NwkState == DEV_ZB_COORD)
-                    {
-                        printf("coord ready!");
-                    }
-                    break;
+        default:
+          break;
+      }
 
-                    default:
-                    break;
-                }
+      // Release the memory
+      osal_msg_deallocate( (uint8 *)MSGpkt );
 
-            //Release the memory
-            osal_msg_deallocate( (uint8 *)MSGpkt );
-
-            //Next - if one is available
-            MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
-            }
-
-            //return unprocessed events
-            return (events ^ SYS_EVENT_MSG);
-        }//if ( events & SYS_EVENT_MSG )
-
-        //Discard unknown events
-        return 0;
+      // Next - if one is available
+      MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
     }
+
+    // return unprocessed events
+    return (events ^ SYS_EVENT_MSG);
+  }//if ( events & SYS_EVENT_MSG )
+
+  // Discard unknown events
+  return 0;
+}
 ```
 
-`SampleApp_MessageMSGCB()`函数中将传感器的数据解析并通过`SendToWiFiNetwork()`函数发送到NODE RED平台。
+`SampleApp_MessageMSGCB()`函数中将传感器的数据解析显示在OLED显示屏上，及`SendToWiFiNetwork()`函数发送到OneNET平台。
 
 ```c
-    void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
-    { 
-        uint8 ShowTemperatureBuf[ ]="temperture=xxC";
-        uint8 ShowHumiBuf[ ]="humidity=xx%";
-        switch ( pkt->clusterId )
+void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+{ 
+  uint8 DispBuf[ ]="signal=0";
+  uint8 Buf[1];
+  switch ( pkt->clusterId )
+  {
+    case PIR_CLUSTERID:
+				/*转换成字符串*/
+        sprintf((void*)DispBuf,(char*)"signal=%d",pkt->cmd.Data[0]);
+				printf("=%s\r\n",DispBuf);            //串口打印
+        //OLED_P8x16Str(0,4,DispBuf);//OLED屏显示 
+        if(pkt->cmd.Data[0]>0)
         {
-            case TEMP_HUMI_CLUSTERID://是温湿度数据命令码
-                ShowTemperatureBuf[11] = pkt->cmd.Data[0]/10 + 0x30;//HEX 转成ASCII
-                ShowTemperatureBuf[12] = pkt->cmd.Data[0]%10 + 0x30;//HEX 转成ASCII 
-                printf("Temperature=%dC\r\n",pkt->cmd.Data[0]);//串口打印
-                OLED_P8x16Str(0,4,ShowTemperatureBuf);//OLED屏显示 
-                
-                ShowHumiBuf[9]  = pkt->cmd.Data[1]/10 + 0x30;//HEX 转成ASCII
-                ShowHumiBuf[10] = pkt->cmd.Data[1]%10 + 0x30;//HEX 转成ASCII 
-                printf("Humidity=%d%%\r\n",pkt->cmd.Data[1]);//串口打印        
-                OLED_P8x16Str(0,6,ShowHumiBuf);//OLED屏显示  
-                        
-                //转成字符字串
-                sprintf((void*)tempbuf,"%02d%02d",pkt->cmd.Data[0],pkt->cmd.Data[1]);
-                SendToWiFiNetwork(tempbuf,strlen((const char*)tempbuf));//发送到OneNET
-            break;
+          Buf[0]=0x31;
         }
-    }
+        else
+        {
+          Buf[0]=0x30;
+        }
+        SendToWiFiNetwork(&Buf[0],1);
+    break;
+  }
+}
 ```
 
 `WiFiGate.c`中`WiFiGate_Init()`函数初始化WIFI模块的IO及模块的通信串口。
@@ -392,27 +411,23 @@ D:\> NODE-RED  //启动本机nodered服务
 ```c
     void WiFiGate_Init( uint8 task_id )
     {
-        WiFiGate_TaskId = task_id;//保存任务ID号
-        /*2s后触发WIFI_PROCESS_PRODIC*/
+        WiFiGate_TaskId = task_id;
         osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,2000); 
-        UartInit(HAL_UART_PORT_0,HAL_UART_BR_115200);//初始化WIFI模块串口
-            
-        /*初始化WIFI模块控制IO*/
+        UartInit(HAL_UART_PORT_0,HAL_UART_BR_115200);
         P1SEL &= ~(BV(5)|BV(6));
         P1DIR |= BV(5)|BV(6);
         P1_5 = 1;
         P1_6 = 0;
-            
-        printf("wifi connect start\r\n");//打印调试
+        printf("wifi connect start\r\n");
     }
 ```
 
-`WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1。
+`WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1
 
 ```c
     uint16 WiFiGate_ProcessEvent( uint8 task_id, uint16 events )
     {
-        (void)task_id;//Intentionally unreferenced parameter 没有使用到
+        (void)task_id;// Intentionally unreferenced parameter
             
         if(events & WIFI_PROCESS_PRODIC){
             /*100ms后触发一次WIFI_PROCESS_PRODIC事件*/
@@ -421,8 +436,7 @@ D:\> NODE-RED  //启动本机nodered服务
             if((ConnectState==0)&&(WiFi_InitProcess())){//初始化WIFI
                 /*如果初始化完成*/
                 ConnectState = 1;
-                WiFiModeInitDone = 1;//WIFI模块初始化完成
-                }
+            }
             else if(ConnectState == 1){
                     
             }
@@ -449,9 +463,9 @@ D:\> NODE-RED  //启动本机nodered服务
    - 模块没有安装稳妥。
    - 两个节点的PANID、信道是否相同。
 
-3. WIFI模块状态指示灯没有亮。
+3. NODERED平台设备没有上线。
 
-    - WIFI名字、WIFI密码、NODERED服务器IP地址、端口是否正确。
+  - WIFI名字、WIFI密码、NODERED服务器IP和端口等信息是否正确。
 
 
 
@@ -459,5 +473,4 @@ D:\> NODE-RED  //启动本机nodered服务
 ## 实验思考
 
 
-1. 解读一下设备与NODE RED的通讯协议，并尝试修改一下通讯协议，并使得NODE RED的UI界面，依然可以正常显示温湿度数据。
-
+1. 编写代码10秒内检测到2次以上变化才向NODERED平台发送数据。

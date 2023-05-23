@@ -1,23 +1,23 @@
 ---
 layout: post
-title:  "063_CC2530_OneNET平台显示光电开关检测实验"
+title:  "069_CC2530_NODERED平台控制风扇实验"
 date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
-# CC2530_NODERED平台显示光电开关检测实验
+
+# CC2530_NODERED平台控制风扇实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
-- 使用485总线读取光电开关检测数据；
-- 通过WiFi模块将温湿度数据传输到NODERED平台。
+- NODERED平台创建按键应用。
+- 在NODERED平台控制风扇模块。
 
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- 将传感器数据上传到NODERED平台；
-- NODERED平台显示数据曲线。
+- NODERED平台应用创建。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -29,12 +29,11 @@ categories: getting started
 | --- | --- | --- | --- |
 | 1 | 电脑 | 1台 | 系统Windows7及以上 |
 | 2 | CC2530底座模块 | 2个 |  · |
-| 3 | OLED模块 | 1个 | ·  |
-| 4 | 光电开关模块 | 1个 | ·  |
-| 5 | WIFI模块 | 1个 | ·  |
-| 6 | CC Debugger 仿真器和连接线| 1套 | ·  |
-| 7 | USB线| 1根 | ·  |
-| 8 | 实验代码 | 1份 | ·  |
+| 3 | 风扇模块 | 1个 | ·  |
+| 4 | WIFI模块 | 1个 | ·  |
+| 5 | CC Debugger 仿真器和连接线| 1套 | ·  |
+| 6 | USB线| 1根 | ·  |
+| 7 | 实验代码 | 1份 | ·  |
 
 ### 实验所需软件
 
@@ -42,7 +41,7 @@ categories: getting started
 
 - [CC Debugger](https://codelab.stepiot.com/codelabs/CC_Debugger_081/index.html?index=..%2F..index#0) 驱动安装步骤
 
-- [NODERED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)应用手册
+- [NODE RED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台安装应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -50,11 +49,9 @@ categories: getting started
 
 ![实验硬件](/assets/BASE_CC2530/3.png)
 
+[风扇模块](https://docs.stepiot.com/docs/aiot015)
 
-
-[光电开关模块](https://docs.stepiot.com/docs/aiot005)
-
-![光电开关模块](/assets/BASE_STM32/6.png)
+![风扇模块](/assets/STM32_OneNET/51.png)
 
 [WiFi模块](https://docs.stepiot.com/docs/aiot011)
 
@@ -118,9 +115,9 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 ## 实验步骤
 
    
-① 将OLED模块、WIFI模块、光电开关模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
+① 将WIFI模块、风扇模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
 
-![模块组装](/assets/CC2530_OneNET/13-1.jpg)
+![模块组装](/assets/CC2530_OneNET/53.jpg)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
@@ -130,13 +127,13 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 
 ![操作步骤](/assets/STM32/38.jpg)
 
-打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
+④ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
 ```c
 $ cd workspace
 ```
 
-运行`clone`命令：
+⑤ 运行`clone`命令：
 
 ```c
 $ git clone https://github.com/aiotcom/eps.git
@@ -169,16 +166,17 @@ D:\> NODE-RED  //启动本机nodered服务
 ![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
 
 ### 部署本次试验NODE RED流程
-![NODERED部署](/assets/CC2530_NODERED/NODERED-OPT.png)
+![NODERED部署](/assets/CC2530_NODERED/NODERED-FAN.png)
 
 ### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
-![NODERED图像界面](/assets/CC2530_NODERED/NODERED-OPT-UI.png)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI2.png)
 
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\2.NODERED平台显示光电开关检测实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\8.NODERED平台控制风扇实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+
    
 ![打开工程](/assets/CC2530/6.jpg)
     
-![选择文件](/assets/CC2530_OneNET/14.jpg) 
+![选择文件](/assets/CC2530_OneNET/54.jpg) 
 
 ⑦ 待工程启动完毕，修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图：
    
@@ -191,6 +189,7 @@ D:\> NODE-RED  //启动本机nodered服务
 ⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
 
 ![修改参数](/assets/CC2530_NODERED/NODERED-WIFI.png) 
+
 
 ⑩ 点击`Make`按钮，重新编译文件，显示没有错误。
    
@@ -226,15 +225,17 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ⑰ 移除`CC Debugger`仿真器，采用USB线供电，接协调器节点的底座。
     
-![USB线供电](/assets/CC2530_OneNET/15.png) 
+![USB线供电](/assets/CC2530_OneNET/55.png) 
 
 ⑱ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
 ![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑲ NODE RED平台操作。(流程位于：`基于CC2530 NODERED实验\2.NODERED平台显示光电开关检测实验、`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-![OneNET平台显示](/assets/CC2530_NODERED/NODERED-OPT-UI2.png) 
+
+⑲ NODERED平台显示实验数据。(脚本位于：`基于CC2530 NODERED实验\8.NODERED平台控制风扇实验\风扇控制.json)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+
+![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI2.png) 
 
 
 <!-- ------------------------ -->
@@ -245,158 +246,94 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![代码目录结构](/assets/CC2530_OneNET/18.jpg)
+![代码目录结构](/assets/CC2530_OneNET/57.jpg)
 
-② `EndDevice.c`->`SampleApp_Init()`函数是应用代码的入口函数，对光电开关模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点、启动传感器数据采集。
-
-```c
-void SampleApp_Init( uint8 task_id )
-{
-  SampleApp_TaskID   = task_id;
-  SampleApp_NwkState = DEV_INIT;
-  SampleApp_TransID  = 0; 
-	
-  UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
-  Optocoupler_Init();      //初始化光电传感器
-  printf("i am end device\r\n");//串口打印
-  // 点对点通讯定义
-  Point_To_Point_DstAddr.addrMode = (afAddrMode_t)Addr16Bit; //点播
-  Point_To_Point_DstAddr.endPoint = SAMPLEAPP_ENDPOINT;     //目标端点号
-	/*发给协调器,协调器地址固定为0x0000*/
-  Point_To_Point_DstAddr.addr.shortAddr = 0x0000;
-  // 填写端点
-  EndDevice_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
-  EndDevice_epDesc.task_id    = &SampleApp_TaskID;
-  EndDevice_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&EndDevice_SimpleDesc;
-  EndDevice_epDesc.latencyReq = noLatencyReqs;
-  // 注册端点
-  afRegister( &EndDevice_epDesc );
-}
-```
-
-`EndDevice.c`->`SampleApp_ProcessEvent()`函数是任务处理函数。在该函数中调用`Optocoupler_State_Read()`函数读取光电开关的反馈，当反馈信号发生变化时调用`SendSwitchToCoordinator ()`函数向协调器发送数据。
+② `EndDevice.c`->`SampleApp_Init()`函数是应用代码的入口函数，对继电器模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点。
 
 ```c
-/***********************开关检测************************************/	
-  if(events & SEND_SWITCH_MSG_EVT)//有SEND_SWITCH_MSG_EVT事件
-  {
-	SwitchSta0 = Optocoupler_State_Read();			
-	SendSwitchToCoordinator(SwitchSta0);
-	osal_start_timerEx( SampleApp_TaskID, SEND_SWITCH_MSG_EVT,200);  //修改为2秒主动上传一次
-  }
-/***********************开关检测************************************/	
+    void SampleApp_Init( uint8 task_id )
+    {
+        SampleApp_TaskID   = task_id;
+        SampleApp_NwkState = DEV_INIT;
+        SampleApp_TransID  = 0; 
+
+        UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//用于调试
+        Fan_Init();//初始化风扇模块控制IO
+        printf("i am end device\r\n");//串口打印   
+        // 点对点通讯定义
+        Point_To_Point_DstAddr.addrMode = (afAddrMode_t)Addr16Bit; //点播
+        Point_To_Point_DstAddr.endPoint = SAMPLEAPP_ENDPOINT;      
+        Point_To_Point_DstAddr.addr.shortAddr = 0x0000;//发给协调器
+        
+        // 填写端点
+        EndDevice_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
+        EndDevice_epDesc.task_id    = &SampleApp_TaskID;
+        EndDevice_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&EndDevice_SimpleDesc;
+        EndDevice_epDesc.latencyReq = noLatencyReqs;
+        
+        // 注册端点
+        afRegister( &EndDevice_epDesc );
+    }
 ```
 
+`EndDevice.c`->`SampleApp_ProcessEvent()`函数是任务处理函数。在该函数中调用`SampleApp_MessageMSGCB()`处理无线信道的指令。
+
+```c
+    // Received when a messages is received (OTA) for this endpoint
+    case AF_INCOMING_MSG_CMD:
+    SampleApp_MessageMSGCB( MSGpkt );
+    break;
+```
+
+`SampleApp_MessageMSGCB()`，中依据指令参数，控制风扇。FanOff()关闭风扇，FanOn打开风扇。
+
+```c
+    case FAN_CONTROL_CLUSTERID://风扇控制指令
+	printf("get cmd:%d\r\n",pkt->cmd.Data[0]);//串口打印
+	if(pkt->cmd.Data[0] == 0){//关闭指令
+		FanOff();//风扇关闭
+	}
+	else{//打开指令
+		FanOn();//风扇打开							
+	}
+```
+
+    
 ### 协调器节点
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![代码目录结构](/assets/CC2530_OneNET/19.jpg)
+![代码目录结构](/assets/CC2530_OneNET/58.jpg)
 
-② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，对OLED屏，注册端点。
+② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，注册端点。
    
 ```c
-void SampleApp_Init( uint8 task_id )
-{
-  SampleApp_TaskID = task_id;
-  SampleApp_NwkState = DEV_INIT;
-  SampleApp_TransID = 0;  
-
-	UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
-  //printf("i am coordinator\r\n"); //串口打印
-  
-  // 点对点通讯定义
-  Point_To_Point_DstAddr.addrMode       = (afAddrMode_t)Addr16Bit; //点播
-  Point_To_Point_DstAddr.endPoint       = SAMPLEAPP_ENDPOINT;      
-  Point_To_Point_DstAddr.addr.shortAddr = 0;
-  
-  // 填写端点
-  Coordinator_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
-  Coordinator_epDesc.task_id    = &SampleApp_TaskID;
-  Coordinator_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&Coordinator_SimpleDesc;
-  Coordinator_epDesc.latencyReq = noLatencyReqs;
-  // 注册端点
-  afRegister( &Coordinator_epDesc );
-}
-```
-
-`Coordinator.c` ->`SampleApp_ProcessEvent()`函数是任务处理函数。当前接收无线信道的数据时，进入`SampleApp_MessageMSGCB()`函数。
-
-```c
-uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
-{
-  afIncomingMSGPacket_t *MSGpkt;
-  (void)task_id;  // Intentionally unreferenced parameter
-
-  if ( events & SYS_EVENT_MSG )
-  {
-    MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
-    while ( MSGpkt )
+    void SampleApp_Init( uint8 task_id )
     {
-      switch ( MSGpkt->hdr.event )
-      {        
-        // Received when a messages is received (OTA) for this endpoint
-        case AF_INCOMING_MSG_CMD:
-          SampleApp_MessageMSGCB( MSGpkt );
-          break;
+        SampleApp_TaskID = task_id;
+        SampleApp_NwkState = DEV_INIT;
+        SampleApp_TransID = 0;  
 
-        // Received whenever the device changes state in the network
-        case ZDO_STATE_CHANGE:
-          SampleApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
-          if(SampleApp_NwkState == DEV_ZB_COORD)
-          {
-            printf("coord ready!");
-          }
-          break;
+        UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//初始化串口用于调试
+        
+        Point_To_Point_DstAddr.addrMode       = (afAddrMode_t)Addr16Bit; //点播
+        Point_To_Point_DstAddr.endPoint       = SAMPLEAPP_ENDPOINT;      
+        Point_To_Point_DstAddr.addr.shortAddr = 0; 
 
-        default:
-          break;
-      }
-
-      // Release the memory
-      osal_msg_deallocate( (uint8 *)MSGpkt );
-
-      // Next - if one is available
-      MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
+        //广播通信定义 
+        Boardcast_DstAddr.addrMode       = (afAddrMode_t)AddrBroadcast;
+        Boardcast_DstAddr.endPoint       = SAMPLEAPP_ENDPOINT;
+        Boardcast_DstAddr.addr.shortAddr = 0Xffff;
+            
+        // 填写端点
+        Coordinator_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
+        Coordinator_epDesc.task_id    = &SampleApp_TaskID;
+        Coordinator_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&Coordinator_SimpleDesc;
+        Coordinator_epDesc.latencyReq = noLatencyReqs;
+        // 注册端点
+        afRegister( &Coordinator_epDesc );
+        osal_start_timerEx( SampleApp_TaskID, READ_KEY_MSG_EVT,3000); 
     }
-
-    // return unprocessed events
-    return (events ^ SYS_EVENT_MSG);
-  }//if ( events & SYS_EVENT_MSG )
-
-  // Discard unknown events
-  return 0;
-}
-```
-
-`SampleApp_MessageMSGCB()`函数中将传感器的数据解析后通过`SendToWiFiNetwork()`函数发送到NODERED平台。
-
-```c
-void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
-{ 
-  uint8 DispBuf[ ]="signal=0";
-  uint8 Buf[1];
-  switch ( pkt->clusterId )
-  {
-    case SWITCH_CLUSTERID:
-        sprintf((void*)DispBuf,(char*)"signal=%d",pkt->cmd.Data[0]);//转换成字符器
-				printf("=%s\r\n",DispBuf);            
-                //串口打印
-       // 将光电开关状态发送到网络
-       if(pkt->cmd.Data[0]>0)
-       {
-         Buf[0]=0x31;
-         SendToWiFiNetwork(&Buf[0],1);
-       }
-       else
-       {
-         Buf[0]=0x30;
-         SendToWiFiNetwork(&Buf[0],1);
-       }
-                                
-    break;
-  }
-}
 ```
 
 `WiFiGate.c`中`WiFiGate_Init()`函数初始化WIFI模块的IO及模块的通信串口。
@@ -415,28 +352,31 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
     }
 ```
 
-`WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1。
+`WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1。`WiFi_ReadCommand()`获取OneNET下发的指令。解析指令调用`Send_FANCtrl()`函数发送到终端节点。
 
 ```c
-    uint16 WiFiGate_ProcessEvent( uint8 task_id, uint16 events )
-    {
-        (void)task_id;//Intentionally unreferenced parameter
-            
-        if(events & WIFI_PROCESS_PRODIC){
-            /*100ms后触发一次WIFI_PROCESS_PRODIC事件*/
-            osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,100);
-                    
-            if((ConnectState==0)&&(WiFi_InitProcess())){//初始化WIFI
-                /*如果初始化完成*/
-                ConnectState = 1;
-            }
-            else if(ConnectState == 1){
-                    
-            }
-            return (events ^ WIFI_PROCESS_PRODIC);
-        }
-        return 0;
-    } 
+    if(events & WIFI_PROCESS_PRODIC){
+		/*100ms后触发一次WIFI_PROCESS_PRODIC事件*/
+		osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,100);
+				
+	    if((ConnectState==0)&&(WiFi_InitProcess())){//初始化WIFI
+			/*如果初始化完成*/
+			ConnectState = 1;
+		}
+		else if(ConnectState == 1){
+			if(WiFi_ReadCommand(&HandlerBuffer[0])){//接收$开头的命令
+				/*命令是否是$FAN*/
+				c_ptr = (uint8_t*)strstr((char*)&HandlerBuffer[0],"$FAN");
+				if(c_ptr){//有命令
+					FAN_Cmd = *(c_ptr+5)-0x30;//是打开还是关闭。
+					printf("cmd=%d\r\n",FAN_Cmd);//串口调试
+					Send_FANCtrl(FAN_Cmd);//向终端节点发送命令
+				}	
+				emset((void*)HandlerBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
+				}
+			}
+			return (events ^ WIFI_PROCESS_PRODIC);
+		}
 ```
 
 
@@ -456,9 +396,9 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
    - 模块没有安装稳妥。
    - 两个节点的PANID、信道是否相同。
 
-3. NODERED平台设备没有上线。
+3. OneNET平台设备没有上线。
 
-    - WIFI名字、WIFI密码、服务器IP和端口等信息是否正确。
+  - WIFI名字、WIFI密码、NODERED服务器IP和端口等信息是否正确。
 
 
 
@@ -466,5 +406,4 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
 ## 实验思考
 
 
-1. 编写代码只有传感器数值变化时才发送到NODERED。
-
+1. 在NODERED平台增加一个按键控制风扇转速。

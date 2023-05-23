@@ -9,7 +9,7 @@ categories: getting started
 # 基于STM32的WiFi模块实验
 <!-- ------------------------ -->
 ## 实验内容
-
+Duration: 4
 
 - 使用WiFi模块连接OneNET云平台；
 - 使用485总线进行数据通信；
@@ -17,7 +17,7 @@ categories: getting started
 
 <!-- ------------------------ -->
 ## 实验目的
-
+Duration: 5
 
 - 熟悉WIFI模块的使用；
 - 熟悉常用AT指令的功能；
@@ -27,7 +27,7 @@ categories: getting started
 <!-- ------------------------ -->
 
 ## 实验环境
-
+Duration: 4
 
 ### 实验所需硬件
 
@@ -72,7 +72,7 @@ ST-Link下载器 & ST-Link下载器连接线
 
 <!-- ------------------------ -->
 ## 实验要求
-
+Duration: 6
 
 - 了解如何使用AT指令建立SP站点；
 - 了解AP与SP通信要设置哪些关键参数；
@@ -81,7 +81,7 @@ ST-Link下载器 & ST-Link下载器连接线
   
 <!-- ------------------------ -->
 ## 实验原理
-
+Duration: 25
 
 ### WIFI技术基本概念
 
@@ -153,7 +153,7 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 <!-- ------------------------ -->
 
 ## 实验步骤
-
+Duration: 15
 
 ① 将WiFi模块、温湿度模块分别安装在STM32底座上，并将2个底座拼接，ST_LINK连接PC机与WiFi节点的STM32底座,如下图所示：
 
@@ -233,7 +233,7 @@ $ git clone https://github.com/aiotcom/eps.git
   
 <!-- ------------------------ -->
 ## 代码讲解
-
+Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。  
     ![程序目录结构](/assets/BASE_STM32/129.jpg)  
@@ -278,7 +278,7 @@ $ git clone https://github.com/aiotcom/eps.git
 
 <!-- ------------------------ -->
 ## 常见问题
-
+Duration: 5
 
 1. 弹出警告窗口，不能下载程序。
 
@@ -297,6 +297,6 @@ $ git clone https://github.com/aiotcom/eps.git
 
 <!-- ------------------------ -->
 ## 实验思考
-
+Duration: 5
 
 1. 向OneNET平台发送两组湿度、两组温度数据并显示。

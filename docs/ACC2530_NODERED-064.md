@@ -1,24 +1,24 @@
 ---
 layout: post
-title:  "065_CC2530_OneNET平台显示PM2.5实验"
+title:  "064_CC2530_NODERED平台显示超声波测距实验"
 date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# CC2530_OneNET平台显示PM2.5实验
+# CC2530_NODERED平台显示超声波测距实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
-- 使用485总线读取PM2.5数据；
-- 通过WiFi模块将温湿度数据传输到NODERED平台。
+- 使用485总线读取超声波测距数据；
+- 通过WiFi模块将温湿度数据传输到OneNET平台。
 
 <!-- ------------------------ -->
 ## 实验目的
 
 
 - 将传感器数据上传到NODERED平台；
-- NODERED平台应用创建。
+- NODERED平台显示实时数据。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -31,7 +31,7 @@ categories: getting started
 | 1 | 电脑 | 1台 | 系统Windows7及以上 |
 | 2 | CC2530底座模块 | 2个 |  · |
 | 3 | OLED模块 | 1个 | ·  |
-| 4 | PM2.5模块 | 1个 | ·  |
+| 4 | 超声波模块 | 1个 | ·  |
 | 5 | WIFI模块 | 1个 | ·  |
 | 6 | CC Debugger 仿真器和连接线| 1套 | ·  |
 | 7 | USB线| 1根 | ·  |
@@ -43,7 +43,7 @@ categories: getting started
 
 - [CC Debugger](https://codelab.stepiot.com/codelabs/CC_Debugger_081/index.html?index=..%2F..index#0) 驱动安装步骤
 
-- [NODE RED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台安装应用手册
+- [NODERED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -52,9 +52,9 @@ categories: getting started
 ![实验硬件](/assets/BASE_CC2530/3.png)
 
 
-[PM2.5模块](https://docs.stepiot.com/docs/aiot007)
+[超声波模块](https://docs.stepiot.com/docs/aiot006)
 
-![PM2.5模块](/assets/STM32_OneNET/23.png)
+![超声波模块](/assets/BASE_STM32/8.png)
 
 [WiFi模块](https://docs.stepiot.com/docs/aiot011)
 
@@ -118,9 +118,9 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 ## 实验步骤
 
    
-① 将WIFI模块、PM2.5模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
+① WIFI模块、超声波模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
 
-![模块组装](/assets/CC2530_OneNET/27-1.jpg)
+![模块组装](/assets/CC2530_OneNET/20.jpg)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
@@ -169,16 +169,16 @@ D:\> NODE-RED  //启动本机nodered服务
 ![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
 
 ### 部署本次试验NODE RED流程
-![NODERED部署](/assets/CC2530_NODERED/NODERED-PM25.png)
+![NODERED部署](/assets/CC2530_NODERED/NODERED-DIS.png)
 
 ### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
-![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI6.png)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI7.png)
 
-⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\4.NODERED平台显示PM2.5实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
+⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 NODERED实验\3、NODERED平台显示超声波测距实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
 ![打开工程](/assets/CC2530/6.jpg)
     
-![选择文件](/assets/CC2530_OneNET/28.jpg) 
+![选择文件](/assets/CC2530_OneNET/21.jpg) 
 
 ⑦ 待工程启动完毕，修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图：
    
@@ -193,6 +193,7 @@ D:\> NODE-RED  //启动本机nodered服务
 ![修改参数](/assets/CC2530_OneNET/6.png) 
 
 ⑩ 点击`Make`按钮，重新编译文件，显示没有错误。
+   
 ![文件编译](/assets/CC2530/8.jpg) 
 
 ⑪ 点击`Download and Debug`按钮，将程序下载到模块中。
@@ -225,16 +226,15 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ⑰ 移除`CC Debugger`仿真器，采用USB线供电，接协调器节点的底座。
     
-![USB线供电](/assets/CC2530_OneNET/30.png) 
+![USB线供电](/assets/CC2530_OneNET/22.png) 
 
-⑱ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
+⑱ 观察OLED屏温湿度数据：
 
-![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
+![显示传感器数据](/assets/CC2530_OneNET/23.png) 
 
+⑲ NODERED平台显示实验数据。(流程位于：`基于CC2530 NODERED实验\3、NODERED平台显示超声波测距实验\超声波测距流程`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-⑲ OneNET平台显示实验数据。(脚本位于：`基于CC2530 OneNET实验\4.OneNET平台显示PM2.5实验\PM25数据显示.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
-
-![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI6-1.png) 
+![OneNET平台显示](/assets/CC2530_NODERED/NODERED-UI7-1.png) 
 
 
 <!-- ------------------------ -->
@@ -245,9 +245,9 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![代码目录结构](/assets/CC2530_OneNET/32.jpg)
+![代码目录结构](/assets/CC2530_OneNET/25.jpg)
 
-② `EndDevice.c`->`SampleApp_Init()`函数是应用代码的入口函数，对PM2.5模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点、启动传感器数据采集。
+② `EndDevice.c`->`SampleApp_Init()`函数是应用代码的入口函数，对超声波模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点、启动传感器数据采集。
 
 ```c
     void SampleApp_Init( uint8 task_id )
@@ -258,33 +258,39 @@ D:\> NODE-RED  //启动本机nodered服务
             
         UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
             
-        PM2p5_Init();//初始化PM2.5模块
+        Time1_Init();//初始化定时器，中断周期10us,超声波时间基准
+        TM1640_Init();//初始化TM1640     
+        HCSR04_Init();//初始化超声波	
             
         printf("i am end device\r\n");//串口打印
-        // 点对点通讯定义
+        //点对点通讯定义
         Point_To_Point_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;//点播
         Point_To_Point_DstAddr.endPoint = SAMPLEAPP_ENDPOINT;//目标端点号
         /*发给协调器,协调器地址固定为0x0000*/
         Point_To_Point_DstAddr.addr.shortAddr = 0x0000;
-        // 填写端点
+        //填写端点
         EndDevice_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
         EndDevice_epDesc.task_id    = &SampleApp_TaskID;
         EndDevice_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&EndDevice_SimpleDesc;
         EndDevice_epDesc.latencyReq = noLatencyReqs;
         // 注册端点
         afRegister( &EndDevice_epDesc );
+        //启动超声波检测
+        osal_start_timerEx( SampleApp_TaskID, SEND_SWITCH_MSG_EVT,1000);
     }
 ```
 
-`EndDevice.c`->`SampleApp_ProcessEvent()`函数是任务处理函数。在该函数中调用`PM2p5_Read ()`函数读取PM2.5数据。调用`SendPM2P5ToCoordinator ()`函数向协调器发送数据。
+`EndDevice.c`->`SampleApp_ProcessEvent()`函数是任务处理函数。在该函数中调用`HCSR04_StartMeasure ()`函数读取超声波检测数据数据。调用`SendDistanceToCoordinator ()`函数向协调器发送数据。
 
 ```c
-    if(events & SEND_COOR_MSG_EVT)//SEND_COOR_MSG_EVT
+    **********************超声波检测************************************/	
+  if(events & SEND_SWITCH_MSG_EVT)//有SEND_SWITCH_MSG_EVT事件
     {
-		PM2P5_Data = PM2p5_Read();//读到PM2.5数据单位ug/m3
-		SendPM2P5ToCoordinator(PM2P5_Data);//向协调器发送数据
-		//启动定时器1000ms后触发 SEND_COOR_MSG_EVT
-		osal_start_timerEx( SampleApp_TaskID, SEND_COOR_MSG_EVT,1000);
+        uint16_t HCSR04_Data =  HCSR04_StartMeasure(5);//探测距离进行5次探测
+        send_LED_Display(0xC0,HCSR04_Data,1);//数码管显示距离
+        SendDistanceToCoordinator((uint8_t)HCSR04_Data);
+        //启动定时器1000ms后触发 SEND_SWITCH_MSG_EVT事件
+        osal_start_timerEx( SampleApp_TaskID, SEND_SWITCH_MSG_EVT,1000);
     }
 ```
 
@@ -292,9 +298,9 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![代码目录结构](/assets/CC2530_OneNET/33.jpg)
+![代码目录结构](/assets/CC2530_OneNET/26.jpg)
 
-② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，注册端点。
+② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，对OLED屏，注册端点。
    
 ```c
     void SampleApp_Init( uint8 task_id )
@@ -304,21 +310,21 @@ D:\> NODE-RED  //启动本机nodered服务
         SampleApp_TransID = 0;  
 
         UartInit(HAL_UART_PORT_1,HAL_UART_BR_115200);//调试串口初始化
-        //OLED_Init();//初始化OLED 
+        OLED_Init();//初始化OLED 
         printf("i am coordinator\r\n");//串口打印
         OLED_P8x16Str(0,0,"coordinator");
         
-        // 点对点通讯定义
+        //点对点通讯定义
         Point_To_Point_DstAddr.addrMode       = (afAddrMode_t)Addr16Bit; //点播
         Point_To_Point_DstAddr.endPoint       = SAMPLEAPP_ENDPOINT;      
         Point_To_Point_DstAddr.addr.shortAddr = 0;
         
-        // 填写端点
+        //填写端点
         Coordinator_epDesc.endPoint   = SAMPLEAPP_ENDPOINT;
         Coordinator_epDesc.task_id    = &SampleApp_TaskID;
         Coordinator_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&Coordinator_SimpleDesc;
         Coordinator_epDesc.latencyReq = noLatencyReqs;
-        // 注册端点
+        //注册端点
         afRegister( &Coordinator_epDesc );
     }
 ```
@@ -338,12 +344,12 @@ D:\> NODE-RED  //启动本机nodered服务
             {
                 switch ( MSGpkt->hdr.event )
                 {        
-                    // Received when a messages is received (OTA) for this endpoint
+                    //Received when a messages is received (OTA) for this endpoint
                     case AF_INCOMING_MSG_CMD:
                     SampleApp_MessageMSGCB( MSGpkt );
                     break;
 
-                    // Received whenever the device changes state in the network
+                    //Received whenever the device changes state in the network
                     case ZDO_STATE_CHANGE:
                     SampleApp_NwkState = (devStates_t)(MSGpkt->hdr.status);
                     if(SampleApp_NwkState == DEV_ZB_COORD)
@@ -356,10 +362,10 @@ D:\> NODE-RED  //启动本机nodered服务
                     break;
                 }
 
-            // Release the memory
+            //Release the memory
             osal_msg_deallocate( (uint8 *)MSGpkt );
 
-            // Next - if one is available
+            //Next - if one is available
             MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( SampleApp_TaskID );
             }
 
@@ -372,23 +378,25 @@ D:\> NODE-RED  //启动本机nodered服务
     }
 ```
 
-`SampleApp_MessageMSGCB()`函数中将传感器的数据解析并使用`SendToWiFiNetwork()`函数发送到NODERED平台。
+`SampleApp_MessageMSGCB()`函数中将传感器的数据通过`SendToWiFiNetwork()`函数发送到NODERED平台。
 
 ```c
-void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
-{ 
-  uint8 DispBuf[ ]="PM2.5=XXX ug/m3";
-  uint8 tempBuf[4];
-  switch ( pkt->clusterId )
-  {
-    case PM2P5_CLUSTERID://是超声波数据
-			sprintf((void*)tempBuf,(char*)"%03d",pkt->cmd.Data[0]);//转换成字符器
-				printf("=%s\r\n",DispBuf);            //串口打印
-        //OLED_P8x16Str(0,4,DispBuf);//OLED屏显示 
-        SendToWiFiNetwork(tempBuf,4);
-    break;
-  }
-}
+    void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+    { 
+        uint8 DispBuf[ ]="distance=XXXcm";
+        switch ( pkt->clusterId )
+        {
+            case DISTANCE_CLUSTERID://是超声波数据
+            /*转换成字符器*/
+            sprintf((void*)DispBuf,(char*)"distance:%03dcm",pkt->cmd.Data[0]);
+            printf("=%s\r\n",DispBuf);//串口打印
+            OLED_P8x16Str(0,4,DispBuf);//OLED屏显示 
+                
+            sprintf((void*)tempbuf,"%03d",pkt->cmd.Data[0]);//转成字符串
+            SendToWiFiNetwork(tempbuf,strlen((const char*)tempbuf));//发送到OneNET
+            break;
+        }
+    }
 ```
 
 `WiFiGate.c`中`WiFiGate_Init()`函数初始化WIFI模块的IO及模块的通信串口。
@@ -407,27 +415,28 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
     }
 ```
 
-`WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1
+`WiFiGate.c`中`WiFiGate_ProcessEvent()`，调用`WiFiGate_InitProcess()`初始化WIFI模块。初始化完成`WiFiModeInitDone`置1。
 
 ```c
-case 13:
-        len = GET_RECV_LENGHT();
-        if(len){
-        if((WiFiRecvLenght+len) >= (WIFI_RECV_DATA_BUFFER_LEN-1)){
-            WiFiRecvLenght = 0;
-            memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
-            printf("overflow\r\n");
-        }						
-        GET_RECV_DATA(&WiFiRecvDataBuffer[WiFiRecvLenght],len);
-        WiFiRecvLenght = WiFiRecvLenght + len;			
+    uint16 WiFiGate_ProcessEvent( uint8 task_id, uint16 events )
+    {
+        (void)task_id;//Intentionally unreferenced parameter
+            
+        if(events & WIFI_PROCESS_PRODIC){
+            /*100ms后触发一次WIFI_PROCESS_PRODIC事件*/
+            osal_start_timerEx( WiFiGate_TaskId, WIFI_PROCESS_PRODIC,100);
+                    
+            if((ConnectState==0)&&(WiFi_InitProcess())){//初始化WIFI
+                /*如果初始化完成*/
+                ConnectState = 1;
+            }
+            else if(ConnectState == 1){
+                    
+            }
+        return (events ^ WIFI_PROCESS_PRODIC);
         }
-        if((WiFiRecvLenght)&&(!strstr((const char*)WiFiRecvDataBuffer,(const char*)"$"))){//没有~这个符号
-        WiFiRecvLenght = 0;
-        memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN);
-        }
-
-        memset((void*)WiFiRecvDataBuffer,0,WIFI_RECV_DATA_BUFFER_LEN); 		  
-    break;
+        return 0;
+    } 
 ```
 
 
@@ -449,7 +458,7 @@ case 13:
 
 3. NODERED平台设备没有上线。
 
-  - WIFI名字、WIFI密码、NODERED服务器IP和端口等信息是否正确。
+    - WIFI名字、WIFI密码、服务器IP和端口信息是否正确。
 
 
 
@@ -457,5 +466,4 @@ case 13:
 ## 实验思考
 
 
-1. 调整PM2.5曲线显示格式，例如柱状图。
-
+1. 采用拆线图显示超声波探测结果。

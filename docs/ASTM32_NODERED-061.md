@@ -1,24 +1,23 @@
 ---
 layout: post
-title:  "056_STM32组合实验_OneNET平台显示PM2"
+title:  "061_STM32组合实验_NODERED平台控制蜂鸣器实验"
 date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# STM32组合实验_NODRED平台显示PM2.5实验
+# STM32组合实验_NODERED平台控制蜂鸣器实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
-- 使用485总线读取PM2.5数据；
-- 通过WiFi模块将PM2.5数据传输到NODERED平台。
+- NODERED平台创建按键应用。
+- 在NODERED平台控制蜂鸣器响起或者停止。
   
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- 将传感器数据上传到NODERED平台。
-- NODRED平台动态显示PM2.5数据及历史曲线。
+- NODERED平台按键应用创建。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -31,11 +30,11 @@ categories: getting started
 | 1 | 电脑 | 1台 | 系统Windows7及以上 |
 | 2 | STM32底座模块 | 2个 |  · |
 | 3 | Wifi模块 | 1个 | ·  |
-| 4 | PM2.5模块 | 1个 | ·  |
+| 4 | 蜂鸣器模块 | 1个 | ·  |
 | 5 | ST-Link下载器 | 1个 | · |
 | 6 | ST-Link下载器连接线 | 1根 |  · |
 | 7 | USB线| 1根 | ·  |
-| 8 | PM2.5传感器数据采集实验代码 | 1份 | ·  |
+| 8 | OneNET平台控制蜂鸣器实验代码 | 1份 | ·  |
 
 ### 实验所需软件
 
@@ -59,9 +58,10 @@ ST-Link下载器 & ST-Link下载器连接线
 
 ![WiFi模块](/assets/BASE_CC2530/65.png)
 
-[PM2.5模块](https://docs.stepiot.com/docs/aiot007)
+[蜂鸣器模块](https://docs.stepiot.com/docs/aiot018)
 
-![PM2.5模块](/assets/STM32_OneNET/23.png)
+![蜂鸣器模块](/assets/CC2530_NODERED/BEEP.png)
+
 
 USB线
 
@@ -110,9 +110,9 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 ## 实验步骤
 
    
-① 将WiFi模块、PM2.5模块分别安装在STM32底座上，ST_LINK连接WIFI节点连接与电脑，如下图所示：
+① 将WiFi模块、蜂鸣器模块分别安装在STM32底座上，ST_LINK连接WIFI节点连接与电脑，如下图所示：
 
-![模块组装](/assets/STM32_OneNET/24.jpg)
+![模块组装](/assets/STM32_OneNET/59.jpg)
 
     
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
@@ -158,26 +158,26 @@ D:\> NODE-RED  //启动本机nodered服务
 ![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
 
 ### 部署本次试验NODE RED流程
-![NODERED部署](/assets/CC2530_NODERED/NODERED-PM25.png)
+![NODERED部署](/assets/CC2530_NODERED/NODERED-BEEP.png)
 
 ### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
-![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI6.png)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI1.png)
 
-⑧ 打开` Keil uVision5 `(即安装的MDK5)工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\4.NODERED平台显示超PM2.5实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
+⑥ 打开` Keil uVision5 `(即安装的MDK5)工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\9.NODERED平台控制蜂鸣器实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
    
 ![打开工程](/assets/STM32/39.jpg)
 
-![选择文件](/assets/STM32_OneNET/25.png)
+![选择文件](/assets/STM32_OneNET/60.jpg)
 
-⑨ 打WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
+⑦ 打WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
    
 ![修改WIFI信息](/assets/STM32_NODERED/SET-IP.png)  
 
- 点击 `Rebuild` 重新编译。如下图：
+⑧ 点击 `Rebuild` 重新编译。如下图：
 
 ![重新编译工程](/assets/STM32/16.jpg)
 
-编译成功，如下图：
+⑨ 编译成功，如下图：
 
 ![编译成功](/assets/STM32/17.jpg)
 
@@ -187,11 +187,11 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![下载成功](/assets/STM32/41.jpg)
 
-⑪ 将STLink连接到PM2.5节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 OneNET实验\4.OneNET平台显示超PM2.5实验\PM2.5模块程序\USER\PM2.5.uvprojx` 并打开。
+⑪ 将STLink连接到蜂鸣器节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\9.NODERED平台控制蜂鸣器实验\蜂鸣器模块程序\USER\beep.uvprojx` 并打开。
    
 ![打开工程](/assets/STM32/39.jpg)
 
-![选择文件](/assets/STM32_OneNET/26.jpg)
+![选择文件](/assets/STM32_OneNET/61.jpg)
 
 ⑫ 点击 `Rebuild` 重新编译。如下图：
 
@@ -207,15 +207,16 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![下载成功](/assets/STM32/41.jpg)
 
-⑮ 下载完成后，将PM2.5节点与WIFI节点拼接，并将USB线与任意底座进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
+⑮ 下载完成后，将蜂鸣器节点与WIFI节点拼接，并将USB线与任意底座进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
 ⑯ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
 ![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑰ NODERED平台显示实验数据。(脚本位于：`基于STM32 NODERED实验\4.NODERED平台显示超PM2.5实验\PM25数据显示.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI6-1.png) 
+⑰ NODERED平台控制。(流程位于：`基于STM32 NODERED实验\9.OneNET平台控制蜂鸣器实验\蜂鸣器控制.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+
+![OneNET平台控制](/assets/CC2530_NODERED/NODERED-UI1.png)
 
 
 
@@ -223,53 +224,57 @@ D:\> NODE-RED  //启动本机nodered服务
 ## 代码讲解
 
 
-### PM2.5节点
+### 蜂鸣器节点
 
-① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。PM2.5的数据通过ADC采样获得，ADC.c是其驱动程序。
+① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
 
-![代码目录结构](/assets/STM32_OneNET/28.jpg) 
+![代码目录结构](/assets/STM32_OneNET/64.jpg) 
 
-② `main.c`中对串口、定时器器、PM2.5模块、RS485协议进行初始化。初始化完成后，其中定时器为PM2.5传感器数据采集提供时间基准。`Get_Adc()`获取PM2.5的传感器ADC数值，并进行滤波。
-
-```c
-   while(1)
-	{
-        for(PM2P5_ADC_Count = 0;PM2P5_ADC_Count < SAMPLE_SIZE;PM2P5_ADC_Count++){
-            /*ADC取样*/
-            GPIOA->BSRR = GPIO_PIN_1;//使能PM2.5模块
-            TIM2_Delay10US(28);//280us
-            PM2P5_ADC[PM2P5_ADC_Count] = Get_Adc(ADC_CHANNEL_3);//读取PM2.5传感器ADC数值
-            TIM2_Delay10US(1);//10us
-            GPIOA->BRR = GPIO_PIN_1;//禁止PM2.5模块
-            TIM2_Delay10US(980);//9800us 
-        }     
-        bubbleSort(&PM2P5_ADC[0],SAMPLE_SIZE);//排序，数值小的在前面
-        Data = 0;        
-        for(i=1;i<(SAMPLE_SIZE-1);i++){//去除采样数据中的最高值及最低值
-            Data += PM2P5_ADC[i];
-        }
-        Data = Data / (SAMPLE_SIZE-2);//减去最大和最小的两个
-        voltage = (Data / 4096.0)*3.3;//转换成电压值
-        PM25_ugm3 = (voltage*0.13)*1000;//转换成PM2.5值ug/m3
-        printf("PM25=%d\r\n",PM25_ugm3);//调试打印
-        /*保持到数组中，将被发送到WIFI节点*/
-        PM_Data[0] = PM25_ugm3>>8;
-        PM_Data[1] = PM25_ugm3;
-        HAL_Delay(500);//延时500ms,每500ms采集一次
-	}
-```
-
-`main.c`->`RS485_HandlerCb()`(回调函数)，处理WIFI节点的请求，调用函数`Rs485_Send()`返回传感器数据。
+② main.c中对串口、蜂鸣器模块、RS485协议进行初始化。初始化完成后。调用函数`DataHandling_485()`获取控制指令，依控制指令控制蜂鸣器打开或关闭。
 
 ```c
-    void RS485_HandlerCb(void)
+    int main(void)
     {
-        if(!DataHandling_485(Addr_PM2_5)){//收到给本机的请求
-            printf("get requery\r\n");
-            /*发送数据到WIFI*/  
-            Rs485_Send(Addr_PM2_5,Addr_WiFi,PM2_5_Conc,2,PM_Data);	       
+        HAL_Init();//初始化HAL库  
+        Beep_Init();//初始化蜂鸣
+        Rs485_Init();//初始化485
+        UART1_Init(115200);//初始化串口1,用于485通信
+        USART3_Init(115200);
+        printf("this usart3 print\r\n");
+        while(1)
+        {
+            if(!DataHandling_485(Addr_BEEP)){//是发给本机的指令
+                printf("get data\r\n"); 
+                BeepCmd = Rx_Stack.Data[0];//控制指令
+                if(BeepCmd){
+                    BeepState = 1;//打开蜂鸣器
+                }
+                else{
+                    BeepState = 0;//关闭蜂鸣器                
+                }
+            }
+
+            if(BeepState){
+                HAL_Delay(1);//延时1ms，蜂鸣器的声音频率为500HZ
+                BEEP_IO_TOGGLE();//蜂鸣器IO电平反转
+            }
+            else{
+                BEEP_IO_LOW();//停止蜂鸣器
+            }
         }
     }
+```
+
+蜂鸣器是无源蜂鸣器，代码采用1ms切换一次蜂鸣器电平的方式，输出一个500Hz的方波控制蜂鸣器响起。当BeepState=0,时无方波输出，蜂鸣器不响，BeepState = 1,有500Hz方波输出蜂鸣器响起。
+
+```c
+    if(BeepState){
+        HAL_Delay(1);//延时1ms，蜂鸣器的声音频率为500HZ
+        BEEP_IO_TOGGLE();//蜂鸣器IO电平反转
+        }
+    else{
+        BEEP_IO_LOW();//停止蜂鸣器
+        }
 ```
 
 
@@ -277,9 +282,9 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
 
-![代码目录结构](/assets/STM32_OneNET/29.jpg) 
+![代码目录结构](/assets/STM32_OneNET/65.jpg) 
 
-② `main.c`中对串口、RS485协议进行初始化，并WIFI初始化并连接OneNET平台。初始化完成后，定时请求传感器数据。每1秒将传感器传送到OneNET平台。
+② main.c 中对串口、RS485协议进行初始化，并WIFI初始化并连接OneNET平台。初始化完成后，接收OnenNET平台的指令($BEEP,1->蜂鸣器响起、$BEEP,0-> 蜂鸣器停止)，根据平台指令控制蜂鸣器节点蜂鸣器响起/关闭。控制命令通过调用Rs485_Send()进行发送。
 
 ```c
     int main(void)
@@ -291,39 +296,22 @@ D:\> NODE-RED  //启动本机nodered服务
         USART3_Init(115200);//调试串口   
         printf("this usart3 print\r\n");
         WiFi_Init();//初始化WiFi，并连接OneNET
-    
-        /*中断频率2HZ 关联回调函数RS485_HandlerCb*/
-        TIM3_Init(10000-1,3200-1,RS485_HandlerCb);  
         while(1)
         {
-            HAL_Delay(1000);//延时1秒，1钟更新一次
-            /*转成字符串*/
-            PM2P5_Val = (SensorData[0]<<8) + SensorData[1];
-            sprintf((void*)&SendBuffer[0],"%03d",PM2P5_Val);
-            WiFi_SerialSend(&SendBuffer[0],4);//发送到OneNET
-            printf("传感器数据(ug/m3)==%d\r\n",PM2P5_Val);//调试打印
-        }
-    }
-```
-
-`main.c`->`RS485_HandlerCb()`(回调函数)，定时向PM2.5节点请求数据，有收数据保存到SensorData数组中。最终被传到OneNET平台。
-
-```c
-    void RS485_HandlerCb(void)
-    {
-        static uint8_t state = 0;
-    if(state == 0){//发送请求
-            Rs485_Send(Addr_WiFi,Addr_PM2_5,PM2_5_Get_Conc,0,(void*)0);
-            printf("请求传感器数据\n");
-            state = 1;
-        }
-        else{//检测是否返回数据
-            if(!DataHandling_485(Addr_WiFi)){//是本机期望的485数据处理
-                printf("get data\r\n");
-                SensorData[0] = Rx_Stack.Data[0];
-                SensorData[1] = Rx_Stack.Data[1];          
+            if(USART2_RX_STA){
+                HAL_Delay(50);//延时50ms等待接收完成
+                printf("get cmd=%s\r\n",USART2_RX_BUF);//调试打印
+                if(strstr((void*)&USART2_RX_BUF[0],(const char*)"$BEEP,1")){//继电器1 打开
+                    Beep_Ctrl = 1;//打开继电器控制命令
+                    Rs485_Send(Addr_WiFi,Addr_BEEP,BEEP_CTRL,1,(void*)&Beep_Ctrl);//发送命令控制继电器1             
+                }
+                else if(strstr((void*)&USART2_RX_BUF[0],(const char*)"$BEEP,0")){//继电器1 关闭
+                    Beep_Ctrl = 0;//关闭继电器控制命令
+                    Rs485_Send(Addr_WiFi,Addr_BEEP,BEEP_CTRL,1,(void*)&Beep_Ctrl);//发送命令控制继电器1             
+                }            
+                USART2_RX_STA = 0;//清空串口接收计数器
+                memset((void*)USART2_RX_BUF,0,USART2_REC_LEN);//清空接收缓冲
             }
-            state = 0;
         }
     }
 ```
@@ -350,9 +338,8 @@ D:\> NODE-RED  //启动本机nodered服务
 
 
 
-
 <!-- ------------------------ -->
 ## 实验思考
 
 
-1. 编写代码实现在NODERED平台显示最近三次的测量平均值。
+1. 在NODERED平台增加一个按键控制蜂鸣器以另一种频率响起。

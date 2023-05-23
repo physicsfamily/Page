@@ -1,23 +1,24 @@
 ---
 layout: post
-title:  "061_STM32组合实验_OneNET平台控制蜂鸣器实验"
+title:  "057_STM32组合实验_NODERED平台显示人体红外实验"
 date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# STM32组合实验_NODERED平台控制蜂鸣器实验
+# STM32组合实验_NODERED平台显示人体红外实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
-- NODERED平台创建按键应用。
-- 在NODERED平台控制蜂鸣器响起或者停止。
+- 使用485总线读取人体红外数据；
+- 通过WiFi模块将人体红外数据传输到NODERED平台。
   
 <!-- ------------------------ -->
 ## 实验目的
 
 
-- NODERED平台按键应用创建。
+- 将传感器数据上传到NODERED平台。
+- NODERED平台应用创建。
 
 <!-- ------------------------ -->
 ## 实验环境
@@ -30,11 +31,11 @@ categories: getting started
 | 1 | 电脑 | 1台 | 系统Windows7及以上 |
 | 2 | STM32底座模块 | 2个 |  · |
 | 3 | Wifi模块 | 1个 | ·  |
-| 4 | 蜂鸣器模块 | 1个 | ·  |
+| 4 | 人体红外模块 | 1个 | ·  |
 | 5 | ST-Link下载器 | 1个 | · |
 | 6 | ST-Link下载器连接线 | 1根 |  · |
 | 7 | USB线| 1根 | ·  |
-| 8 | OneNET平台控制蜂鸣器实验代码 | 1份 | ·  |
+| 8 | 人体红外传感器数据采集实验代码 | 1份 | ·  |
 
 ### 实验所需软件
 
@@ -58,10 +59,9 @@ ST-Link下载器 & ST-Link下载器连接线
 
 ![WiFi模块](/assets/BASE_CC2530/65.png)
 
-[蜂鸣器模块](https://docs.stepiot.com/docs/aiot018)
+[人体红外模块](https://docs.stepiot.com/docs/aiot008)
 
-![蜂鸣器模块](/assets/CC2530_NODERED/BEEP.png)
-
+![人体红外模块](/assets/STM32_OneNET/30.png)
 
 USB线
 
@@ -110,9 +110,9 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 ## 实验步骤
 
    
-① 将WiFi模块、蜂鸣器模块分别安装在STM32底座上，ST_LINK连接WIFI节点连接与电脑，如下图所示：
+① 将WiFi模块、人体红外模块分别安装在STM32底座上，ST_LINK连接WIFI节点连接与电脑，如下图所示：
 
-![模块组装](/assets/STM32_OneNET/59.jpg)
+![模块组装](/assets/STM32_OneNET/31.jpg)
 
     
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
@@ -120,7 +120,7 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 ![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
-   
+
 ```c
 $ cd workspace
 ```
@@ -158,20 +158,20 @@ D:\> NODE-RED  //启动本机nodered服务
 ![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
 
 ### 部署本次试验NODE RED流程
-![NODERED部署](/assets/CC2530_NODERED/NODERED-BEEP.png)
+![NODERED部署](/assets/CC2530_NODERED/NODERED-IAIR.png)
 
 ### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
-![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI1.png)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI5.png)
 
-⑥ 打开` Keil uVision5 `(即安装的MDK5)工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\9.NODERED平台控制蜂鸣器实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
+⑧ 打开` Keil uVision5 `(即安装的MDK5)工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\5.NODERED平台显示人体红外实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
    
 ![打开工程](/assets/STM32/39.jpg)
 
-![选择文件](/assets/STM32_OneNET/60.jpg)
+![选择文件](/assets/STM32_OneNET/32.png)
 
-⑦ 打WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
+⑨ 打WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
    
-![修改WIFI信息](/assets/STM32_NODERED/SET-IP.png)  
+![修改WIFI信息](/assets/STM32_NODERED/SET-IP.png) 
 
 ⑧ 点击 `Rebuild` 重新编译。如下图：
 
@@ -187,11 +187,11 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![下载成功](/assets/STM32/41.jpg)
 
-⑪ 将STLink连接到蜂鸣器节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\9.NODERED平台控制蜂鸣器实验\蜂鸣器模块程序\USER\beep.uvprojx` 并打开。
+⑪ 将STLink连接到人体红外节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 OneNET实验\5.OneNET平台显示人体红外实验\人体红外传感器模块程序\USER\PIR.uvprojx` 并打开。
    
 ![打开工程](/assets/STM32/39.jpg)
 
-![选择文件](/assets/STM32_OneNET/61.jpg)
+![选择文件](/assets/STM32_OneNET/33.jpg)
 
 ⑫ 点击 `Rebuild` 重新编译。如下图：
 
@@ -207,16 +207,15 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![下载成功](/assets/STM32/41.jpg)
 
-⑮ 下载完成后，将蜂鸣器节点与WIFI节点拼接，并将USB线与任意底座进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
+⑮ 下载完成后，将人体红外节点与WIFI节点拼接，并将USB线与任意底座进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
 ⑯ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
 ![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
+⑰ NODERED平台显示实验数据。(脚本位于：`基于STM32 NODERED实验\5.NODERED平台显示人体红外实验\人体感应.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-⑰ NODERED平台控制。(流程位于：`基于STM32 NODERED实验\9.OneNET平台控制蜂鸣器实验\蜂鸣器控制.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
-
-![OneNET平台控制](/assets/CC2530_NODERED/NODERED-UI1.png)
+![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI5-1.png) 
 
 
 
@@ -224,57 +223,50 @@ D:\> NODE-RED  //启动本机nodered服务
 ## 代码讲解
 
 
-### 蜂鸣器节点
+### 人体红外节点
 
-① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
+① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。PM2.5的数据通过ADC采样获得，ADC.c是其驱动程序。
 
-![代码目录结构](/assets/STM32_OneNET/64.jpg) 
+![代码目录结构](/assets/STM32_OneNET/35.jpg) 
 
-② main.c中对串口、蜂鸣器模块、RS485协议进行初始化。初始化完成后。调用函数`DataHandling_485()`获取控制指令，依控制指令控制蜂鸣器打开或关闭。
+② `main.c`中对串口、定时器器、人体红外模块、RS485协议进行初始化。初始化完成后。调用`PIR_Read()`读取传感器探头反馈的人体红外信号。
 
 ```c
-    int main(void)
+   int main(void)
     {
-        HAL_Init();//初始化HAL库  
-        Beep_Init();//初始化蜂鸣
-        Rs485_Init();//初始化485
-        UART1_Init(115200);//初始化串口1,用于485通信
-        USART3_Init(115200);
-        printf("this usart3 print\r\n");
+        HAL_Init();//初始化HAL库 
+        PIR_Init();//初始化人体红外
+        UART1_Init(115200);//初始化串口1
+        USART3_Init(115200);//用于调试
+        Rs485_Init();//初始化485  
+        printf("this is usart3 print\r\n");
+        /*中断频率10HZ 关联回调函数RS485_HandlerCb*/
+        TIM3_Init(10000-1,640-1,RS485_HandlerCb);    
         while(1)
         {
-            if(!DataHandling_485(Addr_BEEP)){//是发给本机的指令
-                printf("get data\r\n"); 
-                BeepCmd = Rx_Stack.Data[0];//控制指令
-                if(BeepCmd){
-                    BeepState = 1;//打开蜂鸣器
-                }
-                else{
-                    BeepState = 0;//关闭蜂鸣器                
-                }
+            if(PIR_Read())
+            {//读到人体红外
+                PIR_Sta[0] = 1;
             }
-
-            if(BeepState){
-                HAL_Delay(1);//延时1ms，蜂鸣器的声音频率为500HZ
-                BEEP_IO_TOGGLE();//蜂鸣器IO电平反转
-            }
-            else{
-                BEEP_IO_LOW();//停止蜂鸣器
+            else
+            {//没有读到人体红外
+                PIR_Sta[0] = 0;
             }
         }
     }
 ```
 
-蜂鸣器是无源蜂鸣器，代码采用1ms切换一次蜂鸣器电平的方式，输出一个500Hz的方波控制蜂鸣器响起。当BeepState=0,时无方波输出，蜂鸣器不响，BeepState = 1,有500Hz方波输出蜂鸣器响起。
+`main.c`->`RS485_HandlerCb()`(回调函数)，处理WIFI节点的请求，调用函数`Rs485_Send()`返回传感器数据。
 
 ```c
-    if(BeepState){
-        HAL_Delay(1);//延时1ms，蜂鸣器的声音频率为500HZ
-        BEEP_IO_TOGGLE();//蜂鸣器IO电平反转
+    void RS485_HandlerCb(void)
+    {
+        if(!DataHandling_485(Addr_PIR))//收到请求
+        {
+            printf("get requery\r\n");//串口打印
+            Rs485_Send(Addr_PIR,Addr_WiFi,PIR_State,1,PIR_Sta);//发送人体红外状态
         }
-    else{
-        BEEP_IO_LOW();//停止蜂鸣器
-        }
+    }
 ```
 
 
@@ -282,9 +274,9 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
 
-![代码目录结构](/assets/STM32_OneNET/65.jpg) 
+![代码目录结构](/assets/STM32_OneNET/36.jpg) 
 
-② main.c 中对串口、RS485协议进行初始化，并WIFI初始化并连接OneNET平台。初始化完成后，接收OnenNET平台的指令($BEEP,1->蜂鸣器响起、$BEEP,0-> 蜂鸣器停止)，根据平台指令控制蜂鸣器节点蜂鸣器响起/关闭。控制命令通过调用Rs485_Send()进行发送。
+② `main.c`中对串口、RS485协议进行初始化，并WIFI初始化并连接OneNET平台。初始化完成后，定时请求传感器数据。每1秒将传感器传送到OneNET平台。
 
 ```c
     int main(void)
@@ -296,22 +288,38 @@ D:\> NODE-RED  //启动本机nodered服务
         USART3_Init(115200);//调试串口   
         printf("this usart3 print\r\n");
         WiFi_Init();//初始化WiFi，并连接OneNET
+    
+        /*中断频率2HZ 关联回调函数RS485_HandlerCb*/
+        TIM3_Init(10000-1,3200-1,RS485_HandlerCb);  
         while(1)
         {
-            if(USART2_RX_STA){
-                HAL_Delay(50);//延时50ms等待接收完成
-                printf("get cmd=%s\r\n",USART2_RX_BUF);//调试打印
-                if(strstr((void*)&USART2_RX_BUF[0],(const char*)"$BEEP,1")){//继电器1 打开
-                    Beep_Ctrl = 1;//打开继电器控制命令
-                    Rs485_Send(Addr_WiFi,Addr_BEEP,BEEP_CTRL,1,(void*)&Beep_Ctrl);//发送命令控制继电器1             
-                }
-                else if(strstr((void*)&USART2_RX_BUF[0],(const char*)"$BEEP,0")){//继电器1 关闭
-                    Beep_Ctrl = 0;//关闭继电器控制命令
-                    Rs485_Send(Addr_WiFi,Addr_BEEP,BEEP_CTRL,1,(void*)&Beep_Ctrl);//发送命令控制继电器1             
-                }            
-                USART2_RX_STA = 0;//清空串口接收计数器
-                memset((void*)USART2_RX_BUF,0,USART2_REC_LEN);//清空接收缓冲
+            HAL_Delay(1000);//延时1秒，1钟更新一次
+            /*转成字符串*/
+            PIR = SensorData[0];
+            sprintf((void*)&SendBuffer[0],"%d",PIR);
+            WiFi_SerialSend(&SendBuffer[0],4);//发送到OneNET
+            printf("传感器数据==%d\r\n",PIR);//调试打印
+        }
+    }
+```
+
+`main.c`->`RS485_HandlerCb()`(回调函数)，定时向人体红外节点请求数据，有收数据保存到SensorData数组中。最终被传到OneNET平台。
+
+```c
+    void RS485_HandlerCb(void)
+    {
+        static uint8_t state = 0;
+        if(state == 0){//发送请求
+            Rs485_Send(Addr_WiFi,Addr_PIR,PIR_Get_State,0,(void*)0);
+            printf("请求传感器数据\n");
+            state = 1;
             }
+        else{//检测是否返回数据
+            if(!DataHandling_485(Addr_WiFi)){	//是本机期望的485数据处理
+                printf("get data\r\n");
+                SensorData[0] = Rx_Stack.Data[0];     
+            }
+                state = 0;
         }
     }
 ```
@@ -342,4 +350,4 @@ D:\> NODE-RED  //启动本机nodered服务
 ## 实验思考
 
 
-1. 在NODERED平台增加一个按键控制蜂鸣器以另一种频率响起。
+1. 编写代码10秒内检测到2次以上才向NODERED平台发送数据。

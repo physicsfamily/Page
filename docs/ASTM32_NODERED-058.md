@@ -1,17 +1,17 @@
 ---
 layout: post
-title:  "060_STM32组合实验_OneNET平台控制风扇实验"
+title:  "058_STM32组合实验_NODERED平台控制LED灯实验"
 date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# STM32组合实验_NODERED平台控制风扇实验
+# STM32组合实验_NODERED平台控制LED灯实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
 - NODERED平台创建按键应用。
-- 在NODERED平台控制风扇转运或者停止。
+- 在NODERED平台控制LED模块上的LED1亮灭。
   
 <!-- ------------------------ -->
 ## 实验目的
@@ -30,11 +30,11 @@ categories: getting started
 | 1 | 电脑 | 1台 | 系统Windows7及以上 |
 | 2 | STM32底座模块 | 2个 |  · |
 | 3 | Wifi模块 | 1个 | ·  |
-| 4 | 风扇模块 | 1个 | ·  |
+| 4 | LED模块 | 1个 | ·  |
 | 5 | ST-Link下载器 | 1个 | · |
 | 6 | ST-Link下载器连接线 | 1根 |  · |
 | 7 | USB线| 1根 | ·  |
-| 8 | OneNET平台控制风扇实验代码 | 1份 | ·  |
+| 8 | LED模块数据采集实验代码 | 1份 | ·  |
 
 ### 实验所需软件
 
@@ -58,9 +58,9 @@ ST-Link下载器 & ST-Link下载器连接线
 
 ![WiFi模块](/assets/BASE_CC2530/65.png)
 
-[风扇模块](https://docs.stepiot.com/docs/aiot015)
+[LED模块](https://docs.stepiot.com/docs/aiot001)
 
-![风扇模块](/assets/STM32_OneNET/51.png)
+![LED模块](/assets/STM32_OneNET/37.png)
 
 USB线
 
@@ -109,9 +109,9 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 ## 实验步骤
 
    
-① 将WiFi模块、风扇模块分别安装在STM32底座上，ST_LINK连接WIFI节点连接与电脑，如下图所示：
+① 将WiFi模块、LED模块分别安装在STM32底座上，ST_LINK连接WIFI节点连接与电脑，如下图所示：
 
-![模块组装](/assets/STM32_OneNET/52.jpg)
+![模块组装](/assets/STM32_OneNET/38.jpg)
 
     
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
@@ -157,26 +157,26 @@ D:\> NODE-RED  //启动本机nodered服务
 ![NODERED导入3](/assets/CC2530_NODERED/NODERED-INPUT3.png)
 
 ### 部署本次试验NODE RED流程
-![NODERED部署](/assets/CC2530_NODERED/NODERED-FAN.png)
+![NODERED部署](/assets/CC2530_NODERED/NODERED-LED.png)
 
 ### 打开本次试验的UI界面(输入地址127.0.0.1:1880/ui)
-![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI2.png)
+![NODERED图像界面](/assets/CC2530_NODERED/NODERED-UI4.png)
 
-⑦ 打开` Keil uVision5 `(即安装的MDK5)工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 OneNET实验\8.OneNET平台控制风扇实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
+⑧ 打开` Keil uVision5 `(即安装的MDK5)工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\6.NODERED平台控制LED灯实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
    
 ![打开工程](/assets/STM32/39.jpg)
 
-![选择文件](/assets/STM32_OneNET/53.jpg)
+![选择文件](/assets/STM32_OneNET/39.jpg)
 
-⑧ 打WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
+⑨ 打WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
    
-![修改WIFI信息](/assets/STM32_NODERED/SET-IP.png)  
+![修改WIFI信息](/assets/STM32_NODERED/SET-IP.png)    
 
-点击 `Rebuild` 重新编译。如下图：
+ 点击 `Rebuild` 重新编译。如下图：
 
 ![重新编译工程](/assets/STM32/16.jpg)
 
-⑨ 编译成功，如下图：
+ 编译成功，如下图：
 
 ![编译成功](/assets/STM32/17.jpg)
 
@@ -186,11 +186,11 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![下载成功](/assets/STM32/41.jpg)
 
-⑪ 将STLink连接到风扇节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\8.NODERED平台控制风扇实验\风扇模块程序\USER\Fan.uvprojx` 并打开。
+⑪ 将STLink连接到LED节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32 NODERED实验\6.NODERED平台控制LED灯实验\LED模块程序\USER\LED.uvprojx` 并打开。
    
 ![打开工程](/assets/STM32/39.jpg)
 
-![选择文件](/assets/STM32_OneNET/54.jpg)
+![选择文件](/assets/STM32_OneNET/40.jpg)
 
 ⑫ 点击 `Rebuild` 重新编译。如下图：
 
@@ -206,15 +206,15 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![下载成功](/assets/STM32/41.jpg)
 
-⑮ 下载完成后，将风扇节点与WIFI节点拼接，并将USB线与任意底座进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
+⑮ 下载完成后，将LED节点与WIFI节点拼接，并将USB线与任意底座进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
 ⑯ 观察WIFI模块状态灯---长亮表示已经连接到路由器：
 
 ![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑰ NODERED平台控制。(脚本位于：`基于STM32 OneNET实验\8.OneNET平台控制风扇实验\风扇控制.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+⑰ NODERED平台控制。(脚本位于：`基于STM32 NODERED实验\6.NODERED平台控制LED灯实验\LED控制.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
 
-![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI2.png) 
+![NODERED平台控制](/assets/CC2530_NODERED/NODERED-UI4.png)
 
 
 
@@ -222,35 +222,34 @@ D:\> NODE-RED  //启动本机nodered服务
 ## 代码讲解
 
 
-### 风扇节点
+### LED节点
 
-① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
+① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。PM2.5的数据通过ADC采样获得，ADC.c是其驱动程序。
 
-![代码目录结构](/assets/STM32_OneNET/57.jpg) 
+![代码目录结构](/assets/STM32_OneNET/43.jpg) 
 
-② main.c中对串口、风扇模块、RS485协议进行初始化。初始化完成后。调用函数`DataHandling_485()`获取控制指令，依控制指令控制风扇开/关。调用`PWM_SetTIM4Compare2()`设置风扇转运或者停止。
+② main.c中对串口、LED模块、RS485协议进行初始化。初始化完成后。调用函数`DataHandling_485()`获取控制指令，依控制指令控制LED1亮/灭。
 
 ```c
     int main(void)
     {
         HAL_Init();//初始化HAL库  
-        /*PWM占空比100%~0%,分别对应，2000~0*/
-        TIM4_PWM_Init(64-1,2000-1);//初始化定时器4输出PWM信号
+        LED_Init();//初始化模块
         Rs485_Init();//初始化485
         UART1_Init(115200);//初始化串口1,用于485通信
-        USART3_Init(115200);
+        USART3_Init(115200);//用于调试
         printf("this usart3 print\r\n");
         while(1)
         {
-            HAL_Delay(10);//延时10ms每10ms检测一次指令
-            if(!DataHandling_485(Addr_Fan)){//是发给本机的指令
-                printf("get data\r\n"); 
-                RelayState = Rx_Stack.Data[0];//控制指令
-                if(RelayState){
-                    PWM_SetTIM4Compare2(2000);//风扇打开 
+            HAL_Delay(100);//延时100ms,每一100ms检测一次。
+            if(!DataHandling_485(Addr_LED)){//是发给本机的命令
+                printf("get cmd\r\n=%d\r\n",Rx_Stack.Data[0]);//调试打印
+                LED_State = Rx_Stack.Data[0];//LED1灯命令
+                if(LED_State){
+                    LED1_ON(); //LED1 亮
                 }
                 else{
-                    PWM_SetTIM4Compare2(0);//风扇关闭                
+                    LED1_OFF();//LED2 灭                 
                 }
             }        
         }
@@ -262,9 +261,9 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ① 程序目录结构，源代码文件如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
 
-![代码目录结构](/assets/STM32_OneNET/58.jpg) 
+![代码目录结构](/assets/STM32_OneNET/44.jpg) 
 
-② main.c中对串口、RS485协议进行初始化，并WIFI初始化并连接OneNET平台。初始化完成后，接收OnenNET平台的指令($FAN,1->风扇打开、$FAN,0->风扇关闭)，根据平台指令控制风扇节点的风扇打开或者关闭。控制命令通过调用`Rs485_Send()`进行发送。
+② main.c中对串口、RS485协议进行初始化，并WIFI初始化并连接OneNET平台。初始化完成后，接收OnenNET平台的指令($LED1,1->LED1亮、$LED1,0-> LED1灭)，根据平台指令控制LED节点的LED1亮灭。控制命令通过调用`Rs485_Send()`进行发送。
 
 ```c
     int main(void)
@@ -281,13 +280,13 @@ D:\> NODE-RED  //启动本机nodered服务
             if(USART2_RX_STA){
                 HAL_Delay(50);//延时50ms等待接收完成
                 printf("get cmd=%s\r\n",USART2_RX_BUF);//调试打印
-                if(strstr((void*)&USART2_RX_BUF[0],(const char*)"$FAN,1")){//风扇 打开
-                    FAN_Ctrl = 1;//打开风扇控制命令
-                    Rs485_Send(Addr_WiFi,Addr_Fan,FAN_ON,1,(void*)&FAN_Ctrl);//发送命令控制风扇             
+                if(strstr((void*)&USART2_RX_BUF[0],(const char*)"$LED1,1")){//LED1 亮
+                    LED_Ctrl = 1;//灯亮控制命令
+                    Rs485_Send(Addr_WiFi,Addr_LED,LED_Control,1,(void*)&LED_Ctrl);//发送命令控制LED1              
                 }
-                else if(strstr((void*)&USART2_RX_BUF[0],(const char*)"$FAN,0")){//风扇 关闭
-                    FAN_Ctrl = 0;//关闭风扇控制命令
-                    Rs485_Send(Addr_WiFi,Addr_Fan,FAN_OFF,1,(void*)&FAN_Ctrl);//发送命令控制风扇             
+                else if(strstr((void*)&USART2_RX_BUF[0],(const char*)"$LED1,0")){//LED1 灭
+                    LED_Ctrl = 0;//灯灭控制命令
+                    Rs485_Send(Addr_WiFi,Addr_LED,LED_Control,1,(void*)&LED_Ctrl);//发送命令控制LED1                
                 }            
                 USART2_RX_STA = 0;//清空串口接收计数器
                 memset((void*)USART2_RX_BUF,0,USART2_REC_LEN);//清空接收缓冲
@@ -322,4 +321,5 @@ D:\> NODE-RED  //启动本机nodered服务
 ## 实验思考
 
 
-1. 在NODERED平台增加一个按键控制风扇中速转运(能观察到转速比全速转动慢即可)。
+1. 在NODERED平台增加一个按键控制LED的整体亮灭。
+
