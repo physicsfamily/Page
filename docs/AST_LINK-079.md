@@ -9,7 +9,7 @@ categories: getting started
 <!-- ------------------------ -->
 
 ## ST_LINK驱动安装
-Duration: 8
+
 
 1. 进入[ST官网](https://my.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-link009.license=1607632854403.product=STSW-LINK009.version=2.0.1.html)下载ST-LINK驱动。
    

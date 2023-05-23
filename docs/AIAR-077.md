@@ -8,7 +8,7 @@ categories: getting started
 # IAR 驱动安装
 <!-- ------------------------ -->
 ## IAR 简介
-Duration: 5
+
 
 IAR Embedded Workbench（简称EW）的C/C++交叉编译器和调试器是今天世界最完整的和最容易使用的专业嵌入式应用开发工具。EW对不同的微处理器提供一样直观用户界面。EW现在已经支持35种以上的8位/16位/32位ARM的微处理器结构。EW包括：嵌入式C/C++优化编译器、汇编器、连接定位器和库管处理器结构。
 
@@ -27,13 +27,13 @@ EWARM是IAR目前发展很快的产品，已经支持 ARM7/9/10/11 XSCALE，�
 
 <!-- ------------------------ -->
 ## IAR 下载
-Duration: 5
+
 
 请至[IAR](https://www.iar.com/iar-embedded-workbench/#!?architecture=8051)官网下载安装包。
 
 <!-- ------------------------ -->
 ## IAR 安装
-Duration: 15
+
 
 1. 打开下载好的安装文件`EW8051-EV-8103-Web.exe`，单击鼠标右键，以管理员身份运行，单击左键运行：
 

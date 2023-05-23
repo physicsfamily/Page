@@ -8,7 +8,7 @@ categories: getting started
 # CC Debugger 驱动安装
 <!-- ------------------------ -->
 ## CC Debugger 驱动安装
-Duration: 5
+
 
 1. 将`CC Debugger`插入电脑。
    
