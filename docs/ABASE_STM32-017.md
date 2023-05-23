@@ -48,15 +48,15 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [超声波模块](https://docs.stepiot.com/docs/aiot006)
 
-![超声波模块](assets/BASE_STM32/8.png)
+![超声波模块](/assets/BASE_STM32/8.png)
 
 
 <!-- ------------------------ -->
@@ -127,13 +127,13 @@ T为实际温度(℃)。
 
 超声波时序图
 
-![超声波时序图](assets/BASE_STM32/9.png)
+![超声波时序图](/assets/BASE_STM32/9.png)
 
 采用IO触发测距，给至少10us的高电平信号；模块自动发送8个40khz 的方波，自动检测是否有信号返回；有信号返回，通过 IO 输出一高电平，高电平持续的时间就是超声波从发射到返回的时间。测试距离=(高电平时间*声速(340M/S))/2；
 
 超声模块原理图
 
-![超声模块原理图](assets/BASE_STM32/10.png)
+![超声模块原理图](/assets/BASE_STM32/10.png)
 
 <!-- ------------------------ -->
 
@@ -142,11 +142,11 @@ Duration: 15
 
 ① 将超声波模块安装在STM32底座上，ST_LINK连接电脑与STM32底座，如下图所示：
   
-![安装模块](assets/BASE_STM32/43.png)
+![安装模块](/assets/BASE_STM32/43.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -162,32 +162,32 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑤ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\5.超声波模块\超声波模块程序\USER\HC-SR04.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择文件](assets/BASE_STM32/44.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择文件](/assets/BASE_STM32/44.jpg)
 
 ⑥ 工程启动后，点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑦ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑧ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑨ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
 ⑩ 在声波探头正前方移动一物体，观察数据管的显示，数码管显示的单位为cm。由于探头有盲区，当前探头距离遮挡物小于2cm时测量的结果并不准确。
 
-![测距](assets/BASE_STM32/45.png)
+![测距](/assets/BASE_STM32/45.png)
     
 <!-- ------------------------ -->
 ## 代码讲解
@@ -195,7 +195,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。  
 
-![程序目录结构](assets/BASE_STM32/127.jpg)
+![程序目录结构](/assets/BASE_STM32/127.jpg)
 
 ② main.c中对TM1640、HC_SR04超声波探头模块、定时器进行初始化。其中定时器为超声波测距提供了时间基准。TM1640驱动数码管显示。
 

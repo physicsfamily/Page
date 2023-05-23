@@ -36,11 +36,11 @@ Duration: 4
 | 8 | LORA有源模块实验代码 | 1份 | ·  |
 | 9 | 433短天线  | 2根 | ·  |
 
-![STM32底座、电池盒](assets/STM32-LORA/1.png)
+![STM32底座、电池盒](/assets/STM32-LORA/1.png)
 图7.3.1 STM32底座、电池盒
-![实验模块](assets/STM32-LORA/2.png)
+![实验模块](/assets/STM32-LORA/2.png)
 图7.3.2 实验模块
-![STLink仿真器](assets/STM32-LORA/3.png)
+![STLink仿真器](/assets/STM32-LORA/3.png)
 图7.3.3 STLink仿真器
 ### 实验要求
 
@@ -64,11 +64,11 @@ LoRa是semtech公司创建的低功耗局域网无线标准，低功耗一般很
 
 LoRa和LoRaWan很容易混淆。
 
-![LoRaWan协议栈](assets/STM32-LORA/4.png)
+![LoRaWan协议栈](/assets/STM32-LORA/4.png)
 图 7.3.4 LoRaWan协议栈
 
 上图可以看出，LoRa是LoRaWan的一个子集，LoRa仅仅包括物理层定义，LoRaWan还包括了链路层。
-![LoRaWan网络架构](assets/STM32-LORA/5.png)
+![LoRaWan网络架构](/assets/STM32-LORA/5.png)
 图 7.3.5 LoRaWan网络架构
 
 这张图片是LoRaWan的网络架构图，左边是各种应用传感器，包括智能水表，智能垃圾桶，物流跟踪，自动贩卖机等，它右边是LoRaWan网关，网关转换协议，把LoRa传感器的数据转换为TCP/IP的格式发送到Internet上。LoRa网关用于远距离星型架构，是多信道、多调制收发、可多信道同时解调。由于LoRa的特性可以同一信道上同时多信号解调。网关使用不同于终端节点的RF器件，具有更高的容量，作为一个透明网桥在终端设备和中心网络服务器间中继消息。网关通过标准IP连接连接到网络服务器，终端设备使用单播的无线通信报文到一个或多个网关。
@@ -77,17 +77,17 @@ LoRa和LoRaWan很容易混淆。
 ### Lora物理帧结构
 
 LoRa的报文分为上行和下行。上行是从传感器到LoRa网关的，下行是LoRa网关到传感器的，仅仅作为回复。
-![上行报文](assets/STM32-LORA/6.png)
+![上行报文](/assets/STM32-LORA/6.png)
 图 7.3.6 上行报文
 
 上图是上行报文，包括一个前导码，包头和包头的CRC值，后面是数据，最后是CRC校验。
 
-![下行报文](assets/STM32-LORA/7.png)
+![下行报文](/assets/STM32-LORA/7.png)
 图 7.3.7 下行报文
 
 ### 软件设计
 
-![数据流向](assets/STM32-LORA/8.png)
+![数据流向](/assets/STM32-LORA/8.png)
 图 7.3.8 数据流向
 
 要完成这个实验需要四个底座，故会有四个子部分代码。
@@ -345,7 +345,7 @@ Duration: 15
    
 ① 将两个LORA有源模块、温湿度模块、TFTLCD模块分别安装在STM32底座上，分成两个节点，如下图7.3.9所示**(注意两个部分要隔离分开)**。
 
-![搭建实验硬件平台](assets/STM32-LORA/9.png)
+![搭建实验硬件平台](/assets/STM32-LORA/9.png)
 
 图 7.3.9 搭建实验硬件平台
 
@@ -355,25 +355,25 @@ Duration: 15
 
 ④ 打开目录：\LORA_Sensor_xfer\SHT20\USER\ 找到SHT20 MDK工程文件，如图7.3.10，双击启动工程。
 
-![启动工程](assets/STM32-LORA/10.png)
+![启动工程](/assets/STM32-LORA/10.png)
 
 图 7.3.10 启动工程
 
 ⑤ 待工程启动完毕，对工程进行编译、下载。如图7.3.11。
 
-![编译、下载](assets/STM32-LORA/11.png)
+![编译、下载](/assets/STM32-LORA/11.png)
 
 图 7.3.12 编译、下载
 
 ⑥ 打开目录：\LORA_Sensor_xfer\LORA_transmitter_STH20\USER 找到 LORA MDK工程文件，如图7.3.13，双击启动工程。
 
-![启动工程文件](assets/STM32-LORA/12.png)
+![启动工程文件](/assets/STM32-LORA/12.png)
 
 图 7.3.13 启动工程文件
 
 ⑦ 待工程启动完毕，修改信道：main.c 第73行，修改宏定义RF_Freqency,如下图7.3.14，要保证接收与其一致，否则不能进行通信。
 
-![修改频率](assets/STM32-LORA/13.png)
+![修改频率](/assets/STM32-LORA/13.png)
 
 图7.3.14 修改频率
 
@@ -381,19 +381,19 @@ Duration: 15
 
 ⑨ 对工程进行编译、下载。如图7.3.15。
 
-![编译并下载程序](assets/STM32-LORA/14.png)
+![编译并下载程序](/assets/STM32-LORA/14.png)
 
 图 7.3.15 编译并下载程序
 
 ⑩ 打开目录：LORA_Sensor_xfer\LORA_receiver_TFT\USER 找到 LORA MDK工程文件，如图7.3.16，双击启动工程。
 
-![启动工程文件](assets/STM32-LORA/15.png)
+![启动工程文件](/assets/STM32-LORA/15.png)
 
 图 7.3.16 启动工程文件
 
 ⑪ 待工程启动完毕，修改信道：main.c 第73行，修改宏定义RF_CHANNEL,如下图，要保证与步骤7设置的信道一致，否则不能进行通信。
 
-![修改频率](assets/STM32-LORA/16.png)
+![修改频率](/assets/STM32-LORA/16.png)
 
 图 7.3.17 修改频率
 
@@ -401,13 +401,13 @@ Duration: 15
 
 ⑬ 对工程进行编译、下载。如图7.3.18。
 
-![编译并下载程序](assets/STM32-LORA/17.png)
+![编译并下载程序](/assets/STM32-LORA/17.png)
 
 图 7.3.18 编译并下载程序
 
 ⑭ 打开目录：LORA_Sensor_xfer\TFT_LCD\USER 找到 LCD MDK工程文件，如图7.3.19，双击启动工程。
 
-![启动工程](assets/STM32-LORA/18.png)
+![启动工程](/assets/STM32-LORA/18.png)
 
 图 7.3.19 启动工程
 
@@ -415,23 +415,23 @@ Duration: 15
 
 ⑯ 对工程进行编译、下载。如图7.3.20。
 
-![编译并下载程序](assets/STM32-LORA/19.png)
+![编译并下载程序](/assets/STM32-LORA/19.png)
 
 图 7.3.20 编译并下载程序
 
 ⑰程序下载完成后，重新上电，对这两个节点分别进行供电，可使用带microUSB接口的USB线供电，也可以使用电池盒。注意 这两个节点要隔离分开。 如下图7.3.21。
 
-![实验结果](assets/STM32-LORA/20.png)
+![实验结果](/assets/STM32-LORA/20.png)
 
 图 7.3.21 实验结果
 
 在TFT显示器模块下，可观察传感器数据如下图7.3.22。
 
-![TFT显示器模块显示传感器数据](assets/STM32-LORA/21.png)
+![TFT显示器模块显示传感器数据](/assets/STM32-LORA/21.png)
 
 图 7.3.22 TFT显示器模块显示传感器数据
 
 将手放置在温湿度传感器芯片上可观察到温度、湿度的变化，用手遮挡照射到光敏电阻的光，可以看到光照值的变化小，手不遮挡时变大。如图7.3.23。
-![温湿传感器传感器位置](assets/STM32-LORA/21.png)
+![温湿传感器传感器位置](/assets/STM32-LORA/21.png)
 
 图 7.3.23 温湿传感器传感器位置

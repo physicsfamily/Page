@@ -47,23 +47,23 @@ Duration: 4
 
 [CC2530底座](https://docs.stepiot.com/docs/aiot017) 
 
-![实验硬件](assets/BASE_CC2530/3.png)
+![实验硬件](/assets/BASE_CC2530/3.png)
 
 [继电器模块](https://docs.stepiot.com/docs/aiot014)
 
-![继电器模块](assets/STM32_OneNET/45.png)
+![继电器模块](/assets/STM32_OneNET/45.png)
 
 [WiFi模块](https://docs.stepiot.com/docs/aiot011)
 
-![WiFi模块](assets/BASE_CC2530/65.png)
+![WiFi模块](/assets/BASE_CC2530/65.png)
 
 CC Debugger 仿真器和连接线
 
-![实验硬件](assets/BASE_CC2530/4.png)
+![实验硬件](/assets/BASE_CC2530/4.png)
 
 USB线
 
-![USB线](assets/CC2530/2.png)
+![USB线](/assets/CC2530/2.png)
 
 
 <!-- ------------------------ -->
@@ -109,7 +109,7 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 
 ### WiFi模块原理图
 
-![WIFI模块硬件电路](assets/CC2530_OneNET/1.png)
+![WIFI模块硬件电路](/assets/CC2530_OneNET/1.png)
 
 <!-- ------------------------ -->
 ## 实验步骤
@@ -117,15 +117,15 @@ Duration: 15
    
 ① 将WIFI模块、继电器模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点底座，如下图所示：
 
-![模块组装](assets/CC2530_OneNET/47.jpg)
+![模块组装](/assets/CC2530_OneNET/47.jpg)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
-![模块组装](assets/CC2530/5.png)
+![模块组装](/assets/CC2530/5.png)
     
 ③ 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ④ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -142,70 +142,70 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`基于CC2530 OneNET实验\7.OneNET平台控制继电器实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
-![打开工程](assets/CC2530/6.jpg)
+![打开工程](/assets/CC2530/6.jpg)
     
-![选择文件](assets/CC2530_OneNET/48.jpg) 
+![选择文件](/assets/CC2530_OneNET/48.jpg) 
 
 ⑦ 待工程启动完毕，修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图：
    
-![修改参数](assets/CC2530_OneNET/4.png)  
+![修改参数](/assets/CC2530_OneNET/4.png)  
 
 ⑧ 设置工程配置为`CoordinatorEB`。
 
-![修改参数](assets/CC2530_OneNET/5.png) 
+![修改参数](/assets/CC2530_OneNET/5.png) 
 
 ⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的OneNET产品ID，设备鉴权信息及脚本名字，修改OneNET接入个人识别码，如下图:
 
-![修改参数](assets/CC2530_OneNET/6.png) 
+![修改参数](/assets/CC2530_OneNET/6.png) 
 
 ⑩ 点击`Make`按钮，重新编译文件，显示没有错误。
 
-![文件编译](assets/CC2530/8.jpg) 
+![文件编译](/assets/CC2530/8.jpg) 
 
 ⑪ 点击`Download and Debug`按钮，将程序下载到模块中。
 
-![下载程序](assets/CC2530/9.jpg)
+![下载程序](/assets/CC2530/9.jpg)
 
-![代码下载成功](assets/CC2530/10.jpg) 
+![代码下载成功](/assets/CC2530/10.jpg) 
 
 ⑫ 点击`X`退出仿真模式。
 
-![退出仿真](assets/CC2530/11.jpg) 
+![退出仿真](/assets/CC2530/11.jpg) 
 
 ⑬ 将CCDebugger连接到终端节点，选择工程的配置为`EndDeviceEB`，如图：
        
-![选择文件](assets/CC2530_OneNET/7.png)  
+![选择文件](/assets/CC2530_OneNET/7.png)  
 
 ⑭ 点击`Make`按钮，重新编译文件，显示没有错误。
    
-![文件编译](assets/CC2530/8.jpg) 
+![文件编译](/assets/CC2530/8.jpg) 
 
 ⑮ 点击`Download and Debug`按钮，将程序下载到模块中。
 
-![下载程序](assets/CC2530/9.jpg) 
+![下载程序](/assets/CC2530/9.jpg) 
 
-![代码下载成功](assets/CC2530/10.jpg) 
+![代码下载成功](/assets/CC2530/10.jpg) 
 
 ⑯ 点击`X`退出仿真模式。
 
-![退出仿真](assets/CC2530/11.jpg) 
+![退出仿真](/assets/CC2530/11.jpg) 
 
 ⑰ 移除`CC Debugger`仿真器，采用USB线供电，接协调器节点的底座。
     
-![USB线供电](assets/CC2530_OneNET/49.png) 
+![USB线供电](/assets/CC2530_OneNET/49.png) 
 
 ⑱ 设置OneNET平台按键开关值(具体操作参考[OneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册)，如下图：
 
-![设置按键开关值](assets/STM32_OneNET/66.png)
+![设置按键开关值](/assets/STM32_OneNET/66.png)
 
 ⑲ OneNET平台显示实验数据。(脚本位于：`基于CC2530 OneNET实验\7.OneNET平台控制继电器实验\WiFi连接OneNET脚本文件\wifisample.lua`)。具体操作参考[oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
 
-![OneNET平台显示](assets/CC2530_OneNET/50.png) 
+![OneNET平台显示](/assets/CC2530_OneNET/50.png) 
 
 
 <!-- ------------------------ -->
@@ -216,7 +216,7 @@ Duration: 15
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![代码目录结构](assets/CC2530_OneNET/51.jpg)
+![代码目录结构](/assets/CC2530_OneNET/51.jpg)
 
 ② `EndDevice.c`->`SampleApp_Init()`函数是应用代码的入口函数，对继电器模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点。
 
@@ -272,7 +272,7 @@ Duration: 15
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![代码目录结构](assets/CC2530_OneNET/52.jpg)
+![代码目录结构](/assets/CC2530_OneNET/52.jpg)
 
 ② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，注册端点。
    

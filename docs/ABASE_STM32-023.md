@@ -54,15 +54,15 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [NB-IoT模块](https://docs.stepiot.com/docs/aiot012)
 
-![NB-IoT模块](assets/BASE_STM32/72.png)
+![NB-IoT模块](/assets/BASE_STM32/72.png)
 
 
 <!-- ------------------------ -->
@@ -101,13 +101,13 @@ NB-IoT是IoT领域一个新兴的技术，支持低功耗设备在广域网的�
 
 ### NB-IoT模块电路图
 
-![NB-IoT模块电路图](assets/BASE_STM32/73.png)
+![NB-IoT模块电路图](/assets/BASE_STM32/73.png)
 
 ### NB-IoT模块介绍（M5310）
 
 M5310 模块是一款工业级的两频段 NB-IoT 无线模块， 其工作频段是 Band 5 或Band 8， 它主要应用于低功耗的数据传输业务， 满足 3gpp Release13 标准。M5310是 LCC 封装的贴片式模块， 30 个管脚，尺寸仅有 19mm×18mm×2.2mm。 M5310 内置 UDP/CoAP 等数据传输协议及扩展的 AT 命令， 模块采用了低功耗技术，电流功耗在深度睡眠模式低至 5uA。模块实物正面图如下图所示：
 
-![NB-IoT模块实物正面图](assets/BASE_STM32/74.png)
+![NB-IoT模块实物正面图](/assets/BASE_STM32/74.png)
 
 <!-- ------------------------ -->
 
@@ -117,11 +117,11 @@ Duration: 15
 ① OneNET平台上创建上应用，参考[oneNET平台应用手册]()注册帐号并创建应用。
    
 ② 将NBIOT卡片安装到NBIOT模块上，NBIOT模块安装天线，然后安装于底座，STLink连接STM32底座与电脑，如下图所示：  
-![安装模块](assets/BASE_STM32/75.png)  
+![安装模块](/assets/BASE_STM32/75.png)  
 
 ③ 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ④ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -138,41 +138,41 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑥ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\11.NB-IOT模块\NB-IoT模块程序\USER\NB-IoT.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择工程](assets/BASE_STM32/76.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择工程](/assets/BASE_STM32/76.jpg)
 
 ⑦ 工程启动后，打开main.c，修改其中的IMEI码，其中IMEI码从模组上读取，然后保存。
 
-![读取IMEI](assets/BASE_STM32/77.png)
+![读取IMEI](/assets/BASE_STM32/77.png)
 
 
 ⑧ 点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑨ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑩ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑪ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上），等待约30s（如果信号差等待时间会更长一些）。
 
 ⑫ 登陆[OneNET平台](https://open.iot.10086.cn/passport/login?redirect_uri=%2Fconsole%2F)，打开产品，待设备上线后，参考[oneNET平台应用手册](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)创建应用。
     
-![成功连接OneNET平台](assets/BASE_STM32/78.png)
+![成功连接OneNET平台](/assets/BASE_STM32/78.png)
 
 ⑬ 创建应用完成后。 点击“应用管理”查看应用中仪表盘的变化。在程序中模拟了一组温湿度参数，传送到平台，如下图：
-![实验结果](assets/BASE_STM32/79.png)
-![实验结果](assets/BASE_STM32/80.png)
+![实验结果](/assets/BASE_STM32/79.png)
+![实验结果](/assets/BASE_STM32/80.png)
 
 
 
@@ -181,7 +181,7 @@ $ git clone https://github.com/aiotcom/eps.git
 Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。  
-![程序目录结构](assets/BASE_STM32/81.jpg)  
+![程序目录结构](/assets/BASE_STM32/81.jpg)  
 
 ② main.c中对串口、NBIOT模组M5310进行初始化,发起OneNET登陆请求。完成登陆后每5秒向OneNET平台发送一次数据。
 

@@ -52,15 +52,15 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [风扇模块](https://docs.stepiot.com/docs/aiot015)
 
-![风扇模块](assets/BASE_STM32/107.png)
+![风扇模块](/assets/BASE_STM32/107.png)
 
 
 <!-- ------------------------ -->
@@ -81,15 +81,15 @@ Duration: 25
 
 PWM是Pulse Width Modulation（脉冲宽度调制）的简称，图3.5.5所展示的是PWM的波形，PWM从波形上看就是一系列周期变化的脉冲波形。
 
-![PWM的波形](assets/BASE_STM32/108.png)
+![PWM的波形](/assets/BASE_STM32/108.png)
 
 所谓的占空比（duty）即Ton脉冲持续的时间与周期T的比值，计算公式如下图所示。
 
-![占空比与频率f计算公式](assets/BASE_STM32/109.png)
+![占空比与频率f计算公式](/assets/BASE_STM32/109.png)
 
 占空比的变化范围可以从0%到100%，当占空为0%时，输出一直为低，当占空为100%时，输出一直为高。在本次的实验中，PWM波通过CC2530的IO口模拟生成，生成PWM的基本原理如下图所示：
 
-![利用IO口模拟生成PWM的基本原理](assets/BASE_STM32/110.png)
+![利用IO口模拟生成PWM的基本原理](/assets/BASE_STM32/110.png)
 
 **霍尔传感器介绍：**
 
@@ -97,13 +97,13 @@ PWM是Pulse Width Modulation（脉冲宽度调制）的简称，图3.5.5所展�
 
 当电机转速加快时，流过线圈的电流势必加大，霍尔电压也会随之增加，所以通过采集电机输出的霍尔电压，就能知道风扇转速。
 
-![霍尔效应示意图](assets/BASE_STM32/111.png)
+![霍尔效应示意图](/assets/BASE_STM32/111.png)
 
 ### 硬件设计
 
 电机的电源V-通过N-MOS管Q1接地，要使电机转动，PWM需输出高电平。当PWM的占空比增大时电机的转速也会随之增大。
 
-![硬件图](assets/BASE_STM32/112.png)
+![硬件图](/assets/BASE_STM32/112.png)
 
 
 <!-- ------------------------ -->
@@ -113,11 +113,11 @@ Duration: 15
 
 ① 将风扇模块安装在STM32底座上，ST_LINK连接电脑与STM32底座，如下图所示：
 
-![安装模块](assets/BASE_STM32/113.png)
+![安装模块](/assets/BASE_STM32/113.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -135,27 +135,27 @@ $ git clone https://github.com/aiotcom/eps.git
 
 如果电脑没有安装 Git 软件，也可以进入此页面[https://github.com/aiotcom/eps]点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：
 
-![下载代码](assets/STM32/47.jpg)
+![下载代码](/assets/STM32/47.jpg)
 
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑤ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\14.风扇模块\风扇模块程序\USER\FAN.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择工程](assets/BASE_STM32/114.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择工程](/assets/BASE_STM32/114.jpg)
 
 ⑥ 点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑦ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑧ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑨ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
@@ -167,7 +167,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/BASE_STM32/115.jpg)
+![程序目录结构](/assets/BASE_STM32/115.jpg)
 
 ② main.c风扇PWM信号初始化。每隔5秒改变一次风扇转速度。
 

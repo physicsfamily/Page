@@ -48,27 +48,27 @@ Duration: 6
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [风扇模块](https://docs.stepiot.com/docs/aiot015)
 
-![风扇模块](assets/STM32_OneNET/51.png)
+![风扇模块](/assets/STM32_OneNET/51.png)
 
 [温湿度模块](https://docs.stepiot.com/docs/aiot004)
 
-![温湿度模块](assets/BASE_STM32/2.png)
+![温湿度模块](/assets/BASE_STM32/2.png)
 
 [LED模块](https://docs.stepiot.com/docs/aiot001)
 
-![LED模块](assets/STM32_OneNET/37.png)
+![LED模块](/assets/STM32_OneNET/37.png)
 
 [OLED模块](https://docs.stepiot.com/docs/aiot003)
 
-![OLED模块](assets/BASE_STM32/67.png)
+![OLED模块](/assets/BASE_STM32/67.png)
 
 <!-- ------------------------ -->
 ## 实验原理
@@ -95,7 +95,7 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 
 每个底座周边都有RS485总线接口，由底座的485信号由MCU的UART信号+MAX3485 485总线转换芯片组成。
 
-![实验底座RS485总线原理](assets/STM32_NodeRED/220.jpg)
+![实验底座RS485总线原理](/assets/STM32_NodeRED/220.jpg)
 
 <!-- ------------------------ -->
 ## 实验步骤
@@ -103,49 +103,49 @@ Duration: 15
 
 1. 将风扇模块、温湿度模块、OLED模块、LED模块分别安装在STM32底座上，确认各个节点，如下图所示，ST_LINK连接OLED节点连接。
 
-    ![搭建实验硬件平台](assets/HomeAutomation/1.png)
+    ![搭建实验硬件平台](/assets/HomeAutomation/1.png)
 
 2. 打开 Keil 5 工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`综合实验\STM32智能家居实验\OLED模块程序\USER\OLED.uvprojx` 并打开。
 
-    ![启动工程](assets/HomeAutomation/2.jpg)
+    ![启动工程](/assets/HomeAutomation/2.jpg)
 
 3. 编译工程，然后将程序下载到OLED节点底座中。
 
-    ![编译并下载程序](assets/STM32_NodeRED/255.png)
+    ![编译并下载程序](/assets/STM32_NodeRED/255.png)
 
 4. 将STLink连接到温湿度节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`综合实验\STM32智能家居实验\温湿度模块程序\USER\SHT20.uvprojx` 并打开。
 
-    ![启动工程](assets/HomeAutomation/3.jpg)
+    ![启动工程](/assets/HomeAutomation/3.jpg)
 
 5. 编译工程，然后将程序下载到温湿度节点底座中。
 
-    ![编译并下载程序](assets/STM32_NodeRED/255.png)
+    ![编译并下载程序](/assets/STM32_NodeRED/255.png)
 
 6. 将STLink连接到LED节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`综合实验\STM32智能家居实验\LED模块程序\USER\LED.uvprojx` 并打开。
 
-    ![启动工程](assets/HomeAutomation/4.jpg)
+    ![启动工程](/assets/HomeAutomation/4.jpg)
 
 7. 编译工程，然后将程序下载到LED节点底座中。
 
-    ![编译并下载程序](assets/STM32_NodeRED/255.png)
+    ![编译并下载程序](/assets/STM32_NodeRED/255.png)
 
 8. 将STLink连接到风扇节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`综合实验\STM32智能家居实验\风扇模块程序\USER\FAN.uvprojx` 并打开。
 
-    ![启动工程](assets/HomeAutomation/5.jpg)
+    ![启动工程](/assets/HomeAutomation/5.jpg)
 
 9. 编译工程，然后将程序下载到风扇节点底座中。
 
-    ![编译并下载程序](assets/STM32_NodeRED/255.png)
+    ![编译并下载程序](/assets/STM32_NodeRED/255.png)
 
 10. 从STM32底座上取下STLink的USB线。各节点拼接，STLink的USB线重新接上(接任意底座)，给设备重新上电。
 
 11. 上电后OLED屏显示传感器数据。
 
-    ![传感器数据](assets/HomeAutomation/6.png)
+    ![传感器数据](/assets/HomeAutomation/6.png)
 
 12. 单击OLED上的按键，选择控制风扇、灯1、灯2、灯3、灯4(灯1、灯2、灯3、灯4指的是LED模块上的四个灯)，选择好后双击OLED的按键进行控制操作。
 
-    ![控制设备](assets/HomeAutomation/7.png)
+    ![控制设备](/assets/HomeAutomation/7.png)
 
 
 <!-- ------------------------ -->
@@ -156,7 +156,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/8.jpg)
+![程序目录结构](/assets/HomeAutomation/8.jpg)
 
 ② main.c中对串口、风扇模块、RS485协议进行初始化。初始化完成后。调用函数DataHandling_485()获取控制指令，依控制指令控制风扇开/关。调用PWM_SetTIM4Compare2()设置风扇转运或者停止。
 
@@ -191,7 +191,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/9.jpg)
+![程序目录结构](/assets/HomeAutomation/9.jpg)
 
 ② main.c中对串口、定时器、温湿度传感器、RS485协议进行初始化。初始化完成后，定时读取传感器数据、显示传感器数据，处理WIFI节点的请求，并返回传感器数据到温湿度节点。
 
@@ -232,7 +232,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/11.jpg)
+![程序目录结构](/assets/HomeAutomation/11.jpg)
 
 ② main.c中对串口、LED模块、RS485协议进行初始化。初始化完成后。调用函数DataHandling_485()获取控制指令，依控制指令调用LED_SetState()控制LED节点LED灯亮/灭。
 
@@ -262,7 +262,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/11.jpg)
+![程序目录结构](/assets/HomeAutomation/11.jpg)
 
 ② main.c中对串口、RS485协议进行初始化，OLED初始化。初始化完成后，定时请求传感器数据，更新数据。检测按键操作根据根据不同的操作实现风扇、LED灯的控制。
 

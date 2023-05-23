@@ -55,19 +55,19 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [WiFi模块](https://docs.stepiot.com/docs/aiot011)
 
-![WiFi模块](assets/BASE_STM32/28.jpg)
+![WiFi模块](/assets/BASE_STM32/28.jpg)
 
 [温湿度模块](https://docs.stepiot.com/docs/aiot004)
 
-![温湿度模块](assets/BASE_STM32/2.png)
+![温湿度模块](/assets/BASE_STM32/2.png)
 
 
 <!-- ------------------------ -->
@@ -101,7 +101,7 @@ AP模式和SP模式对照表
 
 WIFI模块硬件电路
 
-![WIFI模块硬件电路](assets/BASE_STM32/29.png)
+![WIFI模块硬件电路](/assets/BASE_STM32/29.png)
 
 ### 温度传感器工作原理
 
@@ -119,11 +119,11 @@ WIFI模块硬件电路
 
 温湿度传感器基本电路图
 
-![温湿度传感器基本电路图](assets/BASE_STM32/30.png)
+![温湿度传感器基本电路图](/assets/BASE_STM32/30.png)
 
 数码管驱动电路图
 
-![数码管驱动电路图](assets/BASE_STM32/31.png)
+![数码管驱动电路图](/assets/BASE_STM32/31.png)
 
 ### RS485总线标准
 
@@ -147,7 +147,7 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 
 每个底座周边都有RS485总线接口，由底座的485信号由MCU的UART信号+MAX3485 485总线转换芯片组成。
 
-![RS485总线原理](assets/BASE_STM32/32.jpg)
+![RS485总线原理](/assets/BASE_STM32/32.jpg)
 
 
 <!-- ------------------------ -->
@@ -157,11 +157,11 @@ Duration: 15
 
 ① 将WiFi模块、温湿度模块分别安装在STM32底座上，并将2个底座拼接，ST_LINK连接PC机与WiFi节点的STM32底座,如下图所示：
 
-![安装模块](assets/BASE_STM32/62.png)
+![安装模块](/assets/BASE_STM32/62.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -178,57 +178,57 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。  
 
 ⑤ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\10.WIFI模块\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择工程](assets/BASE_STM32/63.png)
+![打开工程](/assets/STM32/39.jpg)
+![选择工程](/assets/BASE_STM32/63.png)
 
 ⑥ 工程启动后，打开WiFi.h文件，修改路由器名称和密码，然后修改OneNET个人识别信息，从左到右分别是“产品ID”、“鉴权信息”、“脚本名称”，然后保存。
 
-![修改WiFi数据](assets/BASE_STM32/64.png)
+![修改WiFi数据](/assets/BASE_STM32/64.png)
 
 *此处需要在oneNET平台进行设置，请参考[oneNET]()平台应用手册进行设置。*
 
 ⑦ 点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑧ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑨ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑩ 将ST_LINK连接到电脑与温湿度节点的STM32底座，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\10.WIFI模块\温湿度模块程序\USER\SHT20.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择工程](assets/BASE_STM32/65.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择工程](/assets/BASE_STM32/65.jpg)
 
 ⑪ 点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑫ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑬ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑭ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
 ⑮ 在OneNET平台上传脚本文件`基于STM32的模块实验\10.WIFI模块\WiFi连接OneNET脚本文件\wifisample.lua`。具体操作参考[oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
 
 ⑯ 在oneNET平台观察实验结果：
-![实验结果](assets/BASE_STM32/66.png)
+![实验结果](/assets/BASE_STM32/66.png)
 
   
 <!-- ------------------------ -->
@@ -236,7 +236,7 @@ $ git clone https://github.com/aiotcom/eps.git
 Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。  
-    ![程序目录结构](assets/BASE_STM32/129.jpg)  
+    ![程序目录结构](/assets/BASE_STM32/129.jpg)  
 
 ② main.c中对串口、WIFI模块、WS2812B全彩灯灯进行初始化。完成初始化后每2秒向OneNET平台发送一次数据。由于WIFI模块采用透传的模式发送，只需将数据发送到串口上就实现数据传到OneNET平台。
 ```c

@@ -48,23 +48,23 @@ Duration: 4
 
 [CC2530底座](https://docs.stepiot.com/docs/aiot017) 
 
-![实验硬件](assets/BASE_CC2530/3.png)
+![实验硬件](/assets/BASE_CC2530/3.png)
 
 CC Debugger 仿真器和连接线
 
-![实验硬件](assets/BASE_CC2530/4.png)
+![实验硬件](/assets/BASE_CC2530/4.png)
 
 [OLED模块](https://docs.stepiot.com/docs/aiot002)
 
-![OLED模块](assets/BASE_CC2530/5.png)
+![OLED模块](/assets/BASE_CC2530/5.png)
 
 [温湿度模块](https://docs.stepiot.com/docs/aiot004)
 
-![温湿度模块](assets/BASE_STM32/2.png)
+![温湿度模块](/assets/BASE_STM32/2.png)
 
 USB线
 
-![USB线](assets/CC2530/2.png)
+![USB线](/assets/CC2530/2.png)
 
 <!-- ------------------------ -->
 ## 实验要求
@@ -90,9 +90,9 @@ Duration: 15
 
 温湿度传感器采用集成化的模块SHT20，主要通过IIC的通信方式进行数据的传输及处理，该芯片性能优异，长期工作也能保持数据稳定。数码管驱动采用TM1640驱动芯片。 TM1640是一种LED(发光二极管显示器)驱动控制专用电路,内部集成有MCU 数字接口、数据锁存器，能有效节省IO。
 
-![温湿度传感器基本电路图](assets/CC2530/55.png)
+![温湿度传感器基本电路图](/assets/CC2530/55.png)
 
-![数码管驱动电路图](assets/CC2530/56.png)
+![数码管驱动电路图](/assets/CC2530/56.png)
 
 
 <!-- ------------------------ -->
@@ -101,15 +101,15 @@ Duration: 15
    
 ① 将OLED模块、温湿度模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点CC2530底座，如下图所示：
 
-![模块组装](assets/CC2530/57.png)
+![模块组装](/assets/CC2530/57.png)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
-![模块组装](assets/CC2530/5.png)
+![模块组装](/assets/CC2530/5.png)
     
 ③ 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ④ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -126,56 +126,56 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`CC2530_BasicRF通信实验\3.温湿度采集实验_basicrf\Display_Node\ide\cc2530_sw_examples.eww` 并打开。
    
-![打开工程](assets/CC2530/6.jpg)
+![打开工程](/assets/CC2530/6.jpg)
     
-![选择文件](assets/CC2530/58.jpg)  
+![选择文件](/assets/CC2530/58.jpg)  
 
 ⑦ 点击`Make`按钮，重新编译文件，显示没有错误。
    
-![文件编译](assets/CC2530/8.jpg) 
+![文件编译](/assets/CC2530/8.jpg) 
 
 ⑧ 点击`Download and Debug`按钮，将程序下载到模块中。
 
-![下载程序](assets/CC2530/9.jpg) 
+![下载程序](/assets/CC2530/9.jpg) 
 
-![代码下载成功](assets/CC2530/10.jpg) 
+![代码下载成功](/assets/CC2530/10.jpg) 
 
 ⑨ 点击`X`退出仿真模式。
 
-![退出仿真](assets/CC2530/11.jpg) 
+![退出仿真](/assets/CC2530/11.jpg) 
 
 ⑩ CCDebugger连接电脑与终端节点底座，轻按CCDebugger复位按键，指示灯变绿，表示连接正常。点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`CC2530_BasicRF通信实验\3.温湿度采集实验_basicrf\Tempareture_Node\ide\cc2530_sw_examples.eww` 并打开。
    
-![打开工程](assets/CC2530/6.jpg)
+![打开工程](/assets/CC2530/6.jpg)
     
-![选择文件](assets/CC2530/60.jpg)  
+![选择文件](/assets/CC2530/60.jpg)  
 
 ⑪ 点击`Make`按钮，重新编译文件，显示没有错误。
    
-![文件编译](assets/CC2530/8.jpg) 
+![文件编译](/assets/CC2530/8.jpg) 
 
 ⑫ 点击`Download and Debug`按钮，将程序下载到模块中。
 
-![下载程序](assets/CC2530/9.jpg) 
+![下载程序](/assets/CC2530/9.jpg) 
 
-![代码下载成功](assets/CC2530/10.jpg) 
+![代码下载成功](/assets/CC2530/10.jpg) 
 
 ⑬ 点击`X`退出仿真模式。
 
-![退出仿真](assets/CC2530/11.jpg) 
+![退出仿真](/assets/CC2530/11.jpg) 
 
 ⑭ 移除`CC Debugger`仿真器，采用USB线供电（接任意底座），底座拼接。
     
-![退出仿真](assets/CC2530/62.png) 
+![退出仿真](/assets/CC2530/62.png) 
 
 ⑮ OLED屏显示数据：
 
-![显示屏显示](assets/CC2530/63.png) 
+![显示屏显示](/assets/CC2530/63.png) 
 
 <!-- ------------------------ -->
 ## 代码讲解
@@ -185,7 +185,7 @@ Duration: 15
 
 ① 程序目录结构，源代码文件如下图。其中无线通信为官方提供源代码库。能够掌握其关键API函数即可。
 
-![代码目录结构](assets/CC2530/64.jpg) 
+![代码目录结构](/assets/CC2530/64.jpg) 
 
 ② main.c代码对温湿度模块初始化、无线RF层代码初始化、初始化完成后，调用SHT20_Node()函数，定时向协议器发送温湿度数据。
 
@@ -232,7 +232,7 @@ SHT20_Node()函数中调用SHT2x_GetTempHumi()，获取温度度，调用basicRf
 
 ① 程序目录结构，源代码文件如下图。其中无线通信为官方提供源代码库。能够掌握其关键API函数即可。
 
-![代码目录结构](assets/CC2530/65.jpg) 
+![代码目录结构](/assets/CC2530/65.jpg) 
 
 ② main.c代码对初始化OLED屏、无线RF层代码初始化、初始化完成后，OLED屏开机界面，调用Coordinator_Node ()函数，接收无线数码并显示数据。
       

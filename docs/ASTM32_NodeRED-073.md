@@ -49,15 +49,15 @@ Duration: 6
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [WiFi模块](https://docs.stepiot.com/docs/aiot011)
 
-![WiFi模块](assets/BASE_CC2530/65.png)
+![WiFi模块](/assets/BASE_CC2530/65.png)
 
 [蜂鸣器模块](https://docs.stepiot.com/docs/aiot018)
 
@@ -81,7 +81,7 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 
 ### WiFi模块原理图
 
-![WIFI模块硬件电路](assets/STM32_NodeRED/219.png)
+![WIFI模块硬件电路](/assets/STM32_NodeRED/219.png)
 
 ### RS485总线标准
 
@@ -104,7 +104,7 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 
 每个底座周边都有RS485总线接口，由底座的485信号由MCU的UART信号+MAX3485 485总线转换芯片组成。
 
-![实验底座RS485总线原理](assets/STM32_NodeRED/220.jpg)
+![实验底座RS485总线原理](/assets/STM32_NodeRED/220.jpg)
 
 <!-- ------------------------ -->
 ## 实验步骤
@@ -114,57 +114,57 @@ Duration: 15
 
 2. 打开系统的DOS界面，在界面上输入`node-red`。
 
-    ![启动node-red](assets/STM32_NodeRED/221.png)
+    ![启动node-red](/assets/STM32_NodeRED/221.png)
 
 3. 打开google浏览器，在输入网址处输入(http://127.0.0.1:1880)，如下图：
 
-    ![输入Node_RED地址](assets/STM32_NodeRED/222.png)
+    ![输入Node_RED地址](/assets/STM32_NodeRED/222.png)
 
-    ![NodeRED编辑界面](assets/STM32_NodeRED/223.png)
+    ![NodeRED编辑界面](/assets/STM32_NodeRED/223.png)
 
 4. 在编辑界面左边的控制区搜索框内输入“text”找到text控制件，如下图：
 
-    ![NodeRED编辑界面](assets/STM32_NodeRED/224.png)
+    ![NodeRED编辑界面](/assets/STM32_NodeRED/224.png)
 
 5. 采用`text`控件实现表头(显示界面背景信息)，新Group，如下图：
 
-    ![新建Group](assets/STM32_NodeRED/225.png)
+    ![新建Group](/assets/STM32_NodeRED/225.png)
 
 6. 编辑、添加节点加入的Group节点。
 
-    ![添加新节点](assets/STM32_NodeRED/310.png)
+    ![添加新节点](/assets/STM32_NodeRED/310.png)
 
 7. 填写表头名称，名称为“重庆八城科技有限公司———————————蜂鸣器控制———————————物联网综合实验平台”，点击“添加”按钮完成退出，如下图：
 
-    ![输入表头名称](assets/STM32_NodeRED/290.png)
+    ![输入表头名称](/assets/STM32_NodeRED/290.png)
 
 8. 设置宽度，点击“更新”按钮完成编辑，如下图：
 
-    ![输入表头名称](assets/STM32_NodeRED/311.png)
+    ![输入表头名称](/assets/STM32_NodeRED/311.png)
 
 9. 编辑text控件，参数下图中的红框：
 
-    ![输入表头名称](assets/STM32_NodeRED/312.png)
+    ![输入表头名称](/assets/STM32_NodeRED/312.png)
 
 10. 完成以上步骤就可以预先看看应用界面部署后的情况，在界面的右上角看到如下界面。点击“部署”。如下图：
 
-    ![进行部署](assets/STM32_NodeRED/230.png)
+    ![进行部署](/assets/STM32_NodeRED/230.png)
 
     部署完成后，“部署”图标变灰。如下图：
 
-    ![部署成功](assets/STM32_NodeRED/231.png)
+    ![部署成功](/assets/STM32_NodeRED/231.png)
 
 11. 依次点击下图所示的按钮(位于编辑界面右上角)，查看部署后的的图面：
 
-    ![部署成功](assets/STM32_NodeRED/232.png)
+    ![部署成功](/assets/STM32_NodeRED/232.png)
 
 12. 执行上一步骤后，看到如下界面：
 
-    ![查看应用界面效果](assets/STM32_NodeRED/313.png)
+    ![查看应用界面效果](/assets/STM32_NodeRED/313.png)
 
 13. 回到编辑界面，在控件区中搜索框中输入`button`，如下图：
 
-    ![搜索button](assets/STM32_NodeRED/265.png)
+    ![搜索button](/assets/STM32_NodeRED/265.png)
 
 14. 将图标节点`button`，拖入编辑界面中。
 
@@ -172,51 +172,51 @@ Duration: 15
 
 15. 双击刚拖入的`button`控件，编辑`button`，参数如下图。Group的选择一定要注意，否则部署后会看不到相应的控件。
 
-    ![拖入button控件](assets/STM32_NodeRED/314.png)
+    ![拖入button控件](/assets/STM32_NodeRED/314.png)
 
 16. 到此，工作区内容如下图：
 
-    ![图片](assets/STM32_NodeRED/315.png)
+    ![图片](/assets/STM32_NodeRED/315.png)
 
 17. 在控制区搜索框中输入`tcp out`搜索函数节点，如下图：
 
-    ![搜索tcp out节点](assets/STM32_NodeRED/269.png)
+    ![搜索tcp out节点](/assets/STM32_NodeRED/269.png)
 
 18. 将函数节点`tcp out`拖入编辑界面中，如下图：
 
-    ![拖入函数节点](assets/STM32_NodeRED/316.png)
+    ![拖入函数节点](/assets/STM32_NodeRED/316.png)
 
 19. 双击 `tcp out`节点弹出`tcp out`节点编辑界面，进行参数设置，如下图：
 
-    ![编辑tcp out节点](assets/STM32_NodeRED/271.png)
+    ![编辑tcp out节点](/assets/STM32_NodeRED/271.png)
 
 20. 到此工作区内容如下图:
 
-    ![图片](assets/STM32_NodeRED/317.png)
+    ![图片](/assets/STM32_NodeRED/317.png)
 
 21. 各个节点之间进行连线，设置如下图所示，如下图：
 
-    ![节点连线设置](assets/STM32_NodeRED/318.png)
+    ![节点连线设置](/assets/STM32_NodeRED/318.png)
 
 22. 功能完成后需要对界面图标位置进行调整，在界面右边找到相应按钮，如下图：
 
-    ![启动布局](assets/STM32_NodeRED/274.png)
+    ![启动布局](/assets/STM32_NodeRED/274.png)
 
 23. 点击layout图标进入位置调整界面。随意拖动左边模块，到合适的位置。形成自己所要的排版模式点击“完成”按钮退出到编辑界面。
 
-    ![调整界面布局](assets/STM32_NodeRED/319.png)
+    ![调整界面布局](/assets/STM32_NodeRED/319.png)
 
 24. 点击右上角的“部署”按钮，部署成功后图标变成灰色，如下图：
 
-    ![进行部署](assets/STM32_NodeRED/276.png)
+    ![进行部署](/assets/STM32_NodeRED/276.png)
 
 25. 依次点击如下图所示按钮，进入应用界面，如下图：
 
-    ![查看部署后的界面](assets/STM32_NodeRED/277.png)
+    ![查看部署后的界面](/assets/STM32_NodeRED/277.png)
 
 26. 部署后的界面如下，等硬件实验连接上，就可以使用硬件控制风扇。
 
-    ![部署后的界面](assets/STM32_NodeRED/320.png)
+    ![部署后的界面](/assets/STM32_NodeRED/320.png)
 
 27. 到此，NodeRED平台编辑完成，接下来，下载硬件程序，实现在NodeRED上控制风扇。
 
@@ -226,42 +226,42 @@ Duration: 15
 
 29. 打开 Keil 5 工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`NodeRED平台实验\9.蜂鸣器控制实验\WiFi模块程序\USER\WiFi.uvprojx` 并打开。
 
-    ![启动工程](assets/STM32_NodeRED/321.jpg)
+    ![启动工程](/assets/STM32_NodeRED/321.jpg)
 
 30. 打开WiFi.h文件，修改WIFI热点名称和密码。实验台也必须连接到该WIFI热点。IP地址为运行NodeRED的计算机的IP地址，端口为此前步骤NodeRED tcp out节点监听的端口。
 
-    ![修改WiFi数据](assets/STM32_NodeRED/281.png)
+    ![修改WiFi数据](/assets/STM32_NodeRED/281.png)
 
 31. 编译工程，然后将程序下载到WIFI节点的底座。
 
-    ![编译并下载程序](assets/STM32_NodeRED/255.png)
+    ![编译并下载程序](/assets/STM32_NodeRED/255.png)
 
 32. 将STLink连接到风扇节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`NodeRED平台实验\9.蜂鸣器控制实验\蜂鸣器模块程序\USER\beep.uvprojx` 并打开。
 
-    ![启动工程](assets/STM32_NodeRED/322.jpg)
+    ![启动工程](/assets/STM32_NodeRED/322.jpg)
 
 33. 编译工程，然后将程序下载到风扇节点中。
 
-    ![编译并下载程序](assets/STM32_NodeRED/255.png)
+    ![编译并下载程序](/assets/STM32_NodeRED/255.png)
 
 
 34. 蜂鸣器节点与WIFI节点拼接，从STM32底座上取下STLink的USB线再重新接上，给设备重新上电。
 
 35. 部署应用，点击右上角“部署”图标，变成灰色部署成功，如下图：
 
-    ![进行部署](assets/STM32_NodeRED/258.png)
+    ![进行部署](/assets/STM32_NodeRED/258.png)
 
 36. NodeRED平台的界面上看到如下图所示，表明实验设备连接上NodeRED平台。
 
-    ![设备连接成功](assets/STM32_NodeRED/323.png)
+    ![设备连接成功](/assets/STM32_NodeRED/323.png)
 
 37. NodeRED编辑界面右上角，依次点击如下图图标，进行部署，并查看应用界面。
 
-    ![部署应用](assets/STM32_NodeRED/284.png)
+    ![部署应用](/assets/STM32_NodeRED/284.png)
 
 38. 显示界面如下图，点击按钮控制风扇的状态。
 
-    ![操作应用](assets/STM32_NodeRED/324.png)
+    ![操作应用](/assets/STM32_NodeRED/324.png)
 
 
 <!-- ------------------------ -->
@@ -272,7 +272,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/STM32_NodeRED/325.jpg)
+![程序目录结构](/assets/STM32_NodeRED/325.jpg)
 
 ② main.c中对串口、蜂鸣器模块、RS485协议进行初始化。初始化完成后。调用函数DataHandling_485()获取控制指令，依控制指令控制蜂鸣器打开或关闭。蜂鸣器是无源蜂鸣器，代码采用1ms切换一次蜂鸣器电平的方式，输出一个500Hz的方波控制蜂鸣器响起。当BeepState=0,时无方波输出，蜂鸣器不响，BeepState = 1,有500Hz方波输出蜂鸣器响起。
 
@@ -313,7 +313,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/STM32_NodeRED/287.jpg)
+![程序目录结构](/assets/STM32_NodeRED/287.jpg)
 
 ② main.c中对串口、RS485协议进行初始化，并WIFI初始化并连接NODE-Red平台。初始化完成后，接收平台的指令,根据平台指令控制风扇节点的风扇状态。控制命令通过调用Rs485_Send()进行发送。
 

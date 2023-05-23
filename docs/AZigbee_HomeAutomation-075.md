@@ -47,27 +47,27 @@ Duration: 6
 
 [CC2530底座](https://docs.stepiot.com/docs/aiot017) 
 
-![实验硬件](assets/BASE_CC2530/3.png)
+![实验硬件](/assets/BASE_CC2530/3.png)
 
 [温湿度模块](https://docs.stepiot.com/docs/aiot004)
 
-![温湿度模块](assets/BASE_STM32/2.png)
+![温湿度模块](/assets/BASE_STM32/2.png)
 
 [LED模块](https://docs.stepiot.com/docs/aiot001)
 
-![LED模块](assets/STM32_OneNET/37.png)
+![LED模块](/assets/STM32_OneNET/37.png)
 
 [OLED模块](https://docs.stepiot.com/docs/aiot003)
 
-![OLED模块](assets/BASE_STM32/67.png)
+![OLED模块](/assets/BASE_STM32/67.png)
 
 CC Debugger 仿真器和连接线
 
-![实验硬件](assets/BASE_CC2530/4.png)
+![实验硬件](/assets/BASE_CC2530/4.png)
 
 USB线
 
-![USB线](assets/CC2530/2.png)
+![USB线](/assets/CC2530/2.png)
 
 <!-- ------------------------ -->
 ## 实验原理
@@ -104,53 +104,53 @@ Duration: 15
 
 1. 将温湿度模块、OLED模块、LED模块分别安装在CC2530底座上，确认各个节点，如下图所示，ST_LINK连接OLED节点连接。
 
-    ![搭建实验硬件平台](assets/HomeAutomation/12.png)
+    ![搭建实验硬件平台](/assets/HomeAutomation/12.png)
 
 2. CC Debugger连接PC机与OLED节点CC2530底座，轻按CC Debugger复位按键，指示灯变绿，表示连接正常。
 
 3. 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`综合实验\ZigBee智能家居\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
 
-    ![启动工程](assets/HomeAutomation/14.jpg)
+    ![启动工程](/assets/HomeAutomation/14.jpg)
 
 4. 修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图:
 
-    ![修改PANID或信道](assets/HomeAutomation/15.png)
+    ![修改PANID或信道](/assets/HomeAutomation/15.png)
 
 5. 设置工程配置为`Coordinator`。
 
-    ![工程配置为coordinatorEB](assets/HomeAutomation/16.jpg)
+    ![工程配置为coordinatorEB](/assets/HomeAutomation/16.jpg)
 
 6. 点击`Make`按钮，编译程序，点击`Download and Debug`按钮，将程序下载到底座中。
 
-    ![编译并下载程序](assets/HomeAutomation/17.png)
+    ![编译并下载程序](/assets/HomeAutomation/17.png)
 
 7. 点击`X`，退出仿真模式。
 
-    ![退出仿真模式](assets/HomeAutomation/18.png)
+    ![退出仿真模式](/assets/HomeAutomation/18.png)
 
 8. 将CC Debuger连接到温湿度节点，选择工程的配置为`EndDeviceEB-TempHumi`如图。
 
-    ![工程配置为coordinatorEB](assets/HomeAutomation/19.png)
+    ![工程配置为coordinatorEB](/assets/HomeAutomation/19.png)
 
 9. 编译工程，下载程序，方法参考以上步骤6~7。
 
 10. 将CC Debuger连接到LED节点，选择工程的配置为`EndDeviceEB-LED`如图：
 
-    ![工程配置为coordinatorEB](assets/HomeAutomation/20.png)
+    ![工程配置为coordinatorEB](/assets/HomeAutomation/20.png)
 
 11. 编译工程，下载程序，方法参考以上步骤6~7。
 
 12. 移除CC Debugger，采用USB线供电，如图：
 
-    ![USB线供电](assets/HomeAutomation/21.png)
+    ![USB线供电](/assets/HomeAutomation/21.png)
 
 13. 观察OLED屏温湿度数据，如图：
 
-    ![显示传感器数据](assets/HomeAutomation/22.png)
+    ![显示传感器数据](/assets/HomeAutomation/22.png)
 
 14. 单击OLED上的按键，选择灯1、灯2、灯3、灯4(灯1、灯2、灯3、灯4指的是LED模块上的四个灯)，选择选后双击OLED的按键进行控制操作：
 
-    ![图片](assets/HomeAutomation/23.png)
+    ![图片](/assets/HomeAutomation/23.png)
 
 <!-- ------------------------ -->
 ## 代码讲解
@@ -160,7 +160,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。代码中有大量ZigBee底层的代码，我们主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![程序目录结构](assets/HomeAutomation/24.jpg)
+![程序目录结构](/assets/HomeAutomation/24.jpg)
 
 ② EndDevice-LED.c->SampleApp_Init()函数是应用代码的入口函数，对LED模块初始化、初始化Point_To_Point_DstAddr结构，注册端点。
 
@@ -203,7 +203,7 @@ EndDevice.c->SampleApp_ProcessEvent()函数是任务处理函数。在该函数�
 
 ① 程序目录结构，如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![程序目录结构](assets/HomeAutomation/25.jpg)
+![程序目录结构](/assets/HomeAutomation/25.jpg)
 
 ② EndDevice_TempHumi.c->SampleApp_Init()函数是应用代码的入口函数，对温湿度模块初始化、初始化Point_To_Point_DstAddr结构，注册端点、启动传感器数据采集。
 
@@ -259,7 +259,7 @@ EndDevice.c->SampleApp_ProcessEvent()函数是任务处理函数。在该函数�
 
 ① 程序目录结构，如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码，ZigBee底层的代码会使用即可。
 
-![程序目录结构](assets/HomeAutomation/26.jpg)
+![程序目录结构](/assets/HomeAutomation/26.jpg)
 
 ② Coordinator.c->SampleApp_Init()函数是应用代码的入口函数，对OLED屏，注册端点。
 

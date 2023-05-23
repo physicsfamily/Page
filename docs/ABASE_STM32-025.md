@@ -52,15 +52,15 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [继电器模块](https://docs.stepiot.com/docs/aiot014)
 
-![继电器模块](assets/BASE_STM32/100.png)
+![继电器模块](/assets/BASE_STM32/100.png)
 
 
 <!-- ------------------------ -->
@@ -82,19 +82,19 @@ Duration: 25
 
 总的说，继电器就是利用电磁铁控制工作电路通断的开关。继电器的工作原理，使得继电器非常适合于用低电压控制高电压、小电流控制大电流的场景。
 
-![继电器工作原理](assets/BASE_STM32/101.png)
+![继电器工作原理](/assets/BASE_STM32/101.png)
 
 ### 常开触点（NO）、常闭触点（NC）、公共端（COM）
 
 下图是一个开关，此时控制电路未动作，我们把这时的触点A称为公共端（COM）。触点B称为常闭（NC）触点，触点C称为常开（NO）触。
 
-![开关](assets/BASE_STM32/102.jpg)
+![开关](/assets/BASE_STM32/102.jpg)
 
 NO英文全称Normal open，NC英文全称Normal close。
 
 ### 继电器模块基本电路
 
-![继电器模块基本电路](assets/BASE_STM32/103.png)
+![继电器模块基本电路](/assets/BASE_STM32/103.png)
 
 通过对电路的分析，当PB14输出高电平时，RL2继电器工作，此时，LED3亮起，当PB13输出高电平时，RL1继电器，此时，LED2亮起。
 
@@ -105,11 +105,11 @@ Duration: 15
 
 ① 将继电器模块安装在STM32底座上，ST_LINK连接电脑与STM32底座，如下图所示：
 
-![安装模块](assets/BASE_STM32/104.png)
+![安装模块](/assets/BASE_STM32/104.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -126,26 +126,26 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑤ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\13.继电器模块\继电器模块程序\USER\Relay.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择工程](assets/BASE_STM32/105.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择工程](/assets/BASE_STM32/105.jpg)
 
 ⑥ 点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑦ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑧ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑨ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
@@ -159,7 +159,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/BASE_STM32/106.jpg)  
+![程序目录结构](/assets/BASE_STM32/106.jpg)  
 
 ② main.c继电器控制IO进行初始化。每2秒分别依次控制继电器1、继电器2的开关。  
 

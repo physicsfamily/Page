@@ -48,31 +48,31 @@ Duration: 6
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [风扇模块](https://docs.stepiot.com/docs/aiot015)
 
-![风扇模块](assets/STM32_OneNET/51.png)
+![风扇模块](/assets/STM32_OneNET/51.png)
 
 [温湿度模块](https://docs.stepiot.com/docs/aiot004)
 
-![温湿度模块](assets/BASE_STM32/2.png)
+![温湿度模块](/assets/BASE_STM32/2.png)
 
 [LED模块](https://docs.stepiot.com/docs/aiot001)
 
-![LED模块](assets/STM32_OneNET/37.png)
+![LED模块](/assets/STM32_OneNET/37.png)
 
 [WiFi模块](https://docs.stepiot.com/docs/aiot011)
 
-![WiFi模块](assets/BASE_CC2530/65.png)
+![WiFi模块](/assets/BASE_CC2530/65.png)
 
 [继电器模块](https://docs.stepiot.com/docs/aiot014)
 
-![继电器模块](assets/STM32_OneNET/45.png)
+![继电器模块](/assets/STM32_OneNET/45.png)
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 <!-- ------------------------ -->
 ## 实验原理
@@ -92,7 +92,7 @@ AP模式：Access Point，提供无线接入服务，允许其它无线设备接
 
 ### WiFi模块原理图
 
-![WIFI模块硬件电路](assets/STM32_OneNET/1.png)
+![WIFI模块硬件电路](/assets/STM32_OneNET/1.png)
 
 ### RS485总线标准
 
@@ -115,7 +115,7 @@ RS485采用平衡发送和差分接收方式实现通信：发送端将串行口
 
 每个底座周边都有RS485总线接口，由底座的485信号由MCU的UART信号+MAX3485 485总线转换芯片组成。
 
-![实验底座RS485总线原理](assets/STM32_NodeRED/220.jpg)
+![实验底座RS485总线原理](/assets/STM32_NodeRED/220.jpg)
 
 <!-- ------------------------ -->
 ## 实验步骤
@@ -125,185 +125,185 @@ Duration: 15
 
 2. 打开系统的DOS界面，在界面上输入`node-red`。
 
-    ![启动node-red](assets/STM32_NodeRED/221.png)
+    ![启动node-red](/assets/STM32_NodeRED/221.png)
 
 3. 打开google浏览器，在输入网址处输入(http://127.0.0.1:1880)，如下图：
 
-    ![输入Node_RED地址](assets/STM32_NodeRED/222.png)
+    ![输入Node_RED地址](/assets/STM32_NodeRED/222.png)
 
-    ![NodeRED编辑界面](assets/STM32_NodeRED/223.png)
+    ![NodeRED编辑界面](/assets/STM32_NodeRED/223.png)
 
 4. 在编辑界面左边的控制区搜索框内输入“text”找到text控制件，如下图：
 
-    ![NodeRED编辑界面](assets/STM32_NodeRED/224.png)
+    ![NodeRED编辑界面](/assets/STM32_NodeRED/224.png)
 
 5. 采用`text`控件实现表头(显示界面背景信息)，新Group，如下图：
 
-    ![新建Group](assets/STM32_NodeRED/225.png)
+    ![新建Group](/assets/STM32_NodeRED/225.png)
 
 6. 编辑、添加节点加入的Group节点。
 
-    ![添加新节点](assets/HomeAutomation/27.png)
+    ![添加新节点](/assets/HomeAutomation/27.png)
 
 7. 填写表头名称，名称为“—————————————————————————————————智能家居系统—————————————————————————————————”，点击“添加”按钮完成退出，如下图：
 
-    ![输入表头名称](assets/HomeAutomation/28.png)
+    ![输入表头名称](/assets/HomeAutomation/28.png)
 
 8. 设置宽度，点击“更新”按钮完成编辑，如下图：
 
-    ![输入表头名称](assets/HomeAutomation/29.png)
+    ![输入表头名称](/assets/HomeAutomation/29.png)
 
 9. 编辑text控件，参数下图中的红框：
 
-    ![输入表头名称](assets/HomeAutomation/30.png)
+    ![输入表头名称](/assets/HomeAutomation/30.png)
 
 10. 回到编辑界面，在控件区中搜索框中输入`button`，如下图：
 
-    ![搜索button](assets/STM32_NodeRED/265.png)
+    ![搜索button](/assets/STM32_NodeRED/265.png)
 
 11. 将图标节点`button`，拖入编辑界面中。
 
-    ![拖入button控件](assets/HomeAutomation/31.png)
+    ![拖入button控件](/assets/HomeAutomation/31.png)
 
 12. 双击刚拖入的`button`控件，编辑`button`，参数如下图。Group的选择一定要注意，否则部署后会看不到相应的控件。
 
-    ![拖入button控件](assets/HomeAutomation/32.png)
+    ![拖入button控件](/assets/HomeAutomation/32.png)
 
 13. 拖出1个`button`，设备参数如下图
 
-    ![图片](assets/HomeAutomation/33.png)
+    ![图片](/assets/HomeAutomation/33.png)
 
 14. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/34.png)
+    ![图片](/assets/HomeAutomation/34.png)
 
 15. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/35.png)
+    ![图片](/assets/HomeAutomation/35.png)
 
 16. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/36.png)
+    ![图片](/assets/HomeAutomation/36.png)
 
 17. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/37.png)
+    ![图片](/assets/HomeAutomation/37.png)
 
 18. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/38.png)
+    ![图片](/assets/HomeAutomation/38.png)
 
 19. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/39.png)
+    ![图片](/assets/HomeAutomation/39.png)
 
 20. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/40.png)
+    ![图片](/assets/HomeAutomation/40.png)
 
 21. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/41.png)
+    ![图片](/assets/HomeAutomation/41.png)
 
 22. 拖出1个`button`，设备参数如下图：
 
-    ![图片](assets/HomeAutomation/42.png)
+    ![图片](/assets/HomeAutomation/42.png)
 
 23. 拖出1个`button`，设备参数如下图:
 
-    ![图片](assets/HomeAutomation/43.png)
+    ![图片](/assets/HomeAutomation/43.png)
 
 24. 到此，工作区内容如下图:
 
-    ![图片](assets/HomeAutomation/44.png)
+    ![图片](/assets/HomeAutomation/44.png)
 
 25. 在控制区搜索框中输入“switch”，搜索switch节点：
 
-    ![图片](assets/HomeAutomation/45.png)
+    ![图片](/assets/HomeAutomation/45.png)
 
 26. 将switch节点拖入编辑区，双击switch节点，设置参数如图：
 
-    ![图片](assets/HomeAutomation/46.png)
+    ![图片](/assets/HomeAutomation/46.png)
 
 27. 在控制区搜索框中输入`switch`，搜索`switch`节点。
 
-    ![图片](assets/HomeAutomation/47.png)
+    ![图片](/assets/HomeAutomation/47.png)
 
 28. 将`switch`节点拖入编辑区，双击`switch`节点，设置参数如图：
 
-    ![图片](assets/HomeAutomation/48.png)
+    ![图片](/assets/HomeAutomation/48.png)
 
 29. 将`switch`节点拖入编辑区，双击`switch`节点，设置参数如图:
 
-    ![图片](assets/HomeAutomation/49.png)
+    ![图片](/assets/HomeAutomation/49.png)
 
 30. 将`switch`节点拖入编辑区，双击`switch`节点，设置参数如图：
 
-    ![图片](assets/HomeAutomation/50.png)
+    ![图片](/assets/HomeAutomation/50.png)
 
 31. 到此工作区，如图:
 
-    ![图片](assets/HomeAutomation/51.png)
+    ![图片](/assets/HomeAutomation/51.png)
 
 32. 在编辑界面左边的控制区搜索框内输入`text`找到`text`控制件，如下图：
 
-    ![图片](assets/HomeAutomation/52.png)
+    ![图片](/assets/HomeAutomation/52.png)
 
 33. 将`text节`点拖入编辑区，双击`text`节点，设置参数如图。Group加入“—智能家居--]设备控制”：
 
-    ![图片](assets/HomeAutomation/53.png)
+    ![图片](/assets/HomeAutomation/53.png)
 
 34. 加入“请输入密码”节点后，到此工作区，如图：
 
-    ![图片](assets/HomeAutomation/54.png)
+    ![图片](/assets/HomeAutomation/54.png)
 
 35. 在控制区搜索框中输入`tcp out`搜索函数节点，如下图：
 
-    ![图片](assets/HomeAutomation/55.png)
+    ![图片](/assets/HomeAutomation/55.png)
 
 36. 将`tcp out`节点拖入编辑区，如下图：
 
-    ![图片](assets/HomeAutomation/56.png)
+    ![图片](/assets/HomeAutomation/56.png)
 
 37. 双击 `tcp out`节点弹出`tcp out`节点编辑界面，进行参数设置，如下图：
 
-    ![图片](assets/HomeAutomation/57.png)
+    ![图片](/assets/HomeAutomation/57.png)
 
 38. 增加group:鼠标放在如图红箭头所示位置，出现“+group”字样，点击“+group”，出现新组group2。
 
-    ![图片](assets/HomeAutomation/58.png)
+    ![图片](/assets/HomeAutomation/58.png)
 
 39. 鼠标放在如图红箭头所示位置，出现`edit`字样，点击`edit`，编辑该组：
 
-    ![图片](assets/HomeAutomation/59.png)
+    ![图片](/assets/HomeAutomation/59.png)
 
 40. 设置名称为传感器数据，Tab连接“--智能家居系统--]传感器数据”：
 
-    ![图片](assets/HomeAutomation/60.png)
+    ![图片](/assets/HomeAutomation/60.png)
 
 41. 在控件区中搜索框中输入`gauge`，如下图：
 
-    ![图片](assets/HomeAutomation/61.png)
+    ![图片](/assets/HomeAutomation/61.png)
 
 42. 将图标节点`gauge`拖入编辑界面中：
 
 43. 双击刚拖入的`gauge`控件，编辑`gauge`，参数如下图，Group的选择一定要注意，否则部署后会看不到相应的控件。
 
-    ![图片](assets/HomeAutomation/62.png)
-    ![图片](assets/HomeAutomation/63.png)
+    ![图片](/assets/HomeAutomation/62.png)
+    ![图片](/assets/HomeAutomation/63.png)
 
 44. 再从控件区中`gauge`控件拖入工作区中，编辑参数如下图，点击完成回到工作区。
 
-    ![图片](assets/HomeAutomation/64.png)
-    ![图片](assets/HomeAutomation/65.png)
+    ![图片](/assets/HomeAutomation/64.png)
+    ![图片](/assets/HomeAutomation/65.png)
 
 45. 在控制区搜索框中输入`function`搜索函数节点，如下图：
 
-    ![图片](assets/HomeAutomation/66.png)
+    ![图片](/assets/HomeAutomation/66.png)
 
 46. 将函数节点`function`拖入编辑界面中，双击函数节点，弹出编辑界面，为其添加功能代码，输出个数为2，如下图：
 
-    ![图片](assets/HomeAutomation/67.png)
+    ![图片](/assets/HomeAutomation/67.png)
 
     代码如下：
     ```c
@@ -316,91 +316,91 @@ Duration: 15
 
 47. 各节点之间进行连接，最终内容如图：
 
-    ![图片](assets/HomeAutomation/68.png)
+    ![图片](/assets/HomeAutomation/68.png)
 
 48. 功能完成后需要对界面图标位置进行调整，在界面右边找到相应按钮，如下图：
 
-    ![图片](assets/HomeAutomation/69.png)
+    ![图片](/assets/HomeAutomation/69.png)
 
 49. 点击layout图标进入位置调整界面，随意拖动左边模块，到合适的位置，形成自己所要的排版模式，点击“完成”按钮退出到编辑界面：
 
-    ![图片](assets/HomeAutomation/70.png)
+    ![图片](/assets/HomeAutomation/70.png)
 
 50. 点击右上角的“部署”按钮，部署成功后图标变成灰色，如下图：
 
-    ![图片](assets/HomeAutomation/71.png)
+    ![图片](/assets/HomeAutomation/71.png)
 
 51. 依次点击如下图所示按钮，进入应用界面。
 
-    ![图片](assets/HomeAutomation/72.png)
+    ![图片](/assets/HomeAutomation/72.png)
 
 52. 部署后的界面如下，等硬件实验连接上，就可以控制硬件及显示传感器数据。
 
-    ![图片](assets/HomeAutomation/73.png)
+    ![图片](/assets/HomeAutomation/73.png)
 
 53. 到此，NodeRED平台编辑完成，接下来，下载硬件程序。
 
 54. 将WiFi模块、风扇模、LED模块、继电器模块分别安装在STM32底座上。确认各个节点，如下图所示，ST_LINK连接WIFI节点连接。
 
-    ![图片](assets/HomeAutomation/74.png)
+    ![图片](/assets/HomeAutomation/74.png)
 
 55. 打开 Keil 5 工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`综合实验\NodeRED智能家居实验\WiFi模块程序\USER\WIFI.uvprojx` 并打开。
 
-    ![图片](assets/HomeAutomation/75.jpg)
+    ![图片](/assets/HomeAutomation/75.jpg)
 
 56. 打开WiFi.h文件，修改WIFI热点名称和密码，实验台也必须连接到该WIFI热点，IP地址为运行NodeRED的计算机的IP地、端口为此前步骤NodeRED tcp out、tcp in节点监听的端口。
 
-    ![图片](assets/HomeAutomation/76.png)
+    ![图片](/assets/HomeAutomation/76.png)
 
 57. 编译工程，然后将程序下载到WIFI节点的底座。
 
-    ![图片](assets/HomeAutomation/77.png)
+    ![图片](/assets/HomeAutomation/77.png)
 
 58. 将STLink连接到风扇节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`综合实验\NodeRED智能家居实验\风扇模块程序\USER\FAN.uvprojx` 并打开。
 
-    ![图片](assets/HomeAutomation/78.jpg)
+    ![图片](/assets/HomeAutomation/78.jpg)
 
 59. 编译工程，然后将程序下载到风扇节点的底座。
 
-    ![图片](assets/HomeAutomation/77.png)
+    ![图片](/assets/HomeAutomation/77.png)
 
 60. 将STLink连接到LED节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`综合实验\NodeRED智能家居实验\LED模块程序\USER\LED.uvprojx` 并打开。
 
-    ![图片](assets/HomeAutomation/79.jpg)
+    ![图片](/assets/HomeAutomation/79.jpg)
 
 61. 编译工程，然后将程序下载到LED节点的底座。
 
-    ![图片](assets/HomeAutomation/77.png)
+    ![图片](/assets/HomeAutomation/77.png)
 
 62. 将STLink连接到继电器节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`综合实验\NodeRED智能家居实验\继电器模块程序\USER\Relay.uvprojx` 并打开。
 
-    ![图片](assets/HomeAutomation/80.jpg)
+    ![图片](/assets/HomeAutomation/80.jpg)
 
 63.编译工程，然后将程序下载到继电器节点的底座。
 
-    ![图片](assets/HomeAutomation/77.png)
+    ![图片](/assets/HomeAutomation/77.png)
 
 64. 各节点保持拼接，从STM32底座上取下STLink的USB线再重新接上，即给设备重新上电。
 
 65. 部署应用，点击右上角“部署”图标，变成灰色部署成功。
 
-    ![进行部署](assets/STM32_NodeRED/258.png)
+    ![进行部署](/assets/STM32_NodeRED/258.png)
 
 66. NodeRED编辑界面右上角，依次点击如下图图标，进行部署，并查看应用界面。
 
-    ![部署应用](assets/STM32_NodeRED/284.png)
+    ![部署应用](/assets/STM32_NodeRED/284.png)
 
 67. 在输入键盘上输入“123456”如图，继电器打开2秒后关闭。
 
-    ![输入密码](assets/HomeAutomation/81.png)
+    ![输入密码](/assets/HomeAutomation/81.png)
 
 68. 操作开关对LED模块上的四个LED灯及风扇进行控制。
 
-    ![风扇及LED灯控制](assets/HomeAutomation/82.png)
+    ![风扇及LED灯控制](/assets/HomeAutomation/82.png)
 
 69. 查看传感器数据。
 
-    ![查看温湿度数据](assets/HomeAutomation/83.png)
+    ![查看温湿度数据](/assets/HomeAutomation/83.png)
 
 
 <!-- ------------------------ -->
@@ -411,7 +411,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/84.jpg)
+![程序目录结构](/assets/HomeAutomation/84.jpg)
 
 ② main.c中对串口、风扇模块、RS485协议进行初始化。初始化完成后。调用函数DataHandling_485()获取控制指令，依控制指令控制风扇开/关。调用PWM_SetTIM4Compare2()设置风扇转运或者停止。
 
@@ -446,7 +446,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/85.png)
+![程序目录结构](/assets/HomeAutomation/85.png)
 
 ② main.c对串口、继电器模块、RS485协议进行初始化。初始化完成后。调用函数DataHandling_485()获取控制指令，依控制指令控制继电器1打开或关闭。
 
@@ -479,7 +479,7 @@ Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/86.jpg)
+![程序目录结构](/assets/HomeAutomation/86.jpg)
 
 ② main.c中对串口、定时器器、温湿度传感器、RS485协议进行初始化。初始化完成后，定时读取传感器数据、显示传感器数据，处理WIFI节点的请求，并返回传感器数据到WIFI节点。
 
@@ -533,7 +533,7 @@ main.c->RS485_HandlerCb()(回调函数)，处理WIFI节点的请求，调用函�
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/87.jpg)
+![程序目录结构](/assets/HomeAutomation/87.jpg)
 
 ② main.c中对串口、LED模块、RS485协议进行初始化。初始化完成后。调用函数DataHandling_485()获取控制指令，依控制指令调用LED_SetState()控制LED节点LED灯亮/灭。
 
@@ -563,7 +563,7 @@ main.c->RS485_HandlerCb()(回调函数)，处理WIFI节点的请求，调用函�
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件，我们主要关心，main.c及HARDWARE中的代码。
 
-![程序目录结构](assets/HomeAutomation/88.jpg)
+![程序目录结构](/assets/HomeAutomation/88.jpg)
 
 ② main()函数中对串口、RS485协议进行初始化，并WIFI初始化并连接NODE-Red平台。
 

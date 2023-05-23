@@ -100,7 +100,7 @@ Duration: 15
 
 Node-Red由两部分组成。一部分是用户可见的数据流的编辑界面，另一部分是数据流的执行。刚刚在cmd中打开node-red时，我们已经见过了数据流的执行提示；打开浏览器访问http://localhost:1880，就可以看到Node-Red的编辑界面。
 
-![Node-Red编辑界面](assets/STM32_NodeRED/1.png)
+![Node-Red编辑界面](/assets/STM32_NodeRED/1.png)
 
 数据流的编辑界面由四部分组成。最左边是已定义的各种node的列表，我们称之为控件区；中间是一个工作区，用户可以拖放node到工作区来创建node的实例，Node-Red为每个node实例赋予了唯一的ID，通过双击node实例来编辑单个实例，通过连接node的in和out创建数据流，node实例会记录out口连线的信息，每条线会记录目标node实例的信息；最右边是debug node的输出区及node的帮助信息显示区。右上角有‘Deploy’（或者“部署”）按钮，用来把编写的程序保存到本地并执行。
 
@@ -118,7 +118,7 @@ Node-Red由两部分组成。一部分是用户可见的数据流的编辑界面
 
 启动node-red以后，在浏览器中，将控件区内的输入节点“inject”与输出节点“debug”，使用鼠标左键拖入工作区内。
 
-![拖拽输入](assets/STM32_NodeRED/2.png)
+![拖拽输入](/assets/STM32_NodeRED/2.png)
 
 拖入以后发现“inject”变成了“时间戳”，“debug”变成了“msg.payload”，这是正常现象。如果你的计算机或是树莓派运行在英文环境下，理所当然，工作区内的节点的名字会变成英文。原因在于，节点位于控件区的时候，表明它是“某种”节点，这种节点叫做“inject”或是“debug”。拖到工作区以后，它就是“某个”节点，具体到某个节点，当然就是有名字的。前者是抽象的，后者是具体的。为了方便表述，前者可以称之为控件，后者可以称之为节点。如果有面向对象的编程经验，可以很轻松的理解，“inject”与 “时间戳”的关系，其实很像类与对象的关系。
 
@@ -126,15 +126,15 @@ Node-Red由两部分组成。一部分是用户可见的数据流的编辑界面
 
 双击“时间戳”，在屏幕的右侧会弹出如下窗口：
 
-![修改节点](assets/STM32_NodeRED/3.png)
+![修改节点](/assets/STM32_NodeRED/3.png)
 
 点击“内容”选项后边的小三角，在下拉菜单选择文字列，并在输入框内输入“hello world”，然后点击完成。
 
-![编辑节点](assets/STM32_NodeRED/4.png)
+![编辑节点](/assets/STM32_NodeRED/4.png)
 
 可以观察到，工作区中的“时间戳”变成了“hello world”。
 
-![效果展示](assets/STM32_NodeRED/5.png)
+![效果展示](/assets/STM32_NodeRED/5.png)
 
 ### 连接输入与输出节点
 
@@ -144,17 +144,17 @@ Node-Red由两部分组成。一部分是用户可见的数据流的编辑界面
 
 Node-red总是默认数据从左流向右，所以输入节点都有一个特点：数据接口在右侧，见下图的标记；输出节点也有一个特点，数据的接口在左侧，见下图：
 
-![输入节点](assets/STM32_NodeRED/6.png)
+![输入节点](/assets/STM32_NodeRED/6.png)
 
 还有一些节点是特殊的，既有输入又有输出，那么左右两侧都有数据的接口，见下图：
 
-![输入节点](assets/STM32_NodeRED/7.png)
+![输入节点](/assets/STM32_NodeRED/7.png)
 
 注意，这里的输入与输出都是相对于“整个数据流”来说的。其实单单对于输入节点来说，它负责向外输出一个数据，比如“hello world”。那么为什么把它叫做输入节点呢？因为对于整个数据流来说，输入节点为数据流输入了一个“hello world”信息，所以称之为输入节点。
 
 使用鼠标按住左键，从上图接口1连接到接口2，即可完成输入输出的节点连接。用一条线连接输入输出节点，大概是最简单最直观的构建数据流的方式了。
 
-![输出节点](assets/STM32_NodeRED/8.png)
+![输出节点](/assets/STM32_NodeRED/8.png)
 
 
 ### 部署
@@ -163,22 +163,22 @@ Node-red总是默认数据从左流向右，所以输入节点都有一个特点
 
 其下拉菜单中还有一些别的选项如下。
 
-![开始部署](assets/STM32_NodeRED/9.png)
+![开始部署](/assets/STM32_NodeRED/9.png)
 
 点击部署按钮，如果数据流与节点都没有问题，会有“部署成功”的弹窗提示。节点上蓝色的圆点也消失了。
 
-![部署成功](assets/STM32_NodeRED/10.png)
+![部署成功](/assets/STM32_NodeRED/10.png)
 
 ### 调试
 
 “inject”节点可以手动输入消息，节点左侧有一个小按钮，点击按钮可以手动注入消息，见按钮1。在点击inject节点的按钮之前，必须确保debug节点是可用的，即按钮必须是“伸出来”的，如按钮2，而不是像按钮3一样“缩回去”，按钮“缩回去”的debug节点不工作。点击按钮可以切换节点是否工作。
 
-![按钮调试](assets/STM32_NodeRED/11.png)
+![按钮调试](/assets/STM32_NodeRED/11.png)
 
 点击按钮1，屏幕上方会提示：“成功注入：hello world”。
 在屏幕右侧有调试窗口，窗口内可以看到一条消息，且内容正好是输入节点的信息：“hello world”
 
-![结果展示](assets/STM32_NodeRED/12.png)
+![结果展示](/assets/STM32_NodeRED/12.png)
 
 <!-- ------------------------ -->
 ## 控件
@@ -192,11 +192,11 @@ Node-red控件很多，我们可以根据自己的需要来选择。每个控件
 
 前边hello world的例子中，我们已经认识了输入节点，接下来详细介绍它。Node-red内部自带了对控件的介绍。鼠标悬停在某个控件上，就会出现一些提示信息，例如：
 
-![提示信息](assets/STM32_NodeRED/13.png)
+![提示信息](/assets/STM32_NodeRED/13.png)
 
 点击节点时，页面右侧也会出现提示信息：
 
-![右侧提示信息](assets/STM32_NodeRED/14.png)
+![右侧提示信息](/assets/STM32_NodeRED/14.png)
 
 阅读这些信息，就能对节点的使用有大概的了解。不过由于信息都是英文的，为了方便读者，我们会把常用控件的英文提示翻译过来。
 
@@ -225,15 +225,15 @@ Node-red控件很多，我们可以根据自己的需要来选择。每个控件
 
 添加输入节点（inject）与调试节点（debug）。连线，并且部署。
 
-![添加时间戳](assets/STM32_NodeRED/15.png)
+![添加时间戳](/assets/STM32_NodeRED/15.png)
 
 点击时间戳的按钮，然后在调试窗口下应该能看到这样的一串数据。
 
-![时间信息](assets/STM32_NodeRED/16.png)
+![时间信息](/assets/STM32_NodeRED/16.png)
 
 这个就是时间戳的值。关于时间戳的解释，节点帮助信息已经说得很清楚了，时间戳的意思是从1970年1月1日到当前时间，经历了多少毫秒。也就是从1970年1月1日到写教程的时候，经历了1579250830938毫秒。
 
-![时间信息转换](assets/STM32_NodeRED/17.png)
+![时间信息转换](/assets/STM32_NodeRED/17.png)
 
 可以通过一个[在线工具](https://tool.chinaz.com/Tools/unixtime.aspx)查看如此一来就能方便的把毫秒转换为当前时间了。
 
@@ -245,21 +245,21 @@ Node-red控件很多，我们可以根据自己的需要来选择。每个控件
 
 Inject节点的内容可以配置为数字或数组。
 
-![数据转换](assets/STM32_NodeRED/18.png)
+![数据转换](/assets/STM32_NodeRED/18.png)
 
 数字建议输入十进制，可以是整数也可以是小数。不建议输入十六进制，如果确实要输入十六进制的数可以转换为十进制输入。其实这是同一个数，0xc=12。
 
-![输入小数](assets/STM32_NodeRED/19.png)
+![输入小数](/assets/STM32_NodeRED/19.png)
 
-![进制转换](assets/STM32_NodeRED/20.png)
+![进制转换](/assets/STM32_NodeRED/20.png)
 
 如需输入数组，在“内容”一栏，要选择二进制，并且手动添加英文字符中的括号与逗号。注意，是英文字符的“,”。编程语言中几乎不会出现任何中文符号，后边见到的所有的与程序相关的符号都是英文。
 
-![输入数组](assets/STM32_NodeRED/21.png)
+![输入数组](/assets/STM32_NodeRED/21.png)
 
 使用debug节点观察到的输出的效果如下：
 
-![输出效果](assets/STM32_NodeRED/22.png)
+![输出效果](/assets/STM32_NodeRED/22.png)
 
 **输入ASCII码**
 
@@ -271,23 +271,23 @@ ASCII（American Standard Code for Information Interchange，美国信息交换�
 
 Inject的二进制流可以很方便的进行ASCII码与字符的转换。在“内容”输入框中输入一个单词，比如Hello。然后点击输入框右边的扩展按钮。可以看到一个新的页面，“缓冲区编辑器”。点击此页面的“完成”按钮。
 
-![缓冲区编辑器](assets/STM32_NodeRED/23.png)
+![缓冲区编辑器](/assets/STM32_NodeRED/23.png)
 
 可以发现内容输入框已经自动转换为一个数组，而数组的内容正好是“Hello”的每个字符相对应的ASCII码。
 
-![数组转换](assets/STM32_NodeRED/24.png)
+![数组转换](/assets/STM32_NodeRED/24.png)
 
 在debug节点中可以看到这个数组：
 
-![节点数组](assets/STM32_NodeRED/25.png)
+![节点数组](/assets/STM32_NodeRED/25.png)
 
 点击数组，可以展开并显示为十六进制。
 
-![十六进制显示](assets/STM32_NodeRED/26.png)
+![十六进制显示](/assets/STM32_NodeRED/26.png)
 
 点击可以切换为字符，正是我们输入的“Hello”：
 
-![字符转换](assets/STM32_NodeRED/27.png)
+![字符转换](/assets/STM32_NodeRED/27.png)
 
 从这个例子来看，如果不是因为可以输出数组，那么把字符转为ASCII码，与直接输出文字列的功能是否雷同？不会的。有一些控制符，比如回车、换行，无法在文字列中输出。但是它们有对应的ASCII码，通过查表可以得知:回车换行对应的ASCII码值分别是13与10，在“内容”输入框中手动输入13与10即可。
 
@@ -297,19 +297,19 @@ Inject的二进制流可以很方便的进行ASCII码与字符的转换。在“
 
 我们拖进来一个inject节点，并且更改内容为文字列，Hello World。
 
-![配置主题](assets/STM32_NodeRED/28.png)
+![配置主题](/assets/STM32_NodeRED/28.png)
 
 可以工作区中，节点的名字也是Hello World。
 
-![节点名称](assets/STM32_NodeRED/29.png)
+![节点名称](/assets/STM32_NodeRED/29.png)
 
 双击debug节点，观察输出，默认是msg.payload。通过下拉菜单把它改为完整信息，并部署。
 
-![节点名称](assets/STM32_NodeRED/30.png)
+![节点名称](/assets/STM32_NodeRED/30.png)
 
 点击inject节点的输入按钮，可以再调试窗口看到以下信息：
 
-![节点名称](assets/STM32_NodeRED/31.png)
+![节点名称](/assets/STM32_NodeRED/31.png)
 
 _msgid毫无疑问就是节点的ID，既然是ID当然也就是独一无二的。
 
@@ -321,19 +321,19 @@ Payload意思是有效负载或载荷，就是inject节点的内容输入框里�
 
 接下来编辑inject节点，在“主题”输入框内输入topic：
 
-![编辑节点](assets/STM32_NodeRED/32.png)
+![编辑节点](/assets/STM32_NodeRED/32.png)
 
 重新部署，并点击inject节点的按钮，对比调试窗口的信息，可以发现， 新的数据包增加了topic的内容。
 
-![信息对比](assets/STM32_NodeRED/33.png)
+![信息对比](/assets/STM32_NodeRED/33.png)
 
 接下来修改name。在“名称”输入框内填写name。
 
-![修改名称](assets/STM32_NodeRED/34.png)
+![修改名称](/assets/STM32_NodeRED/34.png)
 
 可以发现工作区中节点的名字发生变化。
 
-![框图对比](assets/STM32_NodeRED/35.png)
+![框图对比](/assets/STM32_NodeRED/35.png)
 
 部署并点击输入的按钮，可以观察到，name的信息并没有出现在debug窗口。
 
@@ -349,7 +349,7 @@ Topic是数据包本身带的一个属性，其信息会随着数据包下发。
 
 双击编辑inject节点，通过下拉菜单选择“重复”输入框后的内容为“间隔”，然后下边一栏会紧接着出现每隔1秒。数字与单位都可以设置。比如设置为每隔5秒，然后点击完成，部署。
 
-![重复发送](assets/STM32_NodeRED/36.png)
+![重复发送](/assets/STM32_NodeRED/36.png)
 
 会发现调试窗口以5秒为间隔收到了很多消息。
 
@@ -391,45 +391,45 @@ JavaScript对象和数组（arrays）可以根据需要折叠和展开。缓冲�
 
 配置节点属性如下。使用一个inject节点发送消息。
 
-![inject节点发送消息](assets/STM32_NodeRED/37.png)
+![inject节点发送消息](/assets/STM32_NodeRED/37.png)
 
 可以在系统的控制台，比如powershell，也就是输入“node-red”打开node-red服务器的地方，可以看到以下内容：
 
-![控制台显示](assets/STM32_NodeRED/38.png)
+![控制台显示](/assets/STM32_NodeRED/38.png)
 
 **debug控件在调试中的应用**
 
 Debug节点具备快速定位的功能。新建两条流，每条流都有inject节点与debug节点，inject节点的内容分别为flow 1与flow 2，其它都默认，然后部署。
 
-![部署](assets/STM32_NodeRED/39.png)
+![部署](/assets/STM32_NodeRED/39.png)
 
 随意点击两个Inject节点的按钮，观察调试窗口。点击node，可以发现系统自动帮我们定位到了接收这个消息的debug节点。
 
-![定位接收消息](assets/STM32_NodeRED/40.png)
+![定位接收消息](/assets/STM32_NodeRED/40.png)
 
-![闪烁提示](assets/STM32_NodeRED/41.png)
+![闪烁提示](/assets/STM32_NodeRED/41.png)
 
 然后修改debug节点的名称，分别改为d1和d2。部署，并随意点击两个inject节点的按钮。
 
-![修改节点名称](assets/STM32_NodeRED/42.png)
+![修改节点名称](/assets/STM32_NodeRED/42.png)
 
 此时可以发现，消息的来源已经被注明为d1或是d2。
 
-![消息来源](assets/STM32_NodeRED/43.png)
+![消息来源](/assets/STM32_NodeRED/43.png)
 
 放置debug节点并修改它的name，这是一个好习惯。它可以帮助你在一堆数据包中，快速找到你需要的数据。
 
 如果信息实在多的话，调试窗口自带有过滤功能，可以过滤掉不需要的消息。操作如下。
 
-![过滤节点](assets/STM32_NodeRED/44.png)
+![过滤节点](/assets/STM32_NodeRED/44.png)
 
 完成以后，则调试窗口只剩下刚刚被勾选的d1，D2的消息就不见了。
 
-![过滤消息](assets/STM32_NodeRED/45.png)
+![过滤消息](/assets/STM32_NodeRED/45.png)
 
 也可以点击debug节点右侧的小按钮，按钮就自动缩回去了，表示这个节点不再输出消息。
 
-![缩回操作](assets/STM32_NodeRED/46.png)
+![缩回操作](/assets/STM32_NodeRED/46.png)
 
 灵活地掌握debug节点的定位与数据的筛选，可以极大提升调试的效率。比如某个节点应当输出某个消息，但是不知道输出的消息到底对不对，放置一个debug节点就可以观察到这个消息了。
 
@@ -437,7 +437,7 @@ Debug节点具备快速定位的功能。新建两条流，每条流都有inject
 
 File节点分为两种，功能分别是file in与file out。
 
-![File节点](assets/STM32_NodeRED/47.png)
+![File节点](/assets/STM32_NodeRED/47.png)
 
 **file的说明信息**
 
@@ -501,15 +501,15 @@ File节点分为两种，功能分别是file in与file out。
 
 拖拽一个inject节点，用于输入时间戳，再拖拽一个file节点，进行如下编辑：
 
-![file节点使用](assets/STM32_NodeRED/48.png)
+![file节点使用](/assets/STM32_NodeRED/48.png)
 
 1 文件名。编辑页面下边有提示，告诉我们应该保存一个绝对路径。如何知道某个文件夹的绝对路径呢？你可以先在电脑的文件管理器中找到这个文件夹，也就是在“我的电脑”里打开这个文件夹，接下来把鼠标挪到地址栏，点击
 
-![磁盘资料](assets/STM32_NodeRED/49.png)
+![磁盘资料](/assets/STM32_NodeRED/49.png)
 
 然后按下ctrl + c：
 
-![复制文本](assets/STM32_NodeRED/50.png)
+![复制文本](/assets/STM32_NodeRED/50.png)
 
 路径就复制下来了。如果你想在这个文件夹下新建一个文件，可以在编辑file节点的页面，文件名后边的输入框，也就是数字1标记的地方，粘贴，然后在路径后手动输入“\你需要的文件名”，就比如上图的“E:\node-red数据\保存时间戳.txt”，然后把数字3标记的小方框勾选上去。
 
@@ -517,15 +517,15 @@ File节点分为两种，功能分别是file in与file out。
 
 数字2标记的“行为”也有一些选项，由于含义明确，不再啰嗦了。
 
-![追加文件](assets/STM32_NodeRED/51.png)
+![追加文件](/assets/STM32_NodeRED/51.png)
 
 name之前也讲过了，它只影响节点中浏览器的外观。
 
-![名字外观](assets/STM32_NodeRED/52.png)
+![名字外观](/assets/STM32_NodeRED/52.png)
 
 然后部署，点击inject按钮发送一些时间戳，可以看到文本文档里有一些信息，说明file节点已经可以工作了。
 
-![文档信息](assets/STM32_NodeRED/53.png)
+![文档信息](/assets/STM32_NodeRED/53.png)
 
 **file in 的使用**
 
@@ -533,15 +533,15 @@ File in控件的左右都有灰色的小方块，而inject只是右侧有一个�
 
 接下来用inject，file in与debug构建这样的一条流
 
-![输入输出流](assets/STM32_NodeRED/54.png)
+![输入输出流](/assets/STM32_NodeRED/54.png)
 
 点击inject的按钮，在调试窗口可以看到以下信息：
 
-![调试信息](assets/STM32_NodeRED/55.png)
+![调试信息](/assets/STM32_NodeRED/55.png)
 
 你可以把file in 节点的输出选项变一下，每个选项到底是什么作用，自己来体会下吧。
 
-![字符选择](assets/STM32_NodeRED/56.png)
+![字符选择](/assets/STM32_NodeRED/56.png)
 
 另外，讲述file控件的时候我们都用了文本文档来举例，我生怕读者会认为file控件只能用到文本上，那就大错特错了了。实际上，据我所知，有人用node-red做图像识别，那么node-red肯定是能够读取图像的。
 
@@ -551,7 +551,7 @@ Switch本意是开关、转换，用在node-red里有点像一个岔路口，nod
 
 Switch控件属于“function”类型的控件，function一般翻译为功能或者函数。
 
-![Switch控件](assets/STM32_NodeRED/57.png)
+![Switch控件](/assets/STM32_NodeRED/57.png)
 
 **switch的说明信息**
 
@@ -593,21 +593,21 @@ Switch控件属于“function”类型的控件，function一般翻译为功能�
 
 在程序设计之前，我们先来梳理一下任务：可能会有一些数据需要我们判断大小，然后把数据发到不同的输出分支。有点像你提着三个篮子去摘苹果，大苹果放在篮子1，中苹果放在篮子2，小苹果放在篮子3。我们就以“10”作为判断的标准，把1,10,100作为测试数据。分析任务，可以得到以下流程图。
 
-![数据流程图](assets/STM32_NodeRED/58.png)
+![数据流程图](/assets/STM32_NodeRED/58.png)
 
 测试数据的输入使用inject节点，三个输出使用debug节点，相信大家早已轻车熟路。然后拖入一个switch节点。按图示修改：
 
-![节点拖入](assets/STM32_NodeRED/59.png)
+![节点拖入](/assets/STM32_NodeRED/59.png)
 
-![编辑switch节点](assets/STM32_NodeRED/60.png)
+![编辑switch节点](/assets/STM32_NodeRED/60.png)
 
 改完以后发现switch节点的输出变为3个了，从上到下分别是输出1，输出2与输出3。连接并部署。
 
-![部署switch节点](assets/STM32_NodeRED/61.png)
+![部署switch节点](/assets/STM32_NodeRED/61.png)
 
 分别点击3个inject节点的输入按钮。可以在调试窗口观察到以下现象。可以看出，100是OUT1节点收到的，也就是第一个判断条件（>10）的输出,100>10，没有问题。其它的数也根据判断条件正确输出，说明我们的任务完成了。
 
-![调试窗口](assets/STM32_NodeRED/62.png)
+![调试窗口](/assets/STM32_NodeRED/62.png)
 
 **switch判断数组**
 
@@ -615,7 +615,7 @@ Switch控件属于“function”类型的控件，function一般翻译为功能�
 
 注入内容改为数组。
 
-![编辑inject节点](assets/STM32_NodeRED/63.png)
+![编辑inject节点](/assets/STM32_NodeRED/63.png)
 
 Switch节点需要注意属性，是msg.payload[1]！因为数组下标从0开始，所以数组的第一位是msg.payload[0]，第二位才是msg.payload[1]。
 
@@ -623,7 +623,7 @@ Switch节点需要注意属性，是msg.payload[1]！因为数组下标从0开�
 
 顺带提一下，在switch的说明信息里，有很多关于sequence rules和JSONata exp的描述，这些可能是很有用的判断条件，不过我们暂时没有用到，因此看不懂说明信息。感兴趣的可以查一下。
 
-![编辑switch节点](assets/STM32_NodeRED/64.png)
+![编辑switch节点](/assets/STM32_NodeRED/64.png)
 
 **switch判断topic**
 
@@ -631,11 +631,11 @@ Switch节点需要注意属性，是msg.payload[1]！因为数组下标从0开�
 
 拖入3个inject节点，topic要填写，我填写的topic是“apple”，“banana”和“orange”。Switch节点进行如下修改。
 
-![节点修改](assets/STM32_NodeRED/65.png)
+![节点修改](/assets/STM32_NodeRED/65.png)
 
 连线并部署。点击inject按钮观察现象。
 
-![部署现象](assets/STM32_NodeRED/66.png)
+![部署现象](/assets/STM32_NodeRED/66.png)
 
 我想，除了点击一下apple的输入按钮，OUT1与OUT3都收到数据以外，其它的现象都和你预料的一致。Apple为什么会输出两次？
 
@@ -698,7 +698,7 @@ Catch节点也可以用来处理错误，为了调用Catch节点，将msg作为�
 
 它的作用就是，把消息原封不动输出。原封不动的输出，也是一种功能，最简单的功能。我们双击函数节点，来看一下里边的内容。
 
-![编辑function节点](assets/STM32_NodeRED/67.png)
+![编辑function节点](/assets/STM32_NodeRED/67.png)
 
 只有一行代码，return msg，返回消息。
 
@@ -706,7 +706,7 @@ Catch节点也可以用来处理错误，为了调用Catch节点，将msg作为�
 
 既然可以原封不动返回msg，当然也可以不返回。只要把语句改为return null即可。Null的意思是空值，也可以说没有值。修改代码为：
 
-![编辑function节点](assets/STM32_NodeRED/68.png)
+![编辑function节点](/assets/STM32_NodeRED/68.png)
 
 重新部署，无论现在如何点击inject节点的输入按钮，debug节点都不会打印出任何消息了。
 
@@ -724,13 +724,13 @@ var msg4 = { payload:"only message from output 2" };
 return [ [ msg1, msg2, msg3 ], msg4 ];
 ```
 
-![添加代码](assets/STM32_NodeRED/69.png)
+![添加代码](/assets/STM32_NodeRED/69.png)
 
 拖入两个debug节点，命名，并分别接到函数节点的两路输出去。然后点击inject的按钮，观察调试窗口的现象。
 
-![拖入debug节点](assets/STM32_NodeRED/70.png)
+![拖入debug节点](/assets/STM32_NodeRED/70.png)
 
-![调试窗口打印](assets/STM32_NodeRED/71.png)
+![调试窗口打印](/assets/STM32_NodeRED/71.png)
 
 我们发现，OUT1节点一口气收到了3条消息，OUT2节点收到了一条消息，且消息的内容我们刚刚输入的代码有关系。跟输入的消息没有任何关系，因为输入的是时间戳。
 关注最后一句并对比分析：
@@ -751,11 +751,11 @@ Switch控件可以进行数据的分流，它属于功能控件。函数控件�
 
 输入与输出不变，把函数节点替换掉switch节点，并修改代码如下：
 
-![修改代码](assets/STM32_NodeRED/72.png)
+![修改代码](/assets/STM32_NodeRED/72.png)
 
 分别点击3个inject节点的输入按钮。可以再调试窗口观察到以下现象。
 
-![点击输入按钮](assets/STM32_NodeRED/73.png)
+![点击输入按钮](/assets/STM32_NodeRED/73.png)
 
 可以看出，所有数据都根据判断条件正确输出，说明我们的任务完成了。
 
@@ -770,7 +770,7 @@ Switch控件可以进行数据的分流，它属于功能控件。函数控件�
 接下来尝试用函数节点对数字进行计算。拖入inject节点，并把输入的内容改为数字；拖入debug节点用来观察现象，拖入函数节点并做如下修改：
 其中，var newMsg = {payload: msg.payload * 2 }语句的意思是，新建一个对象，名为newMsg，它有payload属性，并且payload的值为msg.payload的两倍。最后返回的是newMsg，也就是新建的这个对象。
 
-![新建对象](assets/STM32_NodeRED/74.png)
+![新建对象](/assets/STM32_NodeRED/74.png)
 
 部署并运行，可以看到现象是，调试窗口显示的数值是输入的两倍。说明函数节点的功能实现了。
 
@@ -791,7 +791,7 @@ return msg;
 通常，在实际通信的时候不会只传递一个数组，信息的传递依赖于数组，数组中不同位置的数字也会有不同的含义，例如，第一个数字表示ID，第二个数字表示数组长度，第三个数字表示温度等等，一般会有一个通信协议来规定。所以，如何取出有用的数据，或者按要求把数据进行组装很重要。
 现在，假如收到了一串数据，数据共16位，我们只用到后8位，前边的8位都不要了，如何来操作？
 
-![数据解析](assets/STM32_NodeRED/75.png)
+![数据解析](/assets/STM32_NodeRED/75.png)
 
 通过分析可以得知：
 
@@ -817,15 +817,15 @@ return msg;
 
 接下来添加inject与debug节点搭一个测试环境。Inject节点内容为数组。
 
-![搭建测试环境](assets/STM32_NodeRED/76.png)
+![搭建测试环境](/assets/STM32_NodeRED/76.png)
 
-![数据流](assets/STM32_NodeRED/77.png)
+![数据流](/assets/STM32_NodeRED/77.png)
 
-![编写程序](assets/STM32_NodeRED/78.png)
+![编写程序](/assets/STM32_NodeRED/78.png)
 
 部署并观察调试窗口如下:
 
-![调试窗口打印](assets/STM32_NodeRED/79.png)
+![调试窗口打印](/assets/STM32_NodeRED/79.png)
 
 说明经过函数节点以后，我们成功截取了数组的后8位。
 
@@ -839,19 +839,19 @@ return msg;
 
 我们使用inject节点输入数组[0xd,0x80]，由于inject节点里不支持直接输入十六进制的数字，所以输入[13,128]。这两个数组的值是一样的。
 
-![数值输入](assets/STM32_NodeRED/80.png)
+![数值输入](/assets/STM32_NodeRED/80.png)
 
 函数节点进行如下修改：
 
-![函数修改](assets/STM32_NodeRED/81.png)
+![函数修改](/assets/STM32_NodeRED/81.png)
 
 连线并部署，然后点击inject节点的输入按钮，可以看到调试窗口输出的正是我们期望的结果：34.56。
 
 可以再添加一个节点，把数字34.56转为字符34.56摄氏度。
 
-![图形化展示](assets/STM32_NodeRED/82.png)
+![图形化展示](/assets/STM32_NodeRED/82.png)
 
-![函数展示](assets/STM32_NodeRED/83.png)
+![函数展示](/assets/STM32_NodeRED/83.png)
 
 <!-- ------------------------ -->
 ## context与global的应用
@@ -865,15 +865,15 @@ Duration: 15
 
 拖入inject节点与debug节点。拖入一个函数节点，进行如下设置：
 
-![拖入节点进行设置](assets/STM32_NodeRED/84.png)
+![拖入节点进行设置](/assets/STM32_NodeRED/84.png)
 
 完成以后连线并部署，多次点击inject节点的输入按钮，并在调试窗口观察现象。
 
-![图形化展示](assets/STM32_NodeRED/85.png)
+![图形化展示](/assets/STM32_NodeRED/85.png)
 
 发现调试窗口中的数据在递增：
 
-![调试窗口数据](assets/STM32_NodeRED/86.png)
+![调试窗口数据](/assets/STM32_NodeRED/86.png)
 
 接下来结合现象分析代码：  
 ```c
@@ -900,20 +900,20 @@ context.global : 同lobal
 
 执行context.set以后，就能把处理过后的值保存下来。保存到哪里？’count’,带单引号的count里。接下来用流程图来表示逻辑。注意，带单引号的’count’与变量count不一样。
 
-![流程图](assets/STM32_NodeRED/87.png)
+![流程图](/assets/STM32_NodeRED/87.png)
 
 **使用flow在不同节点之间传递参数**
 
 函数节点计数器实现了用’count’来保存数据的方法，那么这个’count’里边的内容，能否被别的节点使用？我们来尝试一下。
 在上一章节的基础上进行修改，添加计数器2，并做如下修改：
 
-![添加计数器](assets/STM32_NodeRED/88.png)
+![添加计数器](/assets/STM32_NodeRED/88.png)
 
-![编辑计数器](assets/STM32_NodeRED/89.png)
+![编辑计数器](/assets/STM32_NodeRED/89.png)
 
 如果计数器2可以使用’count’的内容，那么payload里的内容应该是递增的数据。然而，部署以后，观察实验现象，可以发现OUT2的内容并没有变化。这说明计数器2没有办法获取’count’里的数据。
 
-![调试窗口数据打印](assets/STM32_NodeRED/90.png)
+![调试窗口数据打印](/assets/STM32_NodeRED/90.png)
 
 细心的读者可以发现，在context的API里，有这么一句解释：
 
@@ -931,19 +931,19 @@ flow.set(..) : 设置流作用域上下文属性
 flow.keys(..) : 返回所有流作用域上下文属性键的列表
 修改为“计数器”节点
 
-![修改计数器函数](assets/STM32_NodeRED/91.png)
+![修改计数器函数](/assets/STM32_NodeRED/91.png)
 
 修改“计数器2”节点：
 
-![修改计数器2节点](assets/STM32_NodeRED/92.png)
+![修改计数器2节点](/assets/STM32_NodeRED/92.png)
 
 部署并点击inject节点的输入按钮，看到现象如下：
 
-![调试窗口数据打印](assets/STM32_NodeRED/93.png)
+![调试窗口数据打印](/assets/STM32_NodeRED/93.png)
 
 这说明计数器2获取到了计数器中的count值，也就是通过flow.set与flow.get实现了不同节点的参数传递。流程分析如下：
 
-![流程图](assets/STM32_NodeRED/94.png)
+![流程图](/assets/STM32_NodeRED/94.png)
 
 **使用flow实现计时器**
 
@@ -955,27 +955,27 @@ flow.keys(..) : 返回所有流作用域上下文属性键的列表
 
 这次我们先来画一个流程图来分析思路。
 
-![思路流程图](assets/STM32_NodeRED/95.png)
+![思路流程图](/assets/STM32_NodeRED/95.png)
 
 这是开始时间的设置：
 
-![设置开始时间](assets/STM32_NodeRED/96.png)
+![设置开始时间](/assets/STM32_NodeRED/96.png)
 
 这是结束时间的设置：
 
-![设置结束时间](assets/STM32_NodeRED/97.png)
+![设置结束时间](/assets/STM32_NodeRED/97.png)
 
 这是delay节点的设置：
 
-![设置延时时间](assets/STM32_NodeRED/98.png)
+![设置延时时间](/assets/STM32_NodeRED/98.png)
 
 整个流连线如下，完成以后部署并点击inject节点的输入按钮：
 
-![图形化展示](assets/STM32_NodeRED/99.png)
+![图形化展示](/assets/STM32_NodeRED/99.png)
 
 可以看到，delay节点出现了一个蓝色的标记，以及表示时间的数字。这就是节点的状态status。
 
-![随机延时](assets/STM32_NodeRED/100.png)
+![随机延时](/assets/STM32_NodeRED/100.png)
 
 **使用全局变量**
 
@@ -987,29 +987,29 @@ global.set(..) ：设置全局范围的上下文属性
 
 global.keys(..) ：返回所有全局作用域上下文属性键的列表
 
-![流程图](assets/STM32_NodeRED/101.png)
+![流程图](/assets/STM32_NodeRED/101.png)
 
 整个流程如下设计：
 
-![图形化展示](assets/STM32_NodeRED/102.png)
+![图形化展示](/assets/STM32_NodeRED/102.png)
 
 开始时间与当前时间分别设计如下：
 
-![开始时间](assets/STM32_NodeRED/103.png)
+![开始时间](/assets/STM32_NodeRED/103.png)
 
-![当前时间](assets/STM32_NodeRED/104.png)
+![当前时间](/assets/STM32_NodeRED/104.png)
 
 完成以后部署，并先点击开始时间的输入按钮，再点击当前时间的输入按钮。调试窗口现象如下：
 
-![调试窗口数据打印](assets/STM32_NodeRED/105.png)
+![调试窗口数据打印](/assets/STM32_NodeRED/105.png)
 
 从现象中可以看出来虽然两个流没有直接连接，但是第二个流仍然获取了在第一个流中设置的变量。说明实验成功。接下来，观察重新部署时，global变量能否保存。为节点做一些无关紧要的修改，例如out改为OUT，以便能够点击“部署”按钮。
 
-![图形化界面修改](assets/STM32_NodeRED/106.png)
+![图形化界面修改](/assets/STM32_NodeRED/106.png)
 
 部署完成以后，不要点击“开始时间”的输入按钮，直接点击“当前时间”的输入按钮，可以观察到如下的现象。
 
-![调试窗口数据打印](assets/STM32_NodeRED/107.png)
+![调试窗口数据打印](/assets/STM32_NodeRED/107.png)
 
 逝去的时间并没有被重置，说明重新部署不影响global的内容。
 
@@ -1044,11 +1044,11 @@ node.send(..) : 发送消息
 前面遇到一个问题：如果“apple”既满足条件1，又满足条件3，但是条件1执行return 的操作以后，条件3就不再执行了，有没有既可以发送数据，又不会结束函数的方法？当然有。我们查询了节点可以调用的API，发现有send函数，满足我们的要求。
 查一下之前的代码，把“判断主题”节点做如下修改：
 
-![判断主题](assets/STM32_NodeRED/108.png)
+![判断主题](/assets/STM32_NodeRED/108.png)
 
 然后部署并观察现象，可以发现，当点击apple的输入按钮时，OUT1与OUT3都可以收到消息，说明实验成功。
 
-![数据打印](assets/STM32_NodeRED/109.png)
+![数据打印](/assets/STM32_NodeRED/109.png)
 
 **流程之间传递函数**
 
@@ -1056,40 +1056,40 @@ Context元素除了可以传递变量以外，也可以传递函数。我们在�
 
 流1的函数节点：
 
-![流1节点函数](assets/STM32_NodeRED/110.png)
+![流1节点函数](/assets/STM32_NodeRED/110.png)
 
 流2的函数节点：
 
-![流2节点函数](assets/STM32_NodeRED/111.png)
+![流2节点函数](/assets/STM32_NodeRED/111.png)
 
 先点击IN1的输入按钮，再点击IN2的输入按钮，可以看到OUT2中打印出了hello world，其中的“hello”是通过调用流1 的hello()函数打印出来的，说明实验成功了。
 
-![调试窗口打印](assets/STM32_NodeRED/112.png)
+![调试窗口打印](/assets/STM32_NodeRED/112.png)
 
 **使用状态标志**
 
 第一次使用delay节点，用于产生一个随机数。此节点在在运行的时候显示出了一个表示时间的字符，显示这个随机的时间是多少。我觉得这个功能很有用，很直观的可以显示出我们感兴趣的一些数据或状态，可以省去到处用debug节点打印的烦恼。翻看函数节点的API，正好有一条可以用来显示状态：
 node.status(..) : 更新节点的状态
 
-![随机延时](assets/STM32_NodeRED/113.png)
+![随机延时](/assets/STM32_NodeRED/113.png)
 
 我们来研究一下如何使用。
 
 首先要搭建一个可变的输入信息，并且要持续一段时间，避免状态变得太快看不到。相信详细学过函数控件用法以后，对于聪明的你来说，这一定不是难事。——用函数节点+delay节点可以实现。先拖拽节点，形成数据流。
 
-![数据流](assets/STM32_NodeRED/114.png)
+![数据流](/assets/STM32_NodeRED/114.png)
 
 第一个函数节点用于发送5个数字：
 
-![send1-5节点函数](assets/STM32_NodeRED/115.png)
+![send1-5节点函数](/assets/STM32_NodeRED/115.png)
 
 Delay节点用于限制数据包的速度，每秒一条。
 
-![Delay节点](assets/STM32_NodeRED/116.png)
+![Delay节点](/assets/STM32_NodeRED/116.png)
 
 如此就能实现，第二个函数节点每秒接收到一个数字。
 
-![节点函数](assets/STM32_NodeRED/117.png)
+![节点函数](/assets/STM32_NodeRED/117.png)
 
 第二个函数节点的代码如下：
 ```c
@@ -1101,7 +1101,7 @@ return msg;
 
 接下来点击inject的输入按钮，可以在调试窗口看到每隔一秒收到一个数据。这都是意料中的现象。
 
-![调试窗口打印](assets/STM32_NodeRED/118.png)
+![调试窗口打印](/assets/STM32_NodeRED/118.png)
 
 同时，第二个函数节点也能显示出一些信息。绿色的点，以及显示内容都是我们代码中自己编写的，所以，任务完成。
 
@@ -1121,17 +1121,17 @@ Duration: 30
 
 点击选项按钮，找到节点管理:
 
-![节点管理](assets/STM32_NodeRED/119.png)
+![节点管理](/assets/STM32_NodeRED/119.png)
 
 切换到“安装”标签内，在输入框内输入serialport，找到node-red-node-serialport，点击安装。
 
-![点击安装](assets/STM32_NodeRED/120.png)
+![点击安装](/assets/STM32_NodeRED/120.png)
 
-![点击安装](assets/STM32_NodeRED/121.png)
+![点击安装](/assets/STM32_NodeRED/121.png)
 
 安装完成以后，输入控件与输出控件区都会增加一个名为“serial”的控件。
 
-![增加控件](assets/STM32_NodeRED/122.png)
+![增加控件](/assets/STM32_NodeRED/122.png)
 
 ### 串口控件简介
 
@@ -1159,17 +1159,17 @@ Msg.port设置为被选择端口的名字。
 
 串口/网络数据调试器可以把串口收到的数据显示出来，也可以通过串口发送数据，十分直观，可以用与显示串口控件的数据，和给串口控件发送数据。但是，一般来说，同一个串口只允许一个软件占用。例如串口控件占用了COM10（串口2），那么串口/网络数据调试器就不能使用COM10了。如果COM10可以与COM11进行通信，而串口/网络数据调试器使用COM11，那么串口/网络数据调试器就可以与串口控件通信。虚拟串口工具可以把COM10与COM11连接起来，也就是借助虚拟串口工具，可以在不需要任何硬件的情况下，可以用串口/网络数据调试器模拟真实的串口，与串口控件通信。连接情况可以下图说明。
 
-![串口控件通信](assets/STM32_NodeRED/123.png)
+![串口控件通信](/assets/STM32_NodeRED/123.png)
 
 **虚拟串口工具设置**
 
 打开虚拟串口工具：
 
-![打开虚拟工具](assets/STM32_NodeRED/124.png)
+![打开虚拟工具](/assets/STM32_NodeRED/124.png)
 
 在Manage ports下，添加端口的地方改为COM9与COM10连接。也可任意填写其它串口号。
 
-![填写串口号](assets/STM32_NodeRED/125.png)
+![填写串口号](/assets/STM32_NodeRED/125.png)
 
 完成添加以后左侧的virtual ports显示新添加的串口。注意，两个串口设置为连接以后，即便关闭程序，串口的连接仍然保持，所以建议使用比较大的串口号，其它设备用不到的。如果需要解除连接，可以点击删除端口或是重置端口。
 
@@ -1179,19 +1179,19 @@ Msg.port设置为被选择端口的名字。
 
 1. 选择端口号  
 可以看到端口号下边已经有了通过虚拟串口工具仿真出来的串口。除了串口以外，还有TCP和UDP的功能。
-![选择串口号](assets/STM32_NodeRED/126.png)
+![选择串口号](/assets/STM32_NodeRED/126.png)
 
 2. 波特率与更多串口设置  
 波特率代表数据发送的速率（每秒发送多少位数据），发送方与接收方必须保持一致。  
-![选择波特率](assets/STM32_NodeRED/127.png)  
+![选择波特率](/assets/STM32_NodeRED/127.png)  
 有时串口通信还需要配置一些其它参数，如数据位，校验位，控制位等，默认是8个数据位，没有校验位，1个停止位。这种设置简称为8N1。  
-![配置其他参数](assets/STM32_NodeRED/128.png)  
+![配置其他参数](/assets/STM32_NodeRED/128.png)  
 
 3. 扩展工具  
 SSCOM由于拥有扩展工具，所以十分方便，简直可以作为一个简单的上位机来用。    
-![扩展工具](assets/STM32_NodeRED/129.png)  
+![扩展工具](/assets/STM32_NodeRED/129.png)  
 点击扩展工具以后可以看到一个新的工具栏。可在输入框输入需要发送的信息，双击输入框可以修改注释。可以勾选是否使用hex发送，以及按顺序定时发送。  
-![预存发送数据](assets/STM32_NodeRED/130.png) 
+![预存发送数据](/assets/STM32_NodeRED/130.png) 
 
 ### 串口控件详细介绍
 
@@ -1199,29 +1199,29 @@ SSCOM由于拥有扩展工具，所以十分方便，简直可以作为一个简
 
 跟“hello world”类似，，虚拟串口工具与串口助手都设置完毕以后，我们先用一个最简单的程序检验下环境搭建情况如何。首先使用串口助手打开COM11，并设置为“非HEX显示”, “非HEX发送”。
 
-![勾选选项](assets/STM32_NodeRED/131.png) 
+![勾选选项](/assets/STM32_NodeRED/131.png) 
 
 然后在node-red工作区里添加以下几个控件：
 
-![添加控件](assets/STM32_NodeRED/132.png) 
+![添加控件](/assets/STM32_NodeRED/132.png) 
 
 设置inject输出文字“hello serial”：
 
-![设置输出文字](assets/STM32_NodeRED/133.png) 
+![设置输出文字](/assets/STM32_NodeRED/133.png) 
 
 两个串口控件都设置如下：
 
-![串口控件设置](assets/STM32_NodeRED/134.png)
+![串口控件设置](/assets/STM32_NodeRED/134.png)
 
-![serial-port配置](assets/STM32_NodeRED/135.png)   
+![serial-port配置](/assets/STM32_NodeRED/135.png)   
 
 然后连线并部署：
 
-![连线及部署](assets/STM32_NodeRED/136.png) 
+![连线及部署](/assets/STM32_NodeRED/136.png) 
 
 点击inject的输入按钮，可以在串口工具看到“send serialport”。在串口工具的输入栏输入“hello seriport”,也可以在调试窗口看到此信息。
 
-![查看调试信息](assets/STM32_NodeRED/137.png) 
+![查看调试信息](/assets/STM32_NodeRED/137.png) 
 
 <!-- ------------------------ -->
 ## dashboard控件的使用
@@ -1231,7 +1231,7 @@ Node-red基于JS，这是前端技术的“三驾马车”之一。前端技术�
 
 Node-red支持自定义节点，当然也就支持自定义图形化的节点。也有优秀的开发者把自己建立的图形化节点无偿分享。这里给出一个股票界面的例子，让大家看一看优秀的node-red界面能做到什么样子。
 
-![界面展示](assets/STM32_NodeRED/138.png) 
+![界面展示](/assets/STM32_NodeRED/138.png) 
 
 ### 仪表板安装与介绍
 
@@ -1239,33 +1239,33 @@ Node-red支持自定义节点，当然也就支持自定义图形化的节点。
 
 我们常用的图形化节点叫做仪表板，dashboard，也能做出效果不错的界面，例如：
 
-![仪表板安装](assets/STM32_NodeRED/139.png) 
+![仪表板安装](/assets/STM32_NodeRED/139.png) 
 
 Dashboard还有一些其它控件，例如：
 
-![更多控件](assets/STM32_NodeRED/140.png) 
+![更多控件](/assets/STM32_NodeRED/140.png) 
 
 仪表板的安装与串口类似，在安装节点的输入框内输入“dashboard”，找到名为“node-red-dashborad”的控件并点击安装即可。
 
-![安装node-red-dashborad控件](assets/STM32_NodeRED/141.png) 
+![安装node-red-dashborad控件](/assets/STM32_NodeRED/141.png) 
 
 安装完以后在屏幕左边会多出很多新的控件：
 
-![更多控件](assets/STM32_NodeRED/142.png) 
+![更多控件](/assets/STM32_NodeRED/142.png) 
 
 **检验安装结果**
 
 我们从中随便选择一个控件来检验安装好的控件是否能够使用。在deshboard的控件区找到“date picker”控件，拖入工作区，然后双击节点，点击Group输入框后边的编辑按钮，如图所示，把Group节点与Tab节点分别命名为Group与Tab。
 
-![点击编辑](assets/STM32_NodeRED/143.png) 
+![点击编辑](/assets/STM32_NodeRED/143.png) 
 
-![重命名节点](assets/STM32_NodeRED/144.png) 
+![重命名节点](/assets/STM32_NodeRED/144.png) 
 
-![重命名完成](assets/STM32_NodeRED/145.png) 
+![重命名完成](/assets/STM32_NodeRED/145.png) 
 
 拖入一个debug节点并连线部署。在浏览器中输入地址：http://localhost:1880/ui ，能正确打开此网页，已经可以说明安装成功了。然后可以看到名为date的一行内容。
 
-![安装成功](assets/STM32_NodeRED/146.png) 
+![安装成功](/assets/STM32_NodeRED/146.png) 
 
 **仪表板简介**
 
@@ -1283,11 +1283,11 @@ Theme意思是主题。可以选明亮的，或者暗的，或者自定义。
 
 Site意为地址，可以设置标题的UI，或者选择标题栏。也能够以像素为单位设置网格布局的基本图形，就是刚刚提到默认是48像素的那个“单位”，或者单独设置控件，组的大小。
 
-![点击dashboard](assets/STM32_NodeRED/147.png) 
+![点击dashboard](/assets/STM32_NodeRED/147.png) 
 
-![选择Style](assets/STM32_NodeRED/148.png) 
+![选择Style](/assets/STM32_NodeRED/148.png) 
 
-![dashboard节点配置](assets/STM32_NodeRED/149.png) 
+![dashboard节点配置](/assets/STM32_NodeRED/149.png) 
 
 Dashboard的控件一般都可以设置Label或名字，Label和名字也可以通过传入消息的属性来指定或修改。其实控件的内容都可以用消息来配置，这属于比较高阶的用法，感兴趣的可以参考：https://github.com/node-red/node-red-dashboard/blob/master/config-fields.md 。
 Dashboard带有的控件简介见下表：
@@ -1322,21 +1322,21 @@ Dashboard带有的控件简介见下表：
 
 在工作区拖入一个按钮节点，并把Tab和Group分别设置为home和control。
 
-![找到dashboard tab节点设置](assets/STM32_NodeRED/150.png) 
+![找到dashboard tab节点设置](/assets/STM32_NodeRED/150.png) 
 
-![设置Tab](assets/STM32_NodeRED/151.png) 
+![设置Tab](/assets/STM32_NodeRED/151.png) 
 
-![设置Group](assets/STM32_NodeRED/152.png) 
+![设置Group](/assets/STM32_NodeRED/152.png) 
 
 再拖入一个debug节点，连线并部署:
 
-![连线并部署debug节点](assets/STM32_NodeRED/153.png) 
+![连线并部署debug节点](/assets/STM32_NodeRED/153.png) 
 
 在(http://localhost:1880/ui)页面下就可以看到刚刚设置的的按钮，点击按钮，可以在调试窗口看到以下信息。
 
-![点击按钮](assets/STM32_NodeRED/154.png) 
+![点击按钮](/assets/STM32_NodeRED/154.png) 
 
-![调试窗口打印数据](assets/STM32_NodeRED/155.png)
+![调试窗口打印数据](/assets/STM32_NodeRED/155.png)
 
 这说明，点击按钮以后，按钮可以给流注入一个数据包。
 
@@ -1344,31 +1344,31 @@ Dashboard带有的控件简介见下表：
 
 我们在编辑按钮节点时，其实有很多选项都空着，例如尺寸、图标、标签、颜色等等。合理使用这些选项，即便是只用按钮控件也能做出来一些有意思的东西，例如做一个简易的电话拨号界面。
 
-![拨号界面](assets/STM32_NodeRED/156.png)
+![拨号界面](/assets/STM32_NodeRED/156.png)
 
 接下来结合这和拨号界面，来讲讲我们设置了哪些参数。以下是button节点可以设置的参数。
 
-![设置button节点](assets/STM32_NodeRED/157.png)
+![设置button节点](/assets/STM32_NodeRED/157.png)
 
 首先，很直观可以看到，数字的背景是不一样的，123的背景是灰色，456的背景是浅蓝，所以123控件的Background处应当填写“gray”。
 
-![填写gray](assets/STM32_NodeRED/158.png)
+![填写gray](/assets/STM32_NodeRED/158.png)
 
 按键的大小也是不一样的。一般来说，按键的大小默认是自动，也就是长度跟随Group，宽度是1。Group的宽度是多少呢？默认是6，可以修改，拨号界面就改成了3。修改的界面在屏幕右侧的dashboard界面下：
 
-![修改按键大小](assets/STM32_NodeRED/159.png)
+![修改按键大小](/assets/STM32_NodeRED/159.png)
 
-![设置宽度为3](assets/STM32_NodeRED/160.png)
+![设置宽度为3](/assets/STM32_NodeRED/160.png)
 
 Width就是宽度。顺带提一下，下边的两个选项分别是显示组的名字，和允许收缩。效果就是这样的：
 
-![选项](assets/STM32_NodeRED/161.png)
+![选项](/assets/STM32_NodeRED/161.png)
 
 显而易见，普通数字按钮的宽度都是1，拨号键的宽度是2。
 
 还有文字的颜色不一样。这个就很简单了，修改colour即可，比如数字的文字都是black。
 
-![修改文字颜色](assets/STM32_NodeRED/162.png)
+![修改文字颜色](/assets/STM32_NodeRED/162.png)
 
 另外，还可以看出，拨号的按键上有一个小小的电话图标；按键0的大小好像比别的数字也大一点，这其实也是一个图标。图标如何设置？
 
@@ -1378,7 +1378,7 @@ Width就是宽度。顺带提一下，下边的两个选项分别是显示组的
 
 每个图标下边都有名字，如果你需要使用这个图标，把名字输入到Icon后边即可，例如按键0的图标：
 
-![修改按键图片](assets/STM32_NodeRED/163.png)
+![修改按键图片](/assets/STM32_NodeRED/163.png)
 
 既然是电话拨号按键，当然要有拨号的功能。我们让每一个数字按键被按下去的时候，都可以把数字发送到流里边去；再按下“CALL”的时候，就把之前按下的数字全部打印出来，暂时用debug节点来显示。
 
@@ -1398,15 +1398,15 @@ Width就是宽度。顺带提一下，下边的两个选项分别是显示组的
 
 如图设置流：
 
-![设置流](assets/STM32_NodeRED/164.png)
+![设置流](/assets/STM32_NodeRED/164.png)
 
 如果在仪表板的界面，有数字的顺序是颠倒的，可以在屏幕右侧dashboard页面下通过拖拽节点调整顺序：
 
-![调整数字顺序](assets/STM32_NodeRED/165.png)
+![调整数字顺序](/assets/STM32_NodeRED/165.png)
 
 我们来“拨打”电话，借以观察现象：按下数字按键时，并不会显示单个数字；按下CALL以后，一串电话号码都能显示出来。
 
-![调试窗口打印](assets/STM32_NodeRED/166.png)
+![调试窗口打印](/assets/STM32_NodeRED/166.png)
 
 **开关switch的使用**
 
@@ -1420,21 +1420,21 @@ Dashboard中的switch可以增加一个开关到用户界面。
 
 直接拖入一个switch节点，修改它的Group和Tab，并与debug节点连接，部署。
 
-![编辑switch节点](assets/STM32_NodeRED/167.png)
+![编辑switch节点](/assets/STM32_NodeRED/167.png)
 
-![部署switch节点](assets/STM32_NodeRED/168.png)
+![部署switch节点](/assets/STM32_NodeRED/168.png)
 
 在 [http://localhost:1880/ui/](http://localhost:1880/ui/ ) 下可以看到这个开关，点击开关可以看到调试窗口下输出了true。
 
-![效果展示](assets/STM32_NodeRED/169.png)
+![效果展示](/assets/STM32_NodeRED/169.png)
 
-![调试窗口输出](assets/STM32_NodeRED/170.png)
+![调试窗口输出](/assets/STM32_NodeRED/170.png)
 
 其中的true与false当然也可以改为别的载荷，跟inject节点类似：
 
-![效果展示](assets/STM32_NodeRED/171.png)
+![效果展示](/assets/STM32_NodeRED/171.png)
 
-![调试窗口打印](assets/STM32_NodeRED/172.png)
+![调试窗口打印](/assets/STM32_NodeRED/172.png)
 
 **滑块slider的使用**
 
@@ -1446,15 +1446,15 @@ Dashboard中的滑块可以帮助用户在最小值与最大值的范围内，�
 
 滑块形状如下：
 
-![滑块形状](assets/STM32_NodeRED/173.png)
+![滑块形状](/assets/STM32_NodeRED/173.png)
 
 拖动滑块，可以在调试窗口见到当前滑块的值。
 
-![滑块值](assets/STM32_NodeRED/174.png)
+![滑块值](/assets/STM32_NodeRED/174.png)
 
 注意，假如需要从0到3，那么拖动滑块时，1和2的值也会发送。可以直接点击到3的位置。默认情况下，滑块的范围是从0到10，步进1，也可以修改，例如10到80，步进2。
 
-![滑块值](assets/STM32_NodeRED/175.png)
+![滑块值](/assets/STM32_NodeRED/175.png)
 
 **输入框text input的使用**
 
@@ -1472,28 +1472,28 @@ Delay参数可以设置从输入字符到发送的延时，默认是300毫秒。
 
 拖入一个text input节点，修改Group与Tab，然后与debug节点连接，并部署。
 
-![滑块值](assets/STM32_NodeRED/176.png)
+![滑块值](/assets/STM32_NodeRED/176.png)
 
 输入任意的文字，在调试窗口可以看到。
 
-![滑块值](assets/STM32_NodeRED/177.png)
+![滑块值](/assets/STM32_NodeRED/177.png)
 
-![滑块值](assets/STM32_NodeRED/178.png)
+![滑块值](/assets/STM32_NodeRED/178.png)
 
 所以我建议把输入的延时设置为0，用“Enter”和“Tab”作为结束的标记。
 再来试一试输入框的别的功能，比如密码：
 
-![滑块值](assets/STM32_NodeRED/179.png)
+![滑块值](/assets/STM32_NodeRED/179.png)
 
 我们把Label也写上，在仪表板的页面可用于显示一些提示。
 
-![滑块值](assets/STM32_NodeRED/180.png)
+![滑块值](/assets/STM32_NodeRED/180.png)
 
 在“number”的模式下，没办法输入其它的字符。
 
-![滑块值](assets/STM32_NodeRED/181.png)
+![滑块值](/assets/STM32_NodeRED/181.png)
 
-![滑块值](assets/STM32_NodeRED/182.png)
+![滑块值](/assets/STM32_NodeRED/182.png)
 
 **使用文本输入的取色功能为按钮设置颜色**
 
@@ -1501,17 +1501,17 @@ Delay参数可以设置从输入字符到发送的延时，默认是300毫秒。
 
 首先，我们把text input的模式设置为picker，并用debug节点来看一看选中颜色以后会输出什么。
 
-![滑块值](assets/STM32_NodeRED/183.png)
+![滑块值](/assets/STM32_NodeRED/183.png)
 
-![滑块值](assets/STM32_NodeRED/184.png)
+![滑块值](/assets/STM32_NodeRED/184.png)
 
 点击仪表板页面的颜色输入框，可以看到这样的一个取色板：
 
-![滑块值](assets/STM32_NodeRED/185.png)
+![滑块值](/assets/STM32_NodeRED/185.png)
 
 我们随便选一个颜色并点击确定。比如红色。再来看调试窗口的信息。
 
-![滑块值](assets/STM32_NodeRED/186.png)
+![滑块值](/assets/STM32_NodeRED/186.png)
 
 收到消息是#004080，这就是蓝色的编号。我们也可以在设置颜色的页面用这种方式。用颜色选择器看颜色的编码，再进行颜色设置的办法很方便。
 
@@ -1523,23 +1523,23 @@ Delay参数可以设置从输入字符到发送的延时，默认是300毫秒。
 
 拖入一个dropdown节点，如图进行配置：
 
-![滑块值](assets/STM32_NodeRED/187.png)
+![滑块值](/assets/STM32_NodeRED/187.png)
 
 再拖入一个text节点。注意不是text input。我们以前一直使用debug节点来显示信息，现在想把信息显示在仪表板的页面上，就用这么个节点。然后进行如下修改：
 
-![滑块值](assets/STM32_NodeRED/188.png)
+![滑块值](/assets/STM32_NodeRED/188.png)
 
 连线并部署：
 
-![滑块值](assets/STM32_NodeRED/189.png)
+![滑块值](/assets/STM32_NodeRED/189.png)
 
 在仪表板的页面，就可以看到这样的页面。点击下拉菜单，就可以看到候选框。
 
-![滑块值](assets/STM32_NodeRED/190.png)
+![滑块值](/assets/STM32_NodeRED/190.png)
 
-![滑块值](assets/STM32_NodeRED/191.png)
+![滑块值](/assets/STM32_NodeRED/191.png)
 
-![滑块值](assets/STM32_NodeRED/192.png)
+![滑块值](/assets/STM32_NodeRED/192.png)
 
 ### 常见的显示型仪表板控件应用
 
@@ -1556,13 +1556,13 @@ Label可以用消息的属性来设置。
 
 我们直接拖入4个gauge，来看看不同的“Type”有什么区别。为了方便比较，直接让Type与Label的名字一样。
 
-![滑块值](assets/STM32_NodeRED/193.png)
+![滑块值](/assets/STM32_NodeRED/193.png)
 
 然后拖入一个滑块作为输入，为仪表提供数据。为了方便显示，需要给仪表设置不同的group，例如display1和display2。部署以后拖动slider，可以看到仪表上有实时的变化。
 
-![滑块值](assets/STM32_NodeRED/194.png)
+![滑块值](/assets/STM32_NodeRED/194.png)
 
-![滑块值](assets/STM32_NodeRED/195.png)
+![滑块值](/assets/STM32_NodeRED/195.png)
 
 **图表chart的使用**
 
@@ -1581,15 +1581,15 @@ X轴定义了一个时间窗口或显示的最大点数。较老的数据将自�
 参考此网站，可以学会如何把预先准备好的数据格式化为完整的图表。https://github.com/node-red/node-red-dashboard/blob/master/Charts.md
 跟仪表类似，我们直接新建6个图表，用来显示不同类型的图表。然后使用3个slider作为输入的数据源。
 
-![滑块值](assets/STM32_NodeRED/196.png)
+![滑块值](/assets/STM32_NodeRED/196.png)
 
-![滑块值](assets/STM32_NodeRED/197.png)
+![滑块值](/assets/STM32_NodeRED/197.png)
 
 拖动滑块可以直观看到各种表格的现象，也就很容易能区分出它们的作用。比如chart就是折线图，bar chart就是柱状图，bar chart h就是水平的柱状图等等。
 
 特别说明一下，折线图只保留了1分钟或是30个数据。保存的数据多了可能会卡顿。
 
-![滑块值](assets/STM32_NodeRED/198.png)
+![滑块值](/assets/STM32_NodeRED/198.png)
 
 另外除了折线图，我都设置了图表的范围。由于部署前后，并不会清除之前已经保存的数据。如果出现了删除不掉的数据，可以关闭浏览器与powershell，重新启动node-red。
 
@@ -1607,27 +1607,27 @@ X轴定义了一个时间窗口或显示的最大点数。较老的数据将自�
 
 接下来把notification和dialog的功能都验证一下。
 
-![滑块值](assets/STM32_NodeRED/199.png)
+![滑块值](/assets/STM32_NodeRED/199.png)
 
 我们使用按钮来产生消息，消息包含msg.topic和msg.payload。用text来显示对话框的结果。按下notification后现象如下：
 
-![滑块值](assets/STM32_NodeRED/200.png)
+![滑块值](/assets/STM32_NodeRED/200.png)
 
 按下dialog以后有对话框如下：
 
-![滑块值](assets/STM32_NodeRED/201.png)
+![滑块值](/assets/STM32_NodeRED/201.png)
 
 答案当然是帅了，点击帅，结果如下：
 
-![滑块值](assets/STM32_NodeRED/202.png)
+![滑块值](/assets/STM32_NodeRED/202.png)
 
 Notification节点可以设置弹窗通知的时间和位置，也可以自定义主题。
 
-![滑块值](assets/STM32_NodeRED/203.png)
+![滑块值](/assets/STM32_NodeRED/203.png)
 
 在text中，我们也是用了一个新的用法：拼接字符串。
 
-![滑块值](assets/STM32_NodeRED/204.png)
+![滑块值](/assets/STM32_NodeRED/204.png)
 
 至此，仪表板的使用就告一段落了，相信你已经可以按照自己的想法搭建出一个不错的图形化显示和控制界面。如果已有的控件达不到你的要求，可以自己研究下UI control 和template。
 
@@ -1645,7 +1645,7 @@ TCP（Transmission Control Protocol 传输控制协议）是一种面向连接�
 简单来说，TCP提供了不同设备之间的网络连接。在我们的设备中，树莓派与电脑通过TCP网络进行数据的交换。本节我们就来认识一下TCP控件。
 TCP输入节点：
 
-![图片](assets/STM32_NodeRED/205.png)
+![图片](/assets/STM32_NodeRED/205.png)
 
 提供了TCP输入的选择。可以连接到远程TCP端口，也可以接收传入的连接。
 
@@ -1673,23 +1673,23 @@ TCP的输出提供TCP输出的选择。可以连接到远程TCP端口，接受�
 
 串口助手的端口号选择TCPServer，随意填写一个本地IP和端口，并点击侦听。
 
-![图片](assets/STM32_NodeRED/206.png)
+![图片](/assets/STM32_NodeRED/206.png)
 
 Node-red里我们实现一个应声虫的程序，即收到什么，就发什么。TCP in与TCP out节点各拖入一个。然后进行如下设置：
 
-![图片](assets/STM32_NodeRED/207.png)
+![图片](/assets/STM32_NodeRED/207.png)
 
 类型选择连接，表示node-red里运行的是客户端。客户端需要指明服务器的IP和端口，要与串口助手的设置一样。设置完成以后，连线并部署。如果程序没有问题，可以看到TCP控件显示已连接。
 
-![图片](assets/STM32_NodeRED/208.png)
+![图片](/assets/STM32_NodeRED/208.png)
 
 在串口助手的输入框内输入任意内容，并点击发送，可以看到接收框内显示收到的信息，与发出的信息内容完全一样。
 
-![图片](assets/STM32_NodeRED/209.png)
+![图片](/assets/STM32_NodeRED/209.png)
 
 在node-red内的调试窗口，可以看到debug节点打印出的调试信息内容也正确：
 
-![图片](assets/STM32_NodeRED/210.png)
+![图片](/assets/STM32_NodeRED/210.png)
 
 说明：node-red中的TCP控件作为客户端的通信成功了。特别说明一下，在C/S结构中，一个服务器可以对应多个客户端，即便是有多个客户端连接一个服务器，通信也是可以成功的。
 
@@ -1699,30 +1699,30 @@ Node-red内的TCP控件可以作为服务器。但是不同于上一节的串口
 
 在window平台下，可以在控制面板中找到网络和共享中心，点击连接的网络，一般是以太网，然后点击详细信息，就可以看到IPv4的地址。
 
-![图片](assets/STM32_NodeRED/211.png)
+![图片](/assets/STM32_NodeRED/211.png)
 
 上图，我的IPv4的地址是192.168.1.163
 串口助手里的端口号选择TCPClient，远程的IP与电脑对应，本地IP可以随意填写，与远程不同即可。端口号要与node-red的程序对应。
 
-![图片](assets/STM32_NodeRED/212.png)
+![图片](/assets/STM32_NodeRED/212.png)
 
 Node-red里我们仍然编写应声虫的程序。拖入新的TCP in与TCP out节点，由于同一个IP与端口下只能有一个服务器，因此两个节点分别如下设置：
 
-![图片](assets/STM32_NodeRED/213.png)
+![图片](/assets/STM32_NodeRED/213.png)
 
-![图片](assets/STM32_NodeRED/214.png)
+![图片](/assets/STM32_NodeRED/214.png)
 
 连线并部署：
 
-![图片](assets/STM32_NodeRED/215.png)
+![图片](/assets/STM32_NodeRED/215.png)
 
 串口助手中点击连接，并发送任意内容，可以看到接收框内显示出收到的信息，与发出的信息内容完全一样。
 
-![图片](assets/STM32_NodeRED/216.png)
+![图片](/assets/STM32_NodeRED/216.png)
 
 Node-red里的调试窗口也显示出刚刚收到的消息，说明实验成功。
 
-![图片](assets/STM32_NodeRED/217.png)
+![图片](/assets/STM32_NodeRED/217.png)
 
 此时，再打开一个串口助手，正确配置为client以后，也可以实现这些功能。因为一个服务器可以对应多个客户端。
 

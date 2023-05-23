@@ -47,15 +47,15 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [OLED模块](https://docs.stepiot.com/docs/aiot0003) & [LF_RFID模块](https://docs.stepiot.com/docs/aiot010)
 
-![OLED模块 & LF_RFID模块](assets/BASE_STM32/116.png)
+![OLED模块 & LF_RFID模块](/assets/BASE_STM32/116.png)
 
 
 <!-- ------------------------ -->
@@ -89,11 +89,11 @@ Duration: 15
 
 ① 将LF_RFID模块、OLED模块分别安装在STM32底座上，分成两个节点，如下图：
 
-![安装模块](assets/BASE_STM32/57.png)
+![安装模块](/assets/BASE_STM32/57.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -110,51 +110,51 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。 
 
 ⑤ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`STM32基础实验\9.LF-RFID模块\LF_RFID模块程序\USER\LF_RFID.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择文件](assets/BASE_STM32/58.png)
+![打开工程](/assets/STM32/39.jpg)
+![选择文件](/assets/BASE_STM32/58.png)
 
 ⑥ 工程启动后，点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑦ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑧ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑨ 将STLink连接到TFT模块底座上，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`STM32基础实验\9.LF-RFID模块\OLED\USER\OLED.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择文件](assets/BASE_STM32/122.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择文件](/assets/BASE_STM32/122.jpg)
 
 ⑩ 工程启动后，点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑪ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑫ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 
 ⑬ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
 ⑭ 将LF_RFID卡片，放置于LF_RFID模块的线圈上，观察显示器上的显示。如图：  
-![LF_RFID 感应线圈位置](assets/BASE_STM32/60.png)
-![显示卡号](assets/BASE_STM32/61.png)
+![LF_RFID 感应线圈位置](/assets/BASE_STM32/60.png)
+![显示卡号](/assets/BASE_STM32/61.png)
 
 
 
@@ -164,7 +164,7 @@ $ git clone https://github.com/aiotcom/eps.git
 Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。  
-    ![程序目录结构](assets/BASE_STM32/123.jpg)  
+    ![程序目录结构](/assets/BASE_STM32/123.jpg)  
 
 ② main.c中对EM4095 RFID芯片、串口、定时驱动进行初始初始化，当检测到卡号将卡号通过485总线发送到OLED显示。
 

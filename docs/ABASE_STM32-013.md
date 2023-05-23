@@ -49,15 +49,15 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [LED模块](https://docs.stepiot.com/docs/aiot001)：LED模块共有四个按键，4个LED灯，可供完成流水灯、按键处理等相关实验。按键的触发为低电平，LED灯低电平点亮。
 
-![LED模块](assets/STM32/3.png)
+![LED模块](/assets/STM32/3.png)
 
 
 <!-- ------------------------ -->
@@ -75,7 +75,7 @@ Duration: 25
 
 ### LED模块基本电路图
 
-![LED模块原理图](assets/BASE_STM32/1.png)
+![LED模块原理图](/assets/BASE_STM32/1.png)
 
 按键对应的IO口分别是：PA5、PA4、PB7、PB6。  
 LED全称为发光二极管，当加于正向电压时，发光二极管导通，发出光。为防止电流过大造成LED灯损坏、寿命减小，通常使用限流电阻与LED灯串联，如图 中的R5、R6、R7、R8就是限流电阻。  
@@ -92,11 +92,11 @@ Duration: 15
 
 ① LED模块安装于STM32底座上。ST-Link连接电脑与STM32底座，如下图：
 
-![安装模块](assets/STM32/14.png)
+![安装模块](/assets/STM32/14.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -113,28 +113,28 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑤ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\1.LED模块\LED模块程序\USER\KEY.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
+![打开工程](/assets/STM32/39.jpg)
 
-![选择文件](assets/BASE_STM32/33.png)
+![选择文件](/assets/BASE_STM32/33.png)
 
 ⑥ 工程启动后，点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑦ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑧ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
+![下载程序](/assets/STM32/18.jpg)
 
-![下载成功](assets/STM32/41.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑨ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
@@ -144,7 +144,7 @@ $ git clone https://github.com/aiotcom/eps.git
     按下按键S4，LED4灯亮，再次按下S4，LED4灯灭。  
     如下图标出了LED模块上按键与LED灯的位置。
 
-![按键与LED灯的位置](assets/BASE_STM32/34.png)
+![按键与LED灯的位置](/assets/BASE_STM32/34.png)
 
     
 <!-- ------------------------ -->
@@ -152,7 +152,7 @@ $ git clone https://github.com/aiotcom/eps.git
 Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。  
- ![程序目录结构](assets/BASE_STM32/35.jpg)
+ ![程序目录结构](/assets/BASE_STM32/35.jpg)
 
 ② main.c中进行硬件的初始化及整个代码的逻辑控制。
 

@@ -50,23 +50,23 @@ Duration: 4
 
 [CC2530底座](https://docs.stepiot.com/docs/aiot017) 
 
-![实验硬件](assets/BASE_CC2530/3.png)
+![实验硬件](/assets/BASE_CC2530/3.png)
 
 CC Debugger 仿真器和连接线
 
-![实验硬件](assets/BASE_CC2530/4.png)
+![实验硬件](/assets/BASE_CC2530/4.png)
 
 [OLED模块](https://docs.stepiot.com/docs/aiot002)
 
-![OLED模块](assets/BASE_CC2530/5.png)
+![OLED模块](/assets/BASE_CC2530/5.png)
 
 [人体红外模块](https://docs.stepiot.com/docs/aiot008)
 
-![人体红外模块](assets/Zigbee/37.png)
+![人体红外模块](/assets/Zigbee/37.png)
 
 USB线
 
-![USB线](assets/CC2530/2.png)
+![USB线](/assets/CC2530/2.png)
 
 <!-- ------------------------ -->
 ## 实验要求
@@ -113,15 +113,15 @@ Duration: 15
    
 ① 将OLED模块、人体红外模块分别安装CC2530底座上，CC Debugger连接电脑与协调器节点的底座，如下图所示：
 
-![模块组装](assets/Zigbee/38.jpg)
+![模块组装](/assets/Zigbee/38.jpg)
 
 ② 轻按CCDebugger复位按键，指示灯变绿，表示连接正常。如下图:
 
-![模块组装](assets/CC2530/5.png)
+![模块组装](/assets/CC2530/5.png)
     
 ③ 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ④ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -138,68 +138,68 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑥ 打开 `IAR Embedded Workbench` 工程软件，点击工具栏： `File` -> `Open` -> `Workspace`，选择工程文件：`ZigBee通信实验\5.ZigBee网络传输人体红外实验\Projects\zstack\Samples\SampleApp\CC2530DB\SampleApp.eww` 并打开。
    
-![打开工程](assets/CC2530/6.jpg)
+![打开工程](/assets/CC2530/6.jpg)
     
-![选择文件](assets/Zigbee/39.jpg)  
+![选择文件](/assets/Zigbee/39.jpg)  
 
 ⑦ 修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图，修改后保存。
    
-![修改PANID和信道](assets/Zigbee/25.png)  
+![修改PANID和信道](/assets/Zigbee/25.png)  
 
 ⑧ 设置工程配置为“coordinatorEB”如图：
 
-![工程配置为coordinatorEB](assets/Zigbee/14.png) 
+![工程配置为coordinatorEB](/assets/Zigbee/14.png) 
 
 ⑨ 点击`Make`按钮，重新编译文件，显示没有错误。
    
-![文件编译](assets/CC2530/8.jpg) 
+![文件编译](/assets/CC2530/8.jpg) 
 
 ⑩ 点击`Download and Debug`按钮，将程序下载到模块中。
 
-![下载程序](assets/CC2530/9.jpg) 
+![下载程序](/assets/CC2530/9.jpg) 
 
-![代码下载成功](assets/CC2530/10.jpg) 
+![代码下载成功](/assets/CC2530/10.jpg) 
 
 ⑪ 点击`X`退出仿真模式。
 
-![退出仿真](assets/CC2530/11.jpg) 
+![退出仿真](/assets/CC2530/11.jpg) 
 
 ⑫ 将CC Debuger连接到终端节点，选择工程的配置“EndDeviceEB”如图。
        
-![选择文件](assets/Zigbee/15.png)  
+![选择文件](/assets/Zigbee/15.png)  
 
 ⑬ 点击`Make`按钮，重新编译文件，显示没有错误。
    
-![文件编译](assets/CC2530/8.jpg) 
+![文件编译](/assets/CC2530/8.jpg) 
 
 ⑭ 点击`Download and Debug`按钮，将程序下载到模块中。
 
-![下载程序](assets/CC2530/9.jpg) 
+![下载程序](/assets/CC2530/9.jpg) 
 
-![代码下载成功](assets/CC2530/10.jpg) 
+![代码下载成功](/assets/CC2530/10.jpg) 
 
 ⑮ 点击`X`退出仿真模式。
 
-![退出仿真](assets/CC2530/11.jpg) 
+![退出仿真](/assets/CC2530/11.jpg) 
 
 ⑯ 移除`CC Debugger`仿真器，采用USB线供电（接任意底座），底座拼接。
     
-![退出仿真](assets/Zigbee/40.png) 
+![退出仿真](/assets/Zigbee/40.png) 
 
 ⑰ 观察协调器显示的数据：
 
 检测到人体活动的数据：
 
-![显示传感器数据](assets/Zigbee/41.png) 
+![显示传感器数据](/assets/Zigbee/41.png) 
 
 未检测到人体活动的数据：
 
-![显示传感器数据](assets/Zigbee/42.png) 
+![显示传感器数据](/assets/Zigbee/42.png) 
 
 
 
@@ -211,7 +211,7 @@ Duration: 15
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码。ZigBee底层的代码会使用即可。
 
-![代码目录结构](assets/Zigbee/43.jpg) 
+![代码目录结构](/assets/Zigbee/43.jpg) 
 
 ② `EndDevice.c`->`SampleApp_Init()`函数是应用代码的入口函数，对人体红外模块初始化、初始化`Point_To_Point_DstAddr`结构，注册端点、启动传感器数据采集。
 
@@ -262,7 +262,7 @@ Duration: 15
 
 ① 程序目录结构，源代码文件如下图。代码中有大量ZigBee底层的代码，我们只要主要关心下图中标出的文件代码。ZigBee底层的代码会使用即可。
 
-![代码目录结构](assets/Zigbee/44.png) 
+![代码目录结构](/assets/Zigbee/44.png) 
 
 ② `Coordinator.c`->`SampleApp_Init()`函数是应用代码的入口函数，对OLED屏，注册端点。
       

@@ -50,15 +50,15 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [OLED模块](https://docs.stepiot.com/docs/aiot003) & [PM2.5模块](https://docs.stepiot.com/docs/aiot006)
 
-![OLED模块 & PM2.5模块](assets/BASE_STM32/11.png)
+![OLED模块 & PM2.5模块](/assets/BASE_STM32/11.png)
 
 <!-- ------------------------ -->
 ## 实验要求
@@ -84,7 +84,7 @@ pm2.5检测模块检测大气中粒径小于2.5μm细颗粒物质量的检测仪
 
 由专用的激光模块产生一束特定的激光，当颗粒物经过时，其信号会被超高灵敏的数字电路模块检测到，通过对信号数据进行智能识别分析得到颗粒计数和颗粒大小，根据专业的标定技术得到粒径分布与质量浓度转换公式，最终得到跟官方单位统一的质量浓度。
 
-![PM2.5模块工作原理](assets/BASE_STM32/12.png)
+![PM2.5模块工作原理](/assets/BASE_STM32/12.png)
 
 <!-- ------------------------ -->
 
@@ -93,11 +93,11 @@ Duration: 15
 
 ① 将OLED模块和PM2.5模块安装在STM32底座上，确认各个节点，将ST_LINK连接电脑与PM2.5节点的底座上，如下图所示：
 
-![安装模块](assets/BASE_STM32/46.png)
+![安装模块](/assets/BASE_STM32/46.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -114,49 +114,49 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。
 
 ⑤ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\6.PM2.5模块\PM2.5模块程序\USER\PM2.5.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择文件](assets/BASE_STM32/47.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择文件](/assets/BASE_STM32/47.jpg)
 
 ⑥ 工程启动后，点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑦ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑧ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑨ 将STLink连接到OLED模块底座上节点，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\6.PM2.5模块\OLED显示屏模块程序\USER\OLED.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择文件](assets/BASE_STM32/117.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择文件](/assets/BASE_STM32/117.jpg)
 
 ⑩ 工程启动后，点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑪ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑫ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑬ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上），将两个底座拼接在一起。
 
 ⑭ 观察可以看到OLED屏上显示的PM2.5数据。  
-![实验结果](assets/BASE_STM32/48.png)
+![实验结果](/assets/BASE_STM32/48.png)
 
 
 
@@ -167,7 +167,7 @@ Duration: 15
 ### PM2.5模块
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。     
-![程序目录结构](assets/BASE_STM32/118.jpg)
+![程序目录结构](/assets/BASE_STM32/118.jpg)
 
 ② main.c中对串口、定时器器、ADC、RS485协议进行初始化。其中定时器为PM2.5传感器数据采集提供时间基准。ADC采集PM2.5的传感器数据进行滤波，并通过485总线发送OLED屏显示。
 
@@ -229,7 +229,7 @@ Duration: 15
 ### OLED模块
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。  
-![程序目录结构](assets/BASE_STM32/119.jpg)
+![程序目录结构](/assets/BASE_STM32/119.jpg)
 
 ② main.c中对串口、OLED屏、RS485协议进行初始化。接收485发送来的数据并显示在OLED屏上。
 

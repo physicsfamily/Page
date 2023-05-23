@@ -51,15 +51,15 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [蓝牙模块](https://docs.stepiot.com/docs/aiot013)
 
-![蓝牙模块](assets/BASE_STM32/82.png)
+![蓝牙模块](/assets/BASE_STM32/82.png)
 
 
 <!-- ------------------------ -->
@@ -88,7 +88,7 @@ Duration: 25
 
 ### 蓝牙模块电路
 
-![蓝牙模块电路](assets/BASE_STM32/83.png)
+![蓝牙模块电路](/assets/BASE_STM32/83.png)
 
 <!-- ------------------------ -->
 
@@ -97,11 +97,11 @@ Duration: 15
 
 ① 将蓝牙模块安装于底座上，ST_LINK连接电脑与STM32底座，如下图所示：
 
-![安装模块](assets/BASE_STM32/84.png)
+![安装模块](/assets/BASE_STM32/84.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -118,61 +118,61 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。  
 
 ⑤ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\12.蓝牙模块\BLE\USER\Ble.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择工程](assets/BASE_STM32/85.png)
+![打开工程](/assets/STM32/39.jpg)
+![选择工程](/assets/BASE_STM32/85.png)
 
 ⑥ 点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑦ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑧ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑨ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
 ⑩ 手机上安装蓝牙调试工具(只支持安卓手机)，到手机应用商中店，搜索“蓝牙调试器”，如下图：
     
-![成功连接OneNET平台](assets/BASE_STM32/86.png)
+![成功连接OneNET平台](/assets/BASE_STM32/86.png)
 
 ⑪ 蓝牙调试器安装完成后，打开手机的蓝牙功能，在手机桌面上打开蓝牙图标，弹出界面如图所示：
-![实验结果](assets/BASE_STM32/87.png)
+![实验结果](/assets/BASE_STM32/87.png)
 
 ⑫ 扫描附近蓝牙信号，点击扫描按键如下图，进行扫描。
-![实验结果](assets/BASE_STM32/88.png)
+![实验结果](/assets/BASE_STM32/88.png)
 
 ⑬ 发现蓝牙“BLE:341513”(不同的设备这个编号不相同，有BLE:开头就是蓝牙模块的信号)，蓝牙设备的MAC地址(每个蓝牙设备都不一样的)。
 
-![扫描蓝牙设备](assets/BASE_STM32/89.png)  
-![MAC地址](assets/BASE_STM32/90.png)
+![扫描蓝牙设备](/assets/BASE_STM32/89.png)  
+![MAC地址](/assets/BASE_STM32/90.png)
 
 ⑭ 选择特征值，点击设备按钮，在弹出的界面中选择值如图，确认后返回。
 
-![蓝牙设置](assets/BASE_STM32/91.png)
-![选择特征值](assets/BASE_STM32/92.png)
+![蓝牙设置](/assets/BASE_STM32/91.png)
+![选择特征值](/assets/BASE_STM32/92.png)
 
 ⑮ 点击按钮连接蓝牙信号，连接成功后，选择“对话模式”，如图：
 
-![连接蓝牙设备](assets/BASE_STM32/93.png)  
-![切换模式](assets/BASE_STM32/94.png)
+![连接蓝牙设备](/assets/BASE_STM32/93.png)  
+![切换模式](/assets/BASE_STM32/94.png)
 
 ⑯ 在输入框中输入“blue”字符，底座灯亮起蓝色如图：  
-![发送blue指令](assets/BASE_STM32/95.png)   
-![底座灯亮蓝色](assets/BASE_STM32/96.png)  
+![发送blue指令](/assets/BASE_STM32/95.png)   
+![底座灯亮蓝色](/assets/BASE_STM32/96.png)  
 
 ⑰ 在输入框中输入“red”字符，底座灯亮起红色。
-![发送blue指令](assets/BASE_STM32/97.png)    
-![底座灯亮红色](assets/BASE_STM32/98.png)  
+![发送blue指令](/assets/BASE_STM32/97.png)    
+![底座灯亮红色](/assets/BASE_STM32/98.png)  
 
 
 
@@ -181,7 +181,7 @@ $ git clone https://github.com/aiotcom/eps.git
 Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。
-![程序目录结构](assets/BASE_STM32/99.jpg)  
+![程序目录结构](/assets/BASE_STM32/99.jpg)  
 
 ② main.c中对蓝牙使用的串口、蓝牙模块、底座灯控制IO进行初始化。连接成功根据发下的命令控制底座灯亮红色还是蓝色。
 

@@ -49,14 +49,14 @@ Duration: 4
 
 ST-Link下载器 & ST-Link下载器连接线
 
-![STLink下载器](assets/STM32/1.png)
+![STLink下载器](/assets/STM32/1.png)
 
 [STM32底座](https://docs.stepiot.com/docs/aiot016)：HIVE PRO STM32是一种基于STM32F103C8T6芯片的蜂巢底座。
 
-![STM32底座](assets/STM32/2.png)
+![STM32底座](/assets/STM32/2.png)
 
 [OLED模块](https://docs.stepiot.com/docs/aiot003)  & [HF_RFID模块](https://docs.stepiot.com/docs/aiot009)
-![OLED模块 & HF_RFID模块](assets/BASE_STM32/16.png)
+![OLED模块 & HF_RFID模块](/assets/BASE_STM32/16.png)
 
 
 <!-- ------------------------ -->
@@ -91,15 +91,15 @@ NFC（Near Field Communication）技术，即近距离无线通讯技术。NFC�
 
 典型的高频HF（13.56MHz）RFID系统包括阅读器（Reader）和电子标签（Tag，也称应答器Responder）。电子标签通常选用非接触式IC卡，又称智能卡具有可读写，容量大，加密及数据记录可靠等功能。IC卡目前已经大量使用在校园一卡通系统、消费系统、考勤系统、公交消费系统等。目前市场上使用最多的是PHILIPS的Mifare系列IC卡。读写器（也称为阅读器）包含有高频模块（发送器和接收器）、控制单元以及与卡连接的耦合元件。由高频模块和耦合元件发送电磁场，以提供非接触式IC卡所需要的工作能量以及发送数据给卡，同时接收来自卡的数据。IC卡由主控芯片ASIC（专用集成电路）和天线组成，标签的天线只由线圈组成，很适合封状到卡片中，常见IC卡内部结构如图 ：
 
-![IC卡内部结构图](assets/BASE_STM32/17.jpg)
+![IC卡内部结构图](/assets/BASE_STM32/17.jpg)
 
 较常见的高频RFID应用系统如图所示，IC卡通过电感耦合的方式从读卡器处获得能量。
 
-![RFID高频应用系统组成](assets/BASE_STM32/18.png)
+![RFID高频应用系统组成](/assets/BASE_STM32/18.png)
 
 下面以典型的IC卡MIARE 1为例说明电子标签获得能量的整个过程。读卡器向IC卡发送一组固定频率的电磁波，标签内有一个LC串联谐振电路（图），其谐振频率与读写器发出的频率相同，这样当标签进入读写器范围时便产生电磁共振，从而使电容内有了电荷，在电容的另一端接有一个单向通的电子泵，将电容内的电荷送到另一个电容内储存，当储存积累的电荷达到2V时，此电源可作为其他电路提供工作电压，将标签内数据发射出去或接收读写器的数据。
 
-![IC功能示意图](assets/BASE_STM32/19.png)
+![IC功能示意图](/assets/BASE_STM32/19.png)
 
 ##### ISO 14443协议标准
 
@@ -121,7 +121,7 @@ ISO 14443协议是超短距离智慧卡标准，该标准定义出读取距离7~
 
 下图为PICC（IC卡）接收到PCD（读卡器）发送命令后，可能引起状态的转换图。传输错误的命令（不符合ISO 14443 TYPE A协议的命令）不包括在内。
 
-![PICC状态转化图](assets/BASE_STM32/20.png)
+![PICC状态转化图](/assets/BASE_STM32/20.png)
 
 掉电状态（POWER OFF）：在没有提供足够的载波能量的情况下，PICC不能对PCD发射的命令做出应答，也不能向PCD发送反射波；当PICC进入耦合场后，立即复位，进入闲置状态。
 
@@ -145,11 +145,11 @@ ISO 14443协议是超短距离智慧卡标准，该标准定义出读取距离7~
 
 高频RFID系统选用PICC类IC卡作为其电子标签，这里以Philips公司典型的PICC卡Mifare1为例，详细讲解IC卡内部结构。Philips是世界上最早研制非接触式IC卡的公司，其Mifare技术已经被制定为IS0 14443 TYPE A国际标准。本平台选用Mifare1（S50）卡作为电子标签，其内部原理如图 所示：
 
-![M1卡内部原理](assets/BASE_STM32/21.png)
+![M1卡内部原理](/assets/BASE_STM32/21.png)
 
 射频接口部分主要包括有波形转换模块。它可将读写器发出的13.56MHz的无线电调制频率接收，一方面送调制/解调模块，另一方面进行波形转换，将正弦波转换为方波，然后对其整流滤波，由电压调节模块对电压进行进一步的处理，包括稳压等，最终输出供给卡片上的各电路。数字控制单元主要针对接收到的数据进行相关处理，包括选卡、防冲突等。Mifare1卡片采取EEPROM作为存储介质，其内部可以分为16个扇区，每个扇区由4块组成，（我们也将16个扇区的64个块按绝对地址编号为0-63，存贮结构如下图所示：
 
-![MF1卡存储结构](assets/BASE_STM32/22.jpg)
+![MF1卡存储结构](/assets/BASE_STM32/22.jpg)
 
 第0扇区的块0（即绝对地址0块），它用于存放厂商代码，已经固化不可更改。其中：第0～3个字节为卡片的序列号；第4个字节为序列号的校验码；第5个字节为卡片内容“size”字节，第6~7个字节为卡片的类型字节。
 
@@ -157,7 +157,7 @@ ISO 14443协议是超短距离智慧卡标准，该标准定义出读取距离7~
 
 每个扇区的块3为控制块，包括了密码A、存取控制、密码B。具体结构如下：
 
-![控制块结构](assets/BASE_STM32/23.jpg)
+![控制块结构](/assets/BASE_STM32/23.jpg)
 
 其中：
 
@@ -199,7 +199,7 @@ B0—B5代表密码B的六个字节。
 
 数据块的存取控制
 
-![数据块的存取控制](assets/BASE_STM32/24.jpg)
+![数据块的存取控制](/assets/BASE_STM32/24.jpg)
 
 上图中KeyA|B表示密码A或密码B，Never表示任何条件下不能实现。如：
 
@@ -209,13 +209,13 @@ B0—B5代表密码B的六个字节。
 
 控制块3的存取控制
 
-![控制块3的存取控制](assets/BASE_STM32/25.jpg)
+![控制块3的存取控制](/assets/BASE_STM32/25.jpg)
 
 例如：当块3的存取控制位C13 C23 C33=1 0 0时，表示：密码A：不可读，验证KEYA或KEYB正确后，可写（更改）。存取控制：验证KEYA或KEYB正确后，可读、可写。密码B：验证KEYA或KEYB正确后，可读、可写。
 
 通过以上控制器的描述可知，如果控制字为0xFF 0x07 0x80 0x69时，即如下图：
 
-![控制字（0xFF 0x07 0x80 0x69）](assets/BASE_STM32/26.jpg)
+![控制字（0xFF 0x07 0x80 0x69）](/assets/BASE_STM32/26.jpg)
 
 块0：C10 C20 C30------------0 0 0
 
@@ -241,7 +241,7 @@ B0—B5代表密码B的六个字节。
 
 RFID模块采用NXP RFID芯片MFRC522如图9，MFRC522是高度集成的非接触式（13.56MHz）读写卡芯片，此发送模块利用调制和调节的原理，并将它们完全集成到各种非接触式通信方法和协议中。它支持ISO14443A/MIFARE。MFRC522支持SPI、I2C和UART接口。在本次实验程序采用SPI接口。
 
-![RFID模块电路](assets/BASE_STM32/27.png)
+![RFID模块电路](/assets/BASE_STM32/27.png)
 
 RFID感应天线采用板载PCB天线。
 
@@ -252,11 +252,11 @@ Duration: 15
 
 ① 将HF_RFID模块、OLED模块分别安装在STM32底座上，分成两个节点，如下图：
 
-![安装模块](assets/BASE_STM32/52.png)
+![安装模块](/assets/BASE_STM32/52.png)
 
 ② 访问[github](https://github.com/aiotcom/eps),进入github界面后点击Code，Clone HTTPS安全链接，如下图所示：
 
-![操作步骤](assets/STM32/38.jpg)
+![操作步骤](/assets/STM32/38.jpg)
 
 ③ 打开电脑终端，进入工作目录workspace (workspace 为工程文件夹所在目录)：
    
@@ -273,53 +273,53 @@ $ git clone https://github.com/aiotcom/eps.git
 下载目录至指定文件夹下。  
 如果提示“command not found”表示电脑没有安装Git，请至[Git](https://git-scm.com/downloads)官网下载。  
 如果电脑没有安装 Git 软件，也可以进入[Github](https://github.com/aiotcom/eps)，点击 `Code` -> `DownLoad ZIP` 下载所有工程代码。如下图所示：  
-![下载代码](assets/STM32/47.jpg)  
+![下载代码](/assets/STM32/47.jpg)  
 如果电脑没有公网，可以进：D盘\实验教程与代码选择相应的代码。  
 
 ⑤ 将ST_LINK连接电脑与HF_RFID模块的底座上。
 
 ⑥ 打开`MDK5`工程软件，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\8.HF-RFID模块\HF_RFID\USER\RFID.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择文件](assets/BASE_STM32/53.jpg)
+![打开工程](/assets/STM32/39.jpg)
+![选择文件](/assets/BASE_STM32/53.jpg)
 
 ⑦ 工程启动后，点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑧ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑨ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
     
 ⑩ 将STLink连接到OLED模块底座上，点击工具栏： ` Project` -> `Open Project`，选择工程文件：`基于STM32的模块实验\8.HF-RFID模块\OLED\USER\OLED.uvprojx` 并打开。
    
-![打开工程](assets/STM32/39.jpg)
-![选择文件](assets/BASE_STM32/120.png)
+![打开工程](/assets/STM32/39.jpg)
+![选择文件](/assets/BASE_STM32/120.png)
 
 ⑪ 工程启动后，点击 `Rebuild` 重新编译。如下图：
 
-![重新编译工程](assets/STM32/16.jpg)
+![重新编译工程](/assets/STM32/16.jpg)
 
 ⑫ 编译成功，如下图：
 
-![编译成功](assets/STM32/17.jpg)
+![编译成功](/assets/STM32/17.jpg)
 
 ⑬ 点击 `Download` 按钮下载程序，如下图所示：
 
-![下载程序](assets/STM32/18.jpg)
-![下载成功](assets/STM32/41.jpg)
+![下载程序](/assets/STM32/18.jpg)
+![下载成功](/assets/STM32/41.jpg)
 
 ⑭ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
     
 ⑮ 将HF_RFID卡片，放置于HF_RFID模块的线圈上，观察显示器上显示的卡号(采用16进制)
 
-![HF_RFID 感应线圈位置](assets/BASE_STM32/55.png)
-![OLED显示RFID卡号](assets/BASE_STM32/56.png)
+![HF_RFID 感应线圈位置](/assets/BASE_STM32/55.png)
+![OLED显示RFID卡号](/assets/BASE_STM32/56.png)
 
 
 
@@ -328,7 +328,7 @@ $ git clone https://github.com/aiotcom/eps.git
 Duration: 15
 
 ① 程序目录结构，如下图。CORE文件夹为STM32内核代码，HALLIB文件文件夹为底层HAL库文件。我们主要关心，main.c及HARDWARE中的代码。  
-    ![程序目录结构](assets/BASE_STM32/121.jpg)  
+    ![程序目录结构](/assets/BASE_STM32/121.jpg)  
 
 ② main.c中对RC522RFID芯片、串口、定时驱动进行初始初始化，当检测到卡号将卡号通过485总线发送到OLED显示。
 
