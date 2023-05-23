@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "068_CC2530_OneNET平台控制继电器实验"
+title:  "068_CC2530_NODERED平台控制继电器实验"
 date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
