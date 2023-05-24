@@ -38,12 +38,12 @@ categories: getting started
 | 8 | 实验代码 | 1份 | ·  |
 
 ### 实验所需软件
+- [IAR](https://codelabs.stepiot.com/docs/AIAR-077.html) 驱动安装步骤
+- [CC Debugger](https://codelabs.stepiot.com/docs/ACC_Debugger-081.html) 驱动安装步骤
 
-- [IAR](https://codelab.stepiot.com/codelabs/IAR_077/index.html?index=..%2F..index#0) 驱动安装步骤
+- [NODE RED](https://codelabs.stepiot.com/docs/ASTM32_NodeRED-082.html)平台安装应用手册
 
-- [CC Debugger](https://codelab.stepiot.com/codelabs/CC_Debugger_081/index.html?index=..%2F..index#0) 驱动安装步骤
 
-- [NODE RED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台安装应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 

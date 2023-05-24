@@ -42,11 +42,9 @@ categories: getting started
 
 ### 实验所需软件
 
-- [MDK5](https://codelab.stepiot.com/codelabs/Keil5_078/index.html?index=..%2F..index#0) 安装步骤
+- [MDK5](https://codelabs.stepiot.com/docs/AMDK5-078.html) 安装步骤
 
-- [ST-LINK](https://codelab.stepiot.com/codelabs/ST_LINK_079/index.html?index=..%2F..index#0) 驱动安装步骤
-
-- [oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册
+- [ST-LINK](https://codelabs.stepiot.com/docs/AST_LINK-079.html) 驱动安装步骤
 
 - [Git](https://git-scm.com/downloads) 软件下载(可选)
 

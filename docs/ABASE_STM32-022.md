@@ -44,11 +44,9 @@ Duration: 4
 
 ### 实验所需软件
 
-- [MDK5](https://codelab.stepiot.com/codelabs/Keil5_078/index.html?index=..%2F..index#0) 安装步骤
+- [MDK5](https://codelabs.stepiot.com/docs/AMDK5-078.html) 安装步骤
 
-- [ST-LINK](https://codelab.stepiot.com/codelabs/ST_LINK_079/index.html?index=..%2F..index#0) 驱动安装步骤
-
-- [oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册
+- [ST-LINK](https://codelabs.stepiot.com/docs/AST_LINK-079.html) 驱动安装步骤
 
 - [Git](https://git-scm.com/downloads) 软件下载(可选)
 
@@ -225,10 +223,6 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ⑭ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上）。
 
-⑮ 在OneNET平台上传脚本文件`基于STM32的模块实验\10.WIFI模块\WiFi连接OneNET脚本文件\wifisample.lua`。具体操作参考[oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册。
-
-⑯ 在oneNET平台观察实验结果：
-![实验结果](/assets/BASE_STM32/66.png)
 
   
 <!-- ------------------------ -->

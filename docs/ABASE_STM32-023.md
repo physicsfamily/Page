@@ -43,11 +43,9 @@ categories: getting started
 
 ### 实验所需软件
 
-- [MDK5](https://codelab.stepiot.com/codelabs/Keil5_078/index.html?index=..%2F..index#0) 安装步骤
+- [MDK5](https://codelabs.stepiot.com/docs/AMDK5-078.html) 安装步骤
 
-- [ST-LINK](https://codelab.stepiot.com/codelabs/ST_LINK_079/index.html?index=..%2F..index#0) 驱动安装步骤
-
-- [oneNET](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)平台应用手册
+- [ST-LINK](https://codelabs.stepiot.com/docs/AST_LINK-079.html) 驱动安装步骤
 
 - [Git](https://git-scm.com/downloads) 软件下载(可选)
 
@@ -165,11 +163,7 @@ $ git clone https://github.com/aiotcom/eps.git
 
 ⑪ 下载完成后，将USB线进行重连操作（即：将STLink的USB线从底座上取下，再重新接上），等待约30s（如果信号差等待时间会更长一些）。
 
-⑫ 登陆[OneNET平台](https://open.iot.10086.cn/passport/login?redirect_uri=%2Fconsole%2F)，打开产品，待设备上线后，参考[oneNET平台应用手册](https://codelab.stepiot.com/codelabs/oneNet_080/index.html?index=..%2F..index#0)创建应用。
-    
-![成功连接OneNET平台](/assets/BASE_STM32/78？.png)
-
-⑬ 创建应用完成后。 点击“应用管理”查看应用中仪表盘的变化。在程序中模拟了一组温湿度参数，传送到平台，如下图：
+⑫ 创建应用完成后。 点击“应用管理”查看应用中仪表盘的变化。在程序中模拟了一组温湿度参数，传送到平台，如下图：
 ![实验结果](/assets/BASE_STM32/79？.png)
 ![实验结果](/assets/BASE_STM32/80？.png)
 

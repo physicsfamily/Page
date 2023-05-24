@@ -38,11 +38,11 @@ categories: getting started
 
 ### 实验所需软件
 
-- [MDK5](https://codelab.stepiot.com/codelabs/Keil5_078/index.html?index=..%2F..index#0) 安装步骤
+- [MDK5](https://codelabs.stepiot.com/docs/AMDK5-078.html) 安装步骤
 
-- [ST-LINK](https://codelab.stepiot.com/codelabs/ST_LINK_079/index.html?index=..%2F..index#0) 驱动安装步骤
+- [ST-LINK](https://codelabs.stepiot.com/docs/AST_LINK-079.html) 驱动安装步骤
 
-- [NODE RED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台安装应用手册
+- [NODE RED](https://codelabs.stepiot.com/docs/ASTM32_NodeRED-082.html)平台安装应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -214,7 +214,7 @@ D:\> NODE-RED  //启动本机nodered服务
 ![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
 
-⑰ NODERED平台控制。(流程位于：`基于STM32 NODERED实验\9.OneNET平台控制蜂鸣器实验\蜂鸣器控制.json`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+⑰ NODERED平台控制。(流程位于：`基于STM32 NODERED实验\9.OneNET平台控制蜂鸣器实验\蜂鸣器控制.json`)。具体操作参考[node red](https://codelabs.stepiot.com/docs/ASTM32_NodeRED-082.html)平台应用手册。
 
 ![OneNET平台控制](/assets/CC2530_NODERED/NODERED-UI1.png)
 

@@ -38,11 +38,10 @@ categories: getting started
 
 ### 实验所需软件
 
-- [IAR](https://codelab.stepiot.com/codelabs/IAR_077/index.html?index=..%2F..index#0) 驱动安装步骤
+- [IAR](https://codelabs.stepiot.com/docs/AIAR-077.html) 驱动安装步骤
+- [CC Debugger](https://codelabs.stepiot.com/docs/ACC_Debugger-081.html) 驱动安装步骤
 
-- [CC Debugger](https://codelab.stepiot.com/codelabs/CC_Debugger_081/index.html?index=..%2F..index#0) 驱动安装步骤
-
-- [NODERED](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)应用手册
+- [NODE RED](https://codelabs.stepiot.com/docs/ASTM32_NodeRED-082.html)平台安装应用手册
 
 - [Git](https://git-scm.com/downloads)软件下载(可选)
 
@@ -232,7 +231,7 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![WIFI模块指示灯](/assets/CC2530_NODERED/WIFI-ONLINE3.jpg) 
 
-⑲ NODE RED平台操作。(流程位于：`基于CC2530 NODERED实验\2.NODERED平台显示光电开关检测实验、`)。具体操作参考[node red](https://codelabs.stepiot.com/codelabs/STM32_NodeRED_082/index.html?index=..%2F..index)平台应用手册。
+⑲ NODE RED平台操作。(流程位于：`基于CC2530 NODERED实验\2.NODERED平台显示光电开关检测实验、`)。具体操作参考[node red](https://codelabs.stepiot.com/docs/ASTM32_NodeRED-082.html)平台应用手册。
 
 ![OneNET平台显示](/assets/CC2530_NODERED/NODERED-OPT-UI2.png) 
 
