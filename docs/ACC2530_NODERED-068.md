@@ -185,7 +185,7 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![修改参数](/assets/CC2530_OneNET/5.png) 
 
-⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
+⑨ 打开`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
 
 ![修改参数](/assets/CC2530_NODERED/NODERED-WIFI.png) 
 

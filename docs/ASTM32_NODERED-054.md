@@ -17,7 +17,7 @@ categories: getting started
 ## 实验目的
 
 
-- 将传感器数据上传到NODEREC平台。
+- 将传感器数据上传到NODERED平台。
 - NODERED平台应用创建。
 
 <!-- ------------------------ -->
@@ -169,7 +169,7 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![选择文件](/assets/STM32_OneNET/11.jpg)
 
-⑨ 打WIFI.h，修改WIFI热点的名字与密码。及服务器IP和服务器端口如下图：
+⑨ 打开WIFI.h，修改WIFI热点的名字与密码。及服务器IP和服务器端口如下图：
    
 ![修改WIFI信息](/assets/STM32_NODERED/SET-IP.png)  
 

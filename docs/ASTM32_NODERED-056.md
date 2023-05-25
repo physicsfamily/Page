@@ -169,7 +169,7 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![选择文件](/assets/STM32_OneNET/25.png)
 
-⑨ 打WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
+⑨ 打开WIFI.h，修改WIFI热点的名字与密码。及根据安装NODERED服务的电脑IP和端口，修改并保存，如下图：
    
 ![修改WIFI信息](/assets/STM32_NODERED/SET-IP.png)  
 

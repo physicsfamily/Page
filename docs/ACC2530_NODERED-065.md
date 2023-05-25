@@ -5,12 +5,12 @@ date:   2023-05-22 10:18:00 +0800
 categories: getting started
 ---
 
-# CC2530_OneNET平台显示PM2.5实验
+# CC2530_NODERED平台显示PM2.5实验
 <!-- ------------------------ -->
 ## 实验内容
 
 
-- 使用485总线读取PM2.5数据；
+- 使用zigbee读取PM2.5数据；
 - 通过WiFi模块将温湿度数据传输到NODERED平台。
 
 <!-- ------------------------ -->
@@ -188,9 +188,9 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![修改参数](/assets/CC2530_OneNET/5.png) 
 
-⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的OneNET产品ID，设备鉴权信息及脚本名字，修改OneNET接入个人识别码，如下图:
+⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
 
-![修改参数](/assets/CC2530_OneNET/6.png) 
+![修改参数](/assets/CC2530_NODERED/NODERED-WIFI.png) 
 
 ⑩ 点击`Make`按钮，重新编译文件，显示没有错误。
 ![文件编译](/assets/CC2530/8.jpg) 

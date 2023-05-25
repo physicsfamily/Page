@@ -10,8 +10,8 @@ categories: getting started
 ## 实验内容
 
 
-- 使用485总线读取超声波测距数据；
-- 通过WiFi模块将温湿度数据传输到OneNET平台。
+- 使用zigbee读取超声波测距数据；
+- 通过WiFi模块将温湿度数据传输到NODERED平台。
 
 <!-- ------------------------ -->
 ## 实验目的
@@ -188,9 +188,9 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![修改参数](/assets/CC2530_OneNET/5.png) 
 
-⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的OneNET产品ID，设备鉴权信息及脚本名字，修改OneNET接入个人识别码，如下图:
+⑨ 打开`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
 
-![修改参数](/assets/CC2530_OneNET/6.png) 
+![修改参数](/assets/CC2530_NODERED/NODERED-WIFI.png) 
 
 ⑩ 点击`Make`按钮，重新编译文件，显示没有错误。
    
@@ -227,6 +227,7 @@ D:\> NODE-RED  //启动本机nodered服务
 ⑰ 移除`CC Debugger`仿真器，采用USB线供电，接协调器节点的底座。
     
 ![USB线供电](/assets/CC2530_OneNET/22.png) 
+
 
 ⑱ 观察OLED屏温湿度数据：
 

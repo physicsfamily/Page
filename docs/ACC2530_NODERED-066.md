@@ -10,7 +10,7 @@ categories: getting started
 ## 实验内容
 
 
-- 使用485总线读取人体红外检测数据；
+- 使用zigbee读取人体红外检测数据；
 - 通过WiFi模块将温湿度数据传输到NODERED平台。
 
 <!-- ------------------------ -->
@@ -188,7 +188,7 @@ D:\> NODE-RED  //启动本机nodered服务
 
 ![修改参数](/assets/CC2530_OneNET/5.png) 
 
-⑨ 打`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
+⑨ 打开`WiFiGate.h`，修改WIFI热点的名字与密码，以及根据自己的NODE RED服务器的IP地址和端口，修改connect_IP，如下图:
 
 ![修改参数](/assets/CC2530_NODERED/NODERED-WIFI.png) 
 
