@@ -146,9 +146,9 @@ $ git clone https://github.com/aiotcom/eps.git
     
 ![选择文件](/assets/Zigbee/2.jpg)  
 
-⑦ 修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件，然后保存。
+⑦ 修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件，然后保存。具体操作参考[PAN_ID](https://codelabs.stepiot.com/docs/关于PAN_ID的修改说明.html)补充说明。 
    
-![修改PANID和信道](/assets/Zigbee/3.png)  
+![修改PANID和信道](/assets/Zigbee/3.png) 
 
 ⑧ 设置工程配置为“coordinatorEB”如图：
 

@@ -146,7 +146,7 @@ $ git clone https://github.com/aiotcom/eps.git
     
 ![选择文件](/assets/Zigbee/20.jpg)  
 
-⑦ 修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图，修改后保存。
+⑦ 修改PANID或者信道防止与他人网络冲突，终端与协调器代码共用该配置文件如图，修改后保存。具体操作参考[PAN_ID](https://codelabs.stepiot.com/docs/关于PAN_ID的修改说明.html)补充说明。 
    
 ![修改PANID和信道](/assets/Zigbee/13.png)  
 
